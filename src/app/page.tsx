@@ -223,7 +223,7 @@ function CategoryCard({ title, image, itemCount }: { title: string, image: strin
   return (
     <motion.div 
       variants={fadeUpVariants}
-      className="group relative h-96 w-full overflow-hidden rounded-[2rem] border border-white/10"
+      className="group relative h-96 w-full overflow-hidden rounded-4xl border border-white/10"
     >
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110"
