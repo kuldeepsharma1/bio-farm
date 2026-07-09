@@ -1,13 +1,13 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+
 import { 
   Leaf, 
   Search, 
   ShoppingBag, 
   Menu, 
   ArrowRight,
-  Sprout,
   Droplets,
   Tractor,
   Microscope
@@ -31,7 +31,8 @@ const staggerContainer: Variants = {
   },
 };
 
-export default function FertilizerHomePage() {
+export default function  FertilizerHomePage() {
+
   return (
     <main className="min-h-screen bg-zinc-950 font-sans text-white selection:bg-emerald-500/30">
       
@@ -68,6 +69,7 @@ export default function FertilizerHomePage() {
           </a>
         </div>
       </header>
+      
 
       {/* --- Hero Section --- */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
