@@ -1,6 +1,7 @@
 "use server"
 
 import connectDb from "@/lib/db";
+import { sendVerificationEmail } from "@/lib/email";
 import { generateVerificationToken } from "@/lib/token";
 import { User } from "@/models/userSchema";
 import { hash } from "bcryptjs";
