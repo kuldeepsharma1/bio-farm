@@ -1,4 +1,4 @@
-import {createTransport} from "nodemailer"
+import {createTransport} from 'nodemailer'
 
 const transporter = createTransport({
   host: process.env.EMAIL_SERVER_HOST,
@@ -10,9 +10,10 @@ const transporter = createTransport({
  secure: false,
 });
 
-export const sendVerificationEmail = async(to: string, token: string) =>{
-    const verificationUrl = `${process.env.APP_URL}/verify?token=${token}`;
-   await transporter.sendMail({
+export const sendVerificationEmail = async (to: string, token: string) => {
+  const verificationUrl = `${process.env.APP_URL}/verify?token=${token}`;
+
+  await transporter.sendMail({
     from: process.env.EMAIL_FROM,
     to,
     subject: "Verify your email address",
@@ -26,6 +27,7 @@ export const sendVerificationEmail = async(to: string, token: string) =>{
     `,
   });
 };
+
 export const sendPasswordResetEmail = async (to: string, token: string) => {
   const resetUrl = `${process.env.APP_URL}/reset-password?token=${token}`;
 
