@@ -1,7 +1,6 @@
 // register -> hash -> save -> verfiyemail -> login -> jwt -> session -> role -> protectRoutes 
 
 import NextAuth, { CredentialsSignin, DefaultSession } from "next-auth";
-import Google from "next-auth/providers/google"
  import connectDb from "./lib/db";
  import { User } from "./models/userSchema";
  import {compare} from "bcryptjs";

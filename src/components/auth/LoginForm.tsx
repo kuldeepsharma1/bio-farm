@@ -149,11 +149,11 @@ export default function LoginPage() {
     <div className="flex min-h-screen w-full items-center justify-center bg-[#e7f0ec] p-4 font-sans antialiased sm:p-6 md:p-10">
       
       {/* Outer Layout Balance Frame Card */}
-      <div className="flex w-full max-w-[1060px] overflow-hidden rounded-[2.2rem] bg-white p-4 shadow-[0_24px_70px_-15px_rgba(0,0,0,0.04)] sm:p-5 lg:p-6">
+      <div className="flex w-full max-w-265flow-hidden rounded-[2.2rem] bg-white p-4 shadow-[0_24px_70px_-15px_rgba(0,0,0,0.04)] sm:p-5 lg:p-6">
         <div className="grid w-full grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
           
           {/* --- Left Column: Contextual Agriculture Visual Panel --- */}
-          <div className="relative hidden h-[630px] w-full overflow-hidden rounded-[1.8rem] bg-zinc-900 lg:col-span-5 lg:block">
+          <div className="relative hidden h-157.5 w-full overflow-hidden rounded-[1.8rem] bg-zinc-900 lg:col-span-5 lg:block">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -166,7 +166,7 @@ export default function LoginPage() {
               />
             </AnimatePresence>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-black/10 mix-blend-multiply" />
 
             <div className="absolute inset-0 flex flex-col justify-end p-9 text-white">
               <AnimatePresence mode="wait">
