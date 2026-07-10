@@ -17,7 +17,7 @@ import {
   Loader2
 } from "lucide-react";
 
-// --- Server Action Import for Google OAuth ---
+// --- External Action Import for Social Auth ---
 import { handleGoogleSignIn } from "@/actions/user";
 
 interface SlideData {
@@ -45,10 +45,7 @@ const SLIDES: SlideData[] = [
 export default function LoginPage() {
   const router = useRouter();
   
-  // --- Retained UI Presentation Carousel State ---
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // --- Retained Exact Logic States from LoginForm ---
+  // --- Retained Form State Logic ---
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -60,32 +57,10 @@ export default function LoginPage() {
     password: "",
   });
 
-  // --- Retained Metadata & Session Safeguard Injection ---
-  useEffect(() => {
-    // Client-side Metadata Management matching your configurations
-    document.title = "Sign In | Arkin Organics";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content", 
-        "Access your Arkin Organics account securely. Sign in to manage your profile, explore organic solutions, and stay connected with sustainable farming."
-      );
-    }
+  // --- UI Presentation Carousel State ---
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-    // Client-side Session Validation 
-    // (To avoid a visual flash entirely, implementing a route guard in middleware.ts is recommended!)
-    const checkUserSession = async () => {
-      try {
-        // If your application uses next-auth session providers client-side, 
-        // you can check session details here and execute: router.push("/");
-      } catch (err) {
-        console.error("Session verification failure", err);
-      }
-    };
-    checkUserSession();
-  }, [router]);
-
-  // Auto-play Slider Engine
+  // Slider Auto-play Engine
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
@@ -93,7 +68,7 @@ export default function LoginPage() {
     return () => clearInterval(timer);
   }, []);
 
-  // --- Retained Exact Email & Password Validation Functions ---
+  // --- Retained Custom Validation Rules ---
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email) {
@@ -115,7 +90,7 @@ export default function LoginPage() {
     return "";
   };
 
-  // --- Retained Input Change Handler ---
+  // --- Retained Change Handler Logic ---
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -130,7 +105,7 @@ export default function LoginPage() {
     }));
   };
 
-  // --- Retained Submission Authentication Execution Pipeline ---
+  // --- Retained Submit Execution Flow ---
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -173,11 +148,11 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-[#e7f0ec] p-4 font-sans antialiased sm:p-6 md:p-10">
       
-      {/* Outer Card Frame Wrapper */}
+      {/* Outer Layout Balance Frame Card */}
       <div className="flex w-full max-w-[1060px] overflow-hidden rounded-[2.2rem] bg-white p-4 shadow-[0_24px_70px_-15px_rgba(0,0,0,0.04)] sm:p-5 lg:p-6">
         <div className="grid w-full grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
           
-          {/* --- Left Column: Premium Brand Identity Slide Panel --- */}
+          {/* --- Left Column: Contextual Agriculture Visual Panel --- */}
           <div className="relative hidden h-[630px] w-full overflow-hidden rounded-[1.8rem] bg-zinc-900 lg:col-span-5 lg:block">
             <AnimatePresence mode="wait">
               <motion.div
@@ -191,10 +166,8 @@ export default function LoginPage() {
               />
             </AnimatePresence>
 
-            {/* Earthy Vignette Blend */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 mix-blend-multiply" />
 
-            {/* Slider Content Overlay Layout */}
             <div className="absolute inset-0 flex flex-col justify-end p-9 text-white">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -214,7 +187,7 @@ export default function LoginPage() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Slider Pagination Control System */}
+              {/* Slider Dots Indicator */}
               <div className="mt-7 flex items-center gap-2">
                 {SLIDES.map((_, index) => (
                   <button
@@ -230,10 +203,10 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* --- Right Column: High-Fidelity Custom Form Panel --- */}
+          {/* --- Right Column: Minimalist Premium Sign In Form --- */}
           <div className="flex flex-col justify-center py-4 sm:px-6 lg:col-span-7 lg:py-6 lg:pr-6">
             
-            {/* Arkin Organics Thematic Identity Logo */}
+            {/* Brand Logo Header Markup */}
             <div className="mb-10 flex items-center gap-2.5">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#00703c]">
                 <ArrowRightLeft size={16} className="text-white transform rotate-45" />
@@ -248,7 +221,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Typography Heading Block */}
+            {/* Typography Header Block */}
             <div className="mb-8 space-y-1">
               <h1 className="text-3xl font-bold tracking-tight text-zinc-900">
                 Welcome Back
@@ -258,10 +231,10 @@ export default function LoginPage() {
               </p>
             </div>
 
-            {/* Credential Access Interface Pipelines */}
+            {/* Main Interactive Credentials Form Pipe */}
             <form onSubmit={handleSubmit} className="space-y-4">
               
-              {/* Email Entry Address Input */}
+              {/* Email Address Input Element */}
               <div className="space-y-1.5">
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400/90">
@@ -287,7 +260,7 @@ export default function LoginPage() {
                 )}
               </div>
 
-              {/* Password Entry Secure Input */}
+              {/* Password Input Element */}
               <div className="space-y-1.5">
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400/90">
@@ -320,14 +293,14 @@ export default function LoginPage() {
                 )}
               </div>
 
-              {/* Auxiliary Route Recovery Anchor */}
+              {/* Auxiliary Redirect Link Matrix */}
               <div className="flex items-center justify-end pt-0.5">
                 <Link href="/forgot-password" className="text-xs font-bold text-[#00703c] hover:underline">
                   Forgot password?
                 </Link>
               </div>
 
-              {/* Primary Authorization Execution Form Submit Button */}
+              {/* Primary Authorization Form Form Button Submit */}
               <button
                 type="submit"
                 disabled={loading}
@@ -353,7 +326,7 @@ export default function LoginPage() {
               </button>
             </form>
 
-            {/* Split Separation Indicator Layout */}
+            {/* Contextual Visual Separation Line Splitter */}
             <div className="relative my-7 text-center">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-zinc-100" />
@@ -363,7 +336,7 @@ export default function LoginPage() {
               </span>
             </div>
 
-            {/* Provider OAuth Authorization Grid targeting handleGoogleSignIn action */}
+            {/* Provider OAuth Authorization Container Row */}
             <form action={handleGoogleSignIn} className="w-full">
               <button
                 type="submit"
@@ -375,7 +348,7 @@ export default function LoginPage() {
               </button>
             </form>
 
-            {/* Alternative Creation Path Navigation Footnote */}
+            {/* Footer Registration Action Anchors */}
             <p className="mt-8 text-center text-sm font-medium text-zinc-400">
               Don&apos;t have an account?{" "}
               <Link href="/sign-up" className="font-bold text-[#00703c] transition-colors hover:text-[#00572e] hover:underline">
