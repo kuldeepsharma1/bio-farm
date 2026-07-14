@@ -72,7 +72,7 @@ export default function AuthLayout({
             />
           ))}
           
-          <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-emerald-950/90 via-emerald-950/40 to-transparent" />
           
           <div className="absolute bottom-0 left-0 p-8">
             <div key={`text-${currentSlide}`} className="space-y-2 animate-in fade-in slide-in-from-bottom-2 duration-500">
