@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { FaLeaf } from "react-icons/fa";
+import {Leaf } from "lucide-react";
 import AppLogo from "./AppLogo";
 
 export default function AuthLayout({
@@ -54,7 +54,7 @@ export default function AuthLayout({
                              group-hover:opacity-100 transition-opacity duration-500"
                 />
                 <div className="bg-gradient-to-r from-green-500 to-green-400 p-2.5 rounded-xl">
-                  <FaLeaf className="w-6 h-6 text-white" />
+                  <Leaf className="w-6 h-6 text-white" />
                 </div>
               </div>
               <div className="flex flex-col">
