@@ -1,223 +1,121 @@
-'use client'
+"use client";
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 interface FaqItem {
   question: string;
   answer: string;
-  category: string;
 }
 
 export default function FaqPage() {
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   const faqItems: FaqItem[] = [
-    // Product Information
     {
-      category: 'Products',
-      question: 'What certifications do your organic fertilizers have?',
-      answer: 'Our fertilizers are certified by USDA Organic, OMRI (Organic Materials Review Institute), and various international organic certification bodies. Each product undergoes rigorous testing to ensure it meets or exceeds organic farming standards.'
+      question: 'What organic certifications do your fertilizers hold?',
+      answer: 'Our formulations are fully certified by USDA Organic, OMRI (Organic Materials Review Institute), and leading international bodies. Every production batch undergoes independent laboratory verification to ensure total compliance with ecological standards.'
     },
     {
-      category: 'Products',
-      question: 'What makes your fertilizers organic?',
-      answer: 'Our fertilizers are made from 100% natural ingredients, including composted plant matter, mineral rock powders, and beneficial microorganisms. We never use synthetic chemicals, GMOs, or artificial additives. Each batch is tested and certified by independent laboratories.'
+      question: 'What raw ingredients define the base composition?',
+      answer: 'We source 100% of our trace elements and nutrients from composted plant structures, native mineral powders, and targeted beneficial soil microorganisms. We strictly exclude synthetic chemical additives, heavy salts, and sewage sludge.'
     },
     {
-      category: 'Products',
-      question: 'How long do your products last?',
-      answer: 'Our organic fertilizers have a shelf life of 2-3 years when stored properly in a cool, dry place away from direct sunlight. For optimal results, check the expiration date printed on each package. Once opened, we recommend using the product within 12 months.'
-    },
-    // Application & Usage
-    {
-      category: 'Usage',
-      question: 'How should I apply your organic fertilizers?',
-      answer: 'Application methods vary by product and crop type. Generally, our fertilizers can be applied directly to soil, used in drip irrigation systems, or as foliar sprays. Detailed application instructions are provided on each product label and in our comprehensive usage guides.'
+      question: 'How long can the fertilizer be stored before it expires?',
+      answer: 'Unopened packaging remains entirely stable for 2 to 3 years when stored in a dry environment out of direct sunlight. Once opened, we recommend applying the product within 12 months for peak biological efficiency.'
     },
     {
-      category: 'Usage',
-      question: 'Can I use your products for indoor plants?',
-      answer: 'Yes, many of our products are specifically formulated for indoor use. Our Indoor Plant Collection is designed to be odor-free and safe for home use, while providing optimal nutrition for houseplants.'
-    },
-    // Shipping & Delivery
-    {
-      category: 'Shipping',
-      question: 'Do you offer international shipping?',
-      answer: 'Yes, we ship to most countries worldwide. International shipping times typically range from 5-15 business days depending on location. All international orders include tracking and insurance. Custom duties and taxes may apply based on your country.'
+      question: 'Are these formulations safe for indoor cultivation and greenhouses?',
+      answer: 'Yes. Our specialized interior blends are explicitly refined to be low-odor and completely safe for close-quarter residential or commercial greenhouse setups, delivering concentrated nutrition without burning delicate root systems.'
     },
     {
-      category: 'Shipping',
-      question: 'How do you handle bulk orders?',
-      answer: 'For bulk orders exceeding 500kg, we offer special pricing and dedicated shipping arrangements. Please contact our bulk sales team for personalized quotes and logistics planning.'
-    },
-    // Technical Support
-    {
-      category: 'Support',
-      question: 'How can I get technical support?',
-      answer: 'Our agricultural experts are available Monday through Friday, 9am-5pm PST via email, phone, or live chat. For complex inquiries, we offer free consultation sessions with our certified agronomists.'
+      question: 'Can this product be used in standard automated drip irrigation systems?',
+      answer: 'Absolutely. Our liquid lines are micro-filtered down to 150 microns to guarantee they flow seamlessly through automated high-volume irrigation streams, foliar sprayers, and classic field top-dressings without clogging lines.'
     },
     {
-      category: 'Support',
-      question: 'Do you provide soil testing services?',
-      answer: 'Yes, we partner with accredited laboratories to offer comprehensive soil testing services. Our analysis includes nutrient levels, pH, organic matter content, and specific recommendations for our products.'
-    },
-    // Returns & Guarantees
-    {
-      category: 'Returns',
-      question: 'What is your satisfaction guarantee?',
-      answer: 'We offer a 30-day satisfaction guarantee on all products. If you\'re not completely satisfied, we\'ll provide a full refund or replacement. For commercial growers, we also offer performance guarantees based on soil test results.'
-    },
-    // Environment & Sustainability
-    {
-      category: 'Sustainability',
-      question: 'How do your products impact the environment?',
-      answer: 'Our products are designed with environmental sustainability in mind. We use biodegradable packaging, source ingredients locally where possible, and maintain carbon-neutral manufacturing processes. Our facilities run on 100% renewable energy.'
-    },
-    {
-      category: 'Sustainability',
-      question: 'Are your packaging materials recyclable?',
-      answer: 'Yes, all our packaging is either recyclable or biodegradable. Our bags are made from post-consumer recycled materials, and we\'re transitioning to 100% compostable packaging by 2026.'
+      question: 'Do you offer custom blending or bulk freight options for large commercial farms?',
+      answer: 'Yes. For commercial agricultural runs scaling past 500 kilograms, we provide custom wholesale pricing and dedicated freight routing. We can also coordinate specialized laboratory soil assays to modify our blends for your local soil metrics.'
     }
   ];
 
-  const categories = ['All', ...Array.from(new Set(faqItems.map(item => item.category)))];
-
-  const filteredFaqs = faqItems
-    .filter(item => activeCategory === 'All' || item.category === activeCategory)
-    .filter(item => 
-      searchQuery === '' || 
-      item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.answer.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+  const toggleAccordion = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
-    <main className="min-h-screen bg-linear-to-b from-green-50 to-white">
-      {/* Decorative Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-125 h-125 bg-green-200/30 rounded-full blur-[128px] animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-125 h-125 bg-yellow-100/30 rounded-full blur-[128px] animate-pulse delay-700"></div>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative">
-        {/* Header Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+    <main className="min-h-screen bg-slate-50/50 text-slate-900 px-4 py-20 md:py-28 font-sans selection:bg-slate-900 selection:text-white">
+      <div className="max-w-4xl mx-auto">
+        
+        {/* Typographic Hero Group */}
+        <div className="text-center space-y-4 mb-16">
+          <h1 className="text-3xl md:text-[42px] font-semibold tracking-tight text-[#0F172A]">
             Frequently Asked Questions
           </h1>
-          <p className="text-lg text-gray-600">
-            Find detailed answers to common questions about our organic products and services
+          <p className="text-sm md:text-base text-slate-400 max-w-xl mx-auto font-normal leading-relaxed">
+            Everything you need to know about our organic certifications, application guidelines, and commercial shipping pipelines.
           </p>
+        </div>
 
-          {/* Search Bar */}
-          <div className="mt-8 relative max-w-md mx-auto">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search questions..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-3 pl-12 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
-              <Search className="absolute left-4 top-3.5 text-gray-400" size={20} />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Category Filter */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-xl transition-all duration-300
-                ${activeCategory === category
-                  ? 'bg-green-600 text-white shadow-lg shadow-green-500/25'
-                  : 'bg-white text-gray-600 hover:bg-gray-50'}`}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
-
-        {/* FAQ Items */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="space-y-4"
-        >
-          <AnimatePresence>
-            {filteredFaqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <button
-                  onClick={() => setActiveQuestion(activeQuestion === index ? null : index)}
-                  className="w-full px-6 py-4 flex items-center justify-between text-left"
-                >
-                  <span className="font-medium text-gray-900">{faq.question}</span>
-                  <motion.span
-                    animate={{ rotate: activeQuestion === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-green-600"
+        {/* Clean Accordion Card Container matching the user's reference exactly */}
+        <div className="bg-white border border-slate-100 shadow-[0_4px_30px_rgba(0,0,0,0.015)] rounded-3xl p-6 md:p-10 lg:p-12">
+          <div className="divide-y divide-slate-100">
+            {faqItems.map((faq, index) => {
+              const isExpanded = expandedIndex === index;
+              return (
+                <div key={index} className="first:pt-0 last:pb-0 py-6">
+                  <button
+                    onClick={() => toggleAccordion(index)}
+                    className="w-full flex items-center justify-between text-left group cursor-pointer focus:outline-none"
+                    aria-expanded={isExpanded}
                   >
-                    ▼
-                  </motion.span>
-                </button>
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: activeQuestion === index ? 'auto' : 0,
-                    opacity: activeQuestion === index ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+                    <span className="text-[15px] md:text-base font-medium tracking-tight text-slate-800 transition-colors duration-200 group-hover:text-slate-950 pr-6">
+                      {faq.question}
+                    </span>
+                    
+                    {/* Circle Toggle Control from the reference image */}
+                    <div className="relative flex items-center justify-center w-7 h-7 rounded-full bg-slate-50/80 border border-slate-100 text-slate-400 shrink-0 group-hover:border-slate-200 group-hover:text-slate-800 transition-all duration-200">
+                      <motion.div
+                        animate={{ rotate: isExpanded ? 135 : 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        className="flex items-center justify-center"
+                      >
+                        <Plus size={14} strokeWidth={2.5} />
+                      </motion.div>
+                    </div>
+                  </button>
 
-        {/* Contact Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <p className="text-gray-600 mb-4">
-            Can&apos;t find what you&apos;re looking for?
-          </p>
-          <a
-            href="/contact-us"
-            className="inline-block px-8 py-4 bg-linear-to-r from-green-600 to-green-500 text-white 
-                     rounded-xl font-medium shadow-lg shadow-green-500/25 
-                     hover:shadow-xl hover:shadow-green-500/40 transition-all duration-300"
-          >
-            Contact Our Experts
-          </a>
-        </motion.div>
+                  {/* Accordion Dropdown Content Animation */}
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ 
+                          height: "auto", 
+                          opacity: 1,
+                          transition: { height: { duration: 0.25, ease: [0.16, 1, 0.3, 1] }, opacity: { duration: 0.2 } }
+                        }}
+                        exit={{ 
+                          height: 0, 
+                          opacity: 0,
+                          transition: { height: { duration: 0.2, ease: [0.16, 1, 0.3, 1] }, opacity: { duration: 0.1 } }
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-3 pb-2 max-w-[92%]">
+                          <p className="text-[14px] md:text-[15px] text-slate-500 leading-relaxed font-normal">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
       </div>
     </main>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+
 import { motion, Variants } from "framer-motion";
 import {
   Leaf,
@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import Feature from "@/components/general/Feature";
 import Methodology from "@/components/general/Methodology";
+import FaqPage from "@/components/general/Faq";
+import ContactPage from "@/components/general/Contact";
 
 // --- Animation Config ---
 const fadeUp: Variants = {
@@ -183,6 +185,11 @@ export default function PremiumOrganicAg() {
 
       {/* --- Featured Product Overlay (Ref: image_ee7d0b.png) --- */}
       <Feature />
+      {/* --- Faq --- */}
+      <FaqPage/>
+
+       {/* --- Contact Form --- */}
+       <ContactPage/>
     </main>
   );
 }
