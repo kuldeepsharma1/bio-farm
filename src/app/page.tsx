@@ -29,27 +29,8 @@ export default function PremiumOrganicAg() {
   return (
     <main className="min-h-screen bg-[#F5F4F0] font-sans text-[#121A14] selection:bg-[#FDBA21] selection:text-black overflow-hidden">
       
-      {/* --- Minimalist Header --- */}
-      <header className="fixed top-0 z-50 w-full px-6 py-4 mix-blend-difference lg:px-12 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-2 pointer-events-auto">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#839756] text-[#F5F4F0]">
-            <Leaf size={20} />
-          </div>
-        </div>
-
-        <nav className="hidden items-center gap-10 text-sm font-medium text-white/70 lg:flex pointer-events-auto">
-          <a href="#" className="hover:text-white transition-colors">About us</a>
-          <a href="#" className="hover:text-white transition-colors">Product</a>
-          <a href="#" className="hover:text-white transition-colors">FAQ</a>
-        </nav>
-
-        <div className="flex items-center gap-4 pointer-events-auto">
-          <span className="hidden text-sm font-medium text-white md:block">Menu</span>
-          <button className="flex h-10 items-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-black transition-transform hover:scale-105">
-            Cart <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[10px] text-white">0</span>
-          </button>
-        </div>
-      </header>
+    
+      
 
       {/* --- Immersive Hero Section (Ref: image_ee7d0b.png) --- */}
       <section className="relative flex min-h-screen flex-col justify-center px-6 pt-24 lg:px-12">
@@ -111,7 +92,7 @@ export default function PremiumOrganicAg() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[40%] w-[300px] h-[400px] md:w-[500px] md:h-[600px] z-0 pointer-events-none"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-[-40%] w-75 h-100 md:w-125 md:h-150 z-0 pointer-events-none"
         >
           {/* Using CSS mix-blend-multiply to blend a white-background image seamlessly into the beige background */}
           <img 
@@ -135,9 +116,9 @@ export default function PremiumOrganicAg() {
             initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="group rounded-[2.5rem] bg-white p-8 shadow-sm transition-all hover:shadow-xl"
           >
-            <div className="h-64 w-full rounded-[1.5rem] overflow-hidden mb-8 relative">
+            <div className="h-64 w-full rounded-3xl overflow-hidden mb-8 relative">
               <img src="https://images.unsplash.com/photo-1416879598555-220f8c32bc65?auto=format&fit=crop&q=80&w=800" alt="Rich Soil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#FDBA21]">BioStore Method</span>
               </div>
@@ -154,7 +135,7 @@ export default function PremiumOrganicAg() {
             initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="group rounded-[2.5rem] bg-[#EAE8E1] p-8 shadow-sm"
           >
-            <div className="h-64 w-full rounded-[1.5rem] overflow-hidden mb-8 relative">
+            <div className="h-64 w-full rounded-3xl overflow-hidden mb-8 relative">
               <img src="https://images.unsplash.com/photo-1517646458010-ea6ae9279b9a?auto=format&fit=crop&q=80&w=800" alt="Dry Soil" className="w-full h-full object-cover grayscale opacity-80" />
             </div>
             <h3 className="text-3xl font-bold text-[#554D44] mb-2">Traditional Fertilizers</h3>
@@ -206,7 +187,7 @@ export default function PremiumOrganicAg() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full max-w-md rounded-[2rem] bg-[#687945] p-8 text-white shadow-2xl backdrop-blur-sm"
+            className="w-full max-w-md rounded-4xl bg-[#687945] p-8 text-white shadow-2xl backdrop-blur-sm"
           >
             <h3 className="text-3xl font-bold leading-tight mb-2">Premium Organic Fertilizer – 100% Natural</h3>
             
@@ -254,66 +235,7 @@ export default function PremiumOrganicAg() {
         </div>
       </section>
 
-      {/* --- Premium Typography Footer --- */}
-      <footer className="bg-[#000000f6] pt-24 pb-12 px-6 lg:px-12 text-white">
-        <div className="max-w-7xl mx-auto flex flex-col items-center">
-          <motion.h2 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[6vw] leading-none font-bold tracking-tighter text-[#F5F4F0] mb-12 text-center"
-          >
-            GROW WITH US.
-          </motion.h2>
-          
-          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-12">
-             <div>
-               <div className="flex items-center gap-2 mb-6">
-                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#839756] text-[#F5F4F0]">
-                   <Leaf size={16} />
-                 </div>
-                 <span className="font-bold text-lg tracking-tight">BioAg</span>
-               </div>
-               <p className="text-white/50 text-sm">Regenerating the earth, one handful of soil at a time.</p>
-             </div>
-             
-             <div>
-               <h4 className="font-bold mb-4">Shop</h4>
-               <ul className="space-y-3 text-white/50 text-sm">
-                 <li><a href="#" className="hover:text-white transition-colors">All Products</a></li>
-                 <li><a href="#" className="hover:text-white transition-colors">Subscriptions</a></li>
-                 <li><a href="#" className="hover:text-white transition-colors">Gift Cards</a></li>
-               </ul>
-             </div>
 
-             <div>
-               <h4 className="font-bold mb-4">Learn</h4>
-               <ul className="space-y-3 text-white/50 text-sm">
-                 <li><a href="#" className="hover:text-white transition-colors">Our Process</a></li>
-                 <li><a href="#" className="hover:text-white transition-colors">Impact Report</a></li>
-                 <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-               </ul>
-             </div>
-
-             <div>
-               <h4 className="font-bold mb-4">Subscribe</h4>
-               <p className="text-white/50 text-sm mb-4">Get 10% off your first order.</p>
-               <div className="flex h-12 w-full rounded-full bg-white/10 p-1 border border-white/10">
-                 <input type="email" placeholder="Email address" className="bg-transparent px-4 w-full text-sm outline-none placeholder:text-white/30" />
-                 <button className="h-full px-6 rounded-full bg-white text-black text-sm font-bold hover:bg-[#FDBA21] transition-colors">Join</button>
-               </div>
-             </div>
-          </div>
-          
-          <div className="w-full flex flex-col md:flex-row justify-between items-center mt-24 text-white/30 text-sm">
-            <p>© 2026 BioAg Organics. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms</a>
-            </div>
-          </div>
-        </div>
-      </footer>
 
     </main>
   );
@@ -323,7 +245,7 @@ export default function PremiumOrganicAg() {
 
 function FeatureBlock({ icon: Icon, title, desc }: { icon: any, title: string, desc: string }) {
   return (
-    <motion.div variants={fadeUp} className="flex flex-col items-center justify-center text-center p-10 bg-[#F5F4F0] rounded-[2rem] transition-colors hover:bg-[#EAE8E1]">
+    <motion.div variants={fadeUp} className="flex flex-col items-center justify-center text-center p-10 bg-[#F5F4F0] rounded-4xl transition-colors hover:bg-[#EAE8E1]">
       <Icon size={40} className="text-[#687945] mb-6" />
       <h3 className="text-xl font-bold text-[#121A14] mb-3">{title}</h3>
       <p className="text-sm text-[#3A4A3E] leading-relaxed">{desc}</p>
@@ -333,7 +255,7 @@ function FeatureBlock({ icon: Icon, title, desc }: { icon: any, title: string, d
 
 function ImageBlock({ src }: { src: string }) {
   return (
-    <motion.div variants={fadeUp} className="h-64 md:h-auto rounded-[2rem] overflow-hidden">
+    <motion.div variants={fadeUp} className="h-64 md:h-auto rounded-4xl overflow-hidden">
       <img src={src} alt="Ag feature" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
     </motion.div>
   );
