@@ -10,17 +10,17 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
         
         {/* --- Logo & Brand --- */}
-        <div className="flex items-center gap-2.5 shrink-0">
+        <a href='/' className="flex items-center gap-2.5 shrink-0">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#839756] text-[#F5F4F0] shadow-sm">
             <Leaf size={20} />
           </div>
           <span className="text-xl font-bold tracking-tight text-[#121A14]">Arkin</span>
-        </div>
+        </a>
 
         {/* --- Central Navigation Links (Desktop) --- */}
         <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#121A14]/70">
           <a href="#" className="hover:text-[#121A14] transition-colors duration-200">Product</a>
-          <a href="#" className="hover:text-[#121A14] transition-colors duration-200">About</a>
+          <a href="/about" className="hover:text-[#121A14] transition-colors duration-200">About</a>
           <a href="#" className="hover:text-[#121A14] transition-colors duration-200">Blogs</a>
         </nav>
 
@@ -39,7 +39,7 @@ export default function Header() {
         {/* --- Actions --- */}
         <div className="flex items-center gap-4">
           <a 
-            href="#" 
+            href="/sign-in" 
             className="hidden sm:inline-block text-sm font-semibold text-[#121A14]/70 hover:text-[#121A14] transition-colors"
           >
             Sign In
