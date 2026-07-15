@@ -45,7 +45,7 @@ export default function Feature() {
               className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700" 
             />
             {/* Elegant text label inside the visual block */}
-            <div className="absolute bottom-6 left-6 right-6 backdrop-blur-md bg-white/70 border border-white/40 p-5 rounded-[1.5rem] flex items-center justify-between">
+            <div className="absolute bottom-6 left-6 right-6 backdrop-blur-md bg-white/70 border border-white/40 p-5 rounded-3xl flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="h-9 w-9 bg-[#121A14] rounded-xl flex items-center justify-center text-white">
                   <Sprout size={16} />
