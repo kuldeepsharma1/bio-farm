@@ -13,6 +13,7 @@ import {
   Plus,
   Star
 } from "lucide-react";
+import Feature from "@/components/general/Feature";
 
 // --- Animation Config ---
 const fadeUp: Variants = {
@@ -163,77 +164,17 @@ export default function PremiumOrganicAg() {
           {/* Row 1 */}
           <ImageBlock src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600" />
           <FeatureBlock icon={Sprout} title="Promotes Soil Health" desc="We create a sustainable future while reducing landfill pollution and carbon emissions." />
-          <ImageBlock src="https://images.unsplash.com/photo-1592982537447-6f23f662706e?auto=format&fit=crop&q=80&w=600" />
+          <ImageBlock src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
           
           {/* Row 2 */}
           <FeatureBlock icon={Droplets} title="Saves Water & Resources" desc="We create a sustainable future while reducing landfill pollution and carbon emissions." />
-          <ImageBlock src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=600" />
+          <ImageBlock src="https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
           <FeatureBlock icon={Wind} title="Decrease Carbon" desc="We create a sustainable future while reducing landfill pollution and carbon emissions." />
         </motion.div>
       </section>
 
       {/* --- Featured Product Overlay (Ref: image_ee7d0b.png) --- */}
-      <section className="relative min-h-[80vh] flex items-center py-20 px-6 lg:px-12">
-        {/* Full background image */}
-        <div className="absolute inset-0 z-0">
-          <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=2000" alt="Dark organic soil" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <div className="relative z-10 mx-auto w-full max-w-7xl flex justify-end">
-          {/* Floating Product Card */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="w-full max-w-md rounded-4xl bg-[#687945] p-8 text-white shadow-2xl backdrop-blur-sm"
-          >
-            <h3 className="text-3xl font-bold leading-tight mb-2">Premium Organic Fertilizer – 100% Natural</h3>
-            
-            <div className="flex items-center gap-2 mb-6">
-              <div className="flex text-[#FDBA21]"><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /></div>
-              <span className="text-xs font-medium text-white/80">35 Reviews</span>
-            </div>
-
-            <div className="flex items-end gap-3 mb-6">
-              <span className="text-3xl font-bold">$14.00</span>
-              <span className="text-sm text-white/60 line-through mb-1">$19.00</span>
-            </div>
-
-            <p className="text-sm text-white/90 mb-8 leading-relaxed">
-              Turning food waste into clean energy and organic fertilizers, we create a sustainable future while reducing landfill pollution.
-            </p>
-
-            {/* Selectors */}
-            <div className="space-y-6 mb-8">
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider mb-3 block">Weight</label>
-                <div className="flex gap-2">
-                  {["1 kg", "2.5 kg", "5.0 kg"].map((w, i) => (
-                    <button key={w} className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${i === 0 ? "bg-[#FDBA21] text-black" : "bg-white/20 text-white hover:bg-white/30"}`}>
-                      {w}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider mb-3 block">Quantity</label>
-                <div className="inline-flex items-center gap-4 rounded-full bg-white/20 px-4 py-2">
-                  <button className="text-white hover:text-[#FDBA21]"><Minus size={16} /></button>
-                  <span className="w-4 text-center font-semibold">2</span>
-                  <button className="text-white hover:text-[#FDBA21]"><Plus size={16} /></button>
-                </div>
-              </div>
-            </div>
-
-            <button className="w-full rounded-full bg-[#121A14] py-4 text-sm font-bold text-white transition-colors hover:bg-black">
-              Add to Cart
-            </button>
-          </motion.div>
-        </div>
-      </section>
+     <Feature/>
 
 
 
