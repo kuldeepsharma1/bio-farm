@@ -1,249 +1,340 @@
 "use client";
 
+import React from "react";
 import { motion, Variants } from "framer-motion";
-
 import { 
   Leaf, 
-  Search, 
-  ShoppingBag, 
   Menu, 
   ArrowRight,
   Droplets,
-  Tractor,
-  Microscope
+  Wind,
+  Sprout,
+  Minus,
+  Plus,
+  Star
 } from "lucide-react";
 
-// --- Animation Variants ---
-const fadeUpVariants: Variants = {
+// --- Animation Config ---
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { type: "spring", stiffness: 80, damping: 20 } 
-  },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
 };
 
-const staggerContainer: Variants = {
+const stagger: Variants = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-export default function  FertilizerHomePage() {
-
+export default function PremiumOrganicAg() {
   return (
-    <main className="min-h-screen bg-zinc-950 font-sans text-white selection:bg-emerald-500/30">
+    <main className="min-h-screen bg-[#F5F4F0] font-sans text-[#121A14] selection:bg-[#FDBA21] selection:text-black overflow-hidden">
       
-      {/* --- Sticky Glass Navigation --- */}
-      <header className="fixed top-0 z-50 flex w-full items-center justify-between border-b border-white/5 bg-zinc-950/40 px-6 py-4 backdrop-blur-xl lg:px-12">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-emerald-500/20 to-emerald-900/40 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-            <Leaf className="text-emerald-400" size={20} />
+      {/* --- Minimalist Header --- */}
+      <header className="fixed top-0 z-50 w-full px-6 py-4 mix-blend-difference lg:px-12 flex items-center justify-between pointer-events-none">
+        <div className="flex items-center gap-2 pointer-events-auto">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#839756] text-[#F5F4F0]">
+            <Leaf size={20} />
           </div>
-          <span className="text-xl font-bold tracking-wide text-white">BioStore<span className="text-emerald-500">.Ag</span></span>
         </div>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-zinc-400 lg:flex">
-          <a href="#" className="text-emerald-400 transition-colors hover:text-emerald-300">Home</a>
-          <a href="#" className="transition-colors hover:text-white">Formulas</a>
-          <a href="#" className="transition-colors hover:text-white">Agronomy Hub</a>
-          <a href="#" className="transition-colors hover:text-white">For Farms</a>
+        <nav className="hidden items-center gap-10 text-sm font-medium text-white/70 lg:flex pointer-events-auto">
+          <a href="#" className="hover:text-white transition-colors">About us</a>
+          <a href="#" className="hover:text-white transition-colors">Product</a>
+          <a href="#" className="hover:text-white transition-colors">FAQ</a>
         </nav>
 
-        <div className="flex items-center gap-5 text-zinc-300">
-          <button className="transition-colors hover:text-white"><Search size={20} /></button>
-          <button className="relative transition-colors hover:text-white">
-            <ShoppingBag size={20} />
-            <span className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-600 text-[10px] font-bold text-white">
-              5
-            </span>
+        <div className="flex items-center gap-4 pointer-events-auto">
+          <span className="hidden text-sm font-medium text-white md:block">Menu</span>
+          <button className="flex h-10 items-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-black transition-transform hover:scale-105">
+            Cart <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[10px] text-white">0</span>
           </button>
-          <button className="lg:hidden transition-colors hover:text-white"><Menu size={20} /></button>
-          <a 
-            href="/sign-in" 
-            className="hidden items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 text-sm font-semibold text-emerald-300 backdrop-blur-md transition-all hover:bg-emerald-500/20 lg:flex"
-          >
-            Grower Portal
-          </a>
         </div>
       </header>
-      
 
-      {/* --- Hero Section --- */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
-        {/* Background Image & Overlays: Deep Soil & Farming focus */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=2940&auto=format&fit=crop')",
-          }}
-        />
-        <div className="absolute inset-0 z-0 bg-zinc-950/60 mix-blend-multiply" />
-        <div className="absolute inset-0 z-0 bg-linear-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-emerald-900/10 via-transparent to-zinc-950/90" />
-
-        <div className="relative z-10 flex max-w-5xl flex-col items-center px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-yellow-300 backdrop-blur-md uppercase"
-          >
-            <Microscope size={14} />
-            <span>Scientifically Formulated for Yield</span>
-          </motion.div>
-
-          <motion.h1
+      {/* --- Immersive Hero Section (Ref: image_ee7d0b.png) --- */}
+      <section className="relative flex min-h-screen flex-col justify-center px-6 pt-24 lg:px-12">
+        <div className="relative z-10 w-full max-w-7xl mx-auto">
+          
+          {/* Massive Typography */}
+          <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl font-extrabold leading-[1.1] tracking-tight text-white md:text-7xl"
+            transition={{ duration: 0.8 }}
+            className="text-[12vw] leading-[0.9] font-medium tracking-tight text-[#121A14] md:text-[140px]"
           >
-            Cultivate Richer Soil. <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 via-green-400 to-yellow-200">
-              Harvest Better Yields.
-            </span>
+            Organic <br /> Fertilizers
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 max-w-2xl text-lg text-zinc-300 md:text-xl"
-          >
-            Advanced bio-organic fertilizers and soil conditioners engineered to restore microbial balance, maximize nutrient uptake, and sustain large-scale farming.
-          </motion.p>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-12 items-end">
+            {/* Left Context */}
+            <motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-xs space-y-6">
+              <p className="text-sm font-medium leading-relaxed text-[#3A4A3E]">
+                Turning food waste into a clean energy and organic fertilizers, we create a sustainable future while reducing landfill pollution and carbon emissions.
+              </p>
+              <div className="flex items-center gap-4">
+                <button className="flex h-12 items-center justify-center rounded-full bg-[#121A14] px-6 text-sm font-semibold text-white transition-all hover:bg-[#2A3B2E]">
+                  View Product
+                </button>
+                <button className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FDBA21] text-black transition-transform hover:scale-110">
+                  <ArrowRight size={20} />
+                </button>
+              </div>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
-          >
-            <button className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-linear-to-r from-emerald-700 to-green-600 px-8 py-4 font-semibold text-white shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] active:scale-[0.98]">
-              <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 ease-in-out group-hover:translate-x-full" />
-              <span>Browse Formulas</span>
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-            </button>
-            <button className="flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-md transition-all hover:bg-white/10">
-              Speak to an Agronomist
-            </button>
-          </motion.div>
+            {/* Right Context - Feature List */}
+            <motion.div variants={stagger} initial="hidden" animate="show" className="md:col-start-3 space-y-6 pb-4">
+              {[
+                { icon: Wind, text: "Decrease Carbon" },
+                { icon: Sprout, text: "Promotes Soil Health" },
+                { icon: Droplets, text: "Saves Water & Resources" }
+              ].map((item, i) => (
+                <motion.div key={i} variants={fadeUp} className="flex items-center justify-between border-b border-[#121A14]/10 pb-4">
+                  <span className="text-sm font-semibold text-[#121A14]">{item.text}</span>
+                  <item.icon size={20} className="text-[#687945]" />
+                </motion.div>
+              ))}
+              
+              <div className="pt-8 text-right">
+                <div className="flex items-center justify-end gap-1 text-xl font-bold">
+                  4.8/5 <Star className="fill-[#FDBA21] text-[#FDBA21]" size={20} />
+                </div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#3A4A3E] mt-1">
+                  Based on 500+ reviews
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </section>
 
-      {/* --- Value Props Section --- */}
-      <section className="relative z-20 -mt-12 px-6 pb-20 lg:px-12">
+        {/* Center Plant Graphic - Positioned Absolutely to break the grid */}
         <motion.div 
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[40%] w-[300px] h-[400px] md:w-[500px] md:h-[600px] z-0 pointer-events-none"
         >
-          <ValuePropCard 
-            icon={<Microscope className="text-emerald-400" size={28} />}
-            title="Microbiome Enhanced"
-            description="Infused with beneficial bacteria to naturally unlock soil nutrients and root mass."
-          />
-          <ValuePropCard 
-            icon={<Droplets className="text-emerald-400" size={28} />}
-            title="Zero Chemical Runoff"
-            description="100% biodegradable organic compounds that protect local watersheds."
-          />
-          <ValuePropCard 
-            icon={<Tractor className="text-emerald-400" size={28} />}
-            title="Commercial Scale"
-            description="Available in bulk liquid totes and solid tons for large-scale agricultural operations."
+          {/* Using CSS mix-blend-multiply to blend a white-background image seamlessly into the beige background */}
+          <img 
+            src="./arkin-plant.png" 
+            alt="Sprout in soil" 
+            className="w-full h-full object-cover object-bottom rounded-[4rem] mix-blend-multiply opacity-90"
           />
         </motion.div>
       </section>
 
-      {/* --- Featured Categories --- */}
-      <section className="px-6 py-24 lg:px-12">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 flex items-end justify-between">
-            <div>
-              <h2 className="text-3xl font-bold text-white md:text-4xl">Targeted Solutions</h2>
-              <p className="mt-3 text-zinc-400">Discover our core agricultural product lines.</p>
-            </div>
-            <a href="#" className="hidden items-center gap-2 text-sm font-semibold text-emerald-400 transition-colors hover:text-emerald-300 md:flex">
-              View all inventory <ArrowRight size={16} />
-            </a>
-          </div>
+      {/* --- Educational Comparison (Ref: image_ee79e7.jpg) --- */}
+      <section className="px-6 py-24 lg:px-12 border-t border-[#121A14]/10">
+        <div className="mx-auto max-w-6xl text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#121A14]">The Smart Soil Solution</h2>
+          <p className="text-[#3A4A3E] max-w-xl mx-auto">Understanding the fundamental difference in how we approach land management.</p>
+        </div>
 
+        <div className="mx-auto max-w-5xl grid md:grid-cols-2 gap-8">
+          {/* Organic Card */}
           <motion.div 
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+            initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
+            className="group rounded-[2.5rem] bg-white p-8 shadow-sm transition-all hover:shadow-xl"
           >
-            <CategoryCard 
-              title="Liquid Biostimulants" 
-              image="https://images.unsplash.com/photo-1592982537447-6f23f662706e?auto=format&fit=crop&q=80&w=800"
-              itemCount={12}
-            />
-            <CategoryCard 
-              title="Solid Organic NPK" 
-              image="https://images.unsplash.com/photo-1416879598555-220f8c32bc65?auto=format&fit=crop&q=80&w=800"
-              itemCount={24}
-            />
-            <CategoryCard 
-              title="Soil Conditioners" 
-              image="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=800"
-              itemCount={8}
-            />
+            <div className="h-64 w-full rounded-[1.5rem] overflow-hidden mb-8 relative">
+              <img src="https://images.unsplash.com/photo-1416879598555-220f8c32bc65?auto=format&fit=crop&q=80&w=800" alt="Rich Soil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-4 left-4 text-white">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#FDBA21]">BioStore Method</span>
+              </div>
+            </div>
+            <h3 className="text-3xl font-bold text-[#687945] mb-2">Organic Fertilizers</h3>
+            <div className="h-px w-full bg-[#687945]/30 my-4 relative">
+              <div className="absolute top-0 left-1/2 h-4 w-px bg-[#687945] -mt-4" />
+            </div>
+            <p className="text-lg font-medium text-[#121A14] text-center">Feed the soil <span className="italic text-[#687945]">and</span> the plant.</p>
+          </motion.div>
+
+          {/* Traditional Card */}
+          <motion.div 
+            initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
+            className="group rounded-[2.5rem] bg-[#EAE8E1] p-8 shadow-sm"
+          >
+            <div className="h-64 w-full rounded-[1.5rem] overflow-hidden mb-8 relative">
+              <img src="https://images.unsplash.com/photo-1517646458010-ea6ae9279b9a?auto=format&fit=crop&q=80&w=800" alt="Dry Soil" className="w-full h-full object-cover grayscale opacity-80" />
+            </div>
+            <h3 className="text-3xl font-bold text-[#554D44] mb-2">Traditional Fertilizers</h3>
+            <div className="h-px w-full bg-[#554D44]/30 my-4 relative">
+              <div className="absolute top-0 left-1/2 h-4 w-px bg-[#554D44] -mt-4" />
+            </div>
+            <p className="text-lg font-medium text-[#554D44] text-center">Feed only the plant and damage the soil.</p>
           </motion.div>
         </div>
       </section>
+
+      {/* --- Bento Grid Features (Ref: image_ee7d0b.png) --- */}
+      <section className="px-6 py-24 lg:px-12 bg-white">
+        <div className="mx-auto max-w-6xl text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Why We Are</h2>
+          <p className="mt-4 text-[#3A4A3E] max-w-2xl mx-auto">
+            Turning food waste into clean energy and organic fertilizers, we create a sustainable future while reducing landfill pollution.
+          </p>
+        </div>
+
+        <motion.div 
+          variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} 
+          className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
+          {/* Row 1 */}
+          <ImageBlock src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600" />
+          <FeatureBlock icon={Sprout} title="Promotes Soil Health" desc="We create a sustainable future while reducing landfill pollution and carbon emissions." />
+          <ImageBlock src="https://images.unsplash.com/photo-1592982537447-6f23f662706e?auto=format&fit=crop&q=80&w=600" />
+          
+          {/* Row 2 */}
+          <FeatureBlock icon={Droplets} title="Saves Water & Resources" desc="We create a sustainable future while reducing landfill pollution and carbon emissions." />
+          <ImageBlock src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=600" />
+          <FeatureBlock icon={Wind} title="Decrease Carbon" desc="We create a sustainable future while reducing landfill pollution and carbon emissions." />
+        </motion.div>
+      </section>
+
+      {/* --- Featured Product Overlay (Ref: image_ee7d0b.png) --- */}
+      <section className="relative min-h-[80vh] flex items-center py-20 px-6 lg:px-12">
+        {/* Full background image */}
+        <div className="absolute inset-0 z-0">
+          <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=2000" alt="Dark organic soil" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl flex justify-end">
+          {/* Floating Product Card */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full max-w-md rounded-[2rem] bg-[#687945] p-8 text-white shadow-2xl backdrop-blur-sm"
+          >
+            <h3 className="text-3xl font-bold leading-tight mb-2">Premium Organic Fertilizer – 100% Natural</h3>
+            
+            <div className="flex items-center gap-2 mb-6">
+              <div className="flex text-[#FDBA21]"><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /></div>
+              <span className="text-xs font-medium text-white/80">35 Reviews</span>
+            </div>
+
+            <div className="flex items-end gap-3 mb-6">
+              <span className="text-3xl font-bold">$14.00</span>
+              <span className="text-sm text-white/60 line-through mb-1">$19.00</span>
+            </div>
+
+            <p className="text-sm text-white/90 mb-8 leading-relaxed">
+              Turning food waste into clean energy and organic fertilizers, we create a sustainable future while reducing landfill pollution.
+            </p>
+
+            {/* Selectors */}
+            <div className="space-y-6 mb-8">
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider mb-3 block">Weight</label>
+                <div className="flex gap-2">
+                  {["1 kg", "2.5 kg", "5.0 kg"].map((w, i) => (
+                    <button key={w} className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${i === 0 ? "bg-[#FDBA21] text-black" : "bg-white/20 text-white hover:bg-white/30"}`}>
+                      {w}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider mb-3 block">Quantity</label>
+                <div className="inline-flex items-center gap-4 rounded-full bg-white/20 px-4 py-2">
+                  <button className="text-white hover:text-[#FDBA21]"><Minus size={16} /></button>
+                  <span className="w-4 text-center font-semibold">2</span>
+                  <button className="text-white hover:text-[#FDBA21]"><Plus size={16} /></button>
+                </div>
+              </div>
+            </div>
+
+            <button className="w-full rounded-full bg-[#121A14] py-4 text-sm font-bold text-white transition-colors hover:bg-black">
+              Add to Cart
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- Premium Typography Footer --- */}
+      <footer className="bg-[#000000f6] pt-24 pb-12 px-6 lg:px-12 text-white">
+        <div className="max-w-7xl mx-auto flex flex-col items-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[6vw] leading-none font-bold tracking-tighter text-[#F5F4F0] mb-12 text-center"
+          >
+            GROW WITH US.
+          </motion.h2>
+          
+          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-12">
+             <div>
+               <div className="flex items-center gap-2 mb-6">
+                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#839756] text-[#F5F4F0]">
+                   <Leaf size={16} />
+                 </div>
+                 <span className="font-bold text-lg tracking-tight">BioAg</span>
+               </div>
+               <p className="text-white/50 text-sm">Regenerating the earth, one handful of soil at a time.</p>
+             </div>
+             
+             <div>
+               <h4 className="font-bold mb-4">Shop</h4>
+               <ul className="space-y-3 text-white/50 text-sm">
+                 <li><a href="#" className="hover:text-white transition-colors">All Products</a></li>
+                 <li><a href="#" className="hover:text-white transition-colors">Subscriptions</a></li>
+                 <li><a href="#" className="hover:text-white transition-colors">Gift Cards</a></li>
+               </ul>
+             </div>
+
+             <div>
+               <h4 className="font-bold mb-4">Learn</h4>
+               <ul className="space-y-3 text-white/50 text-sm">
+                 <li><a href="#" className="hover:text-white transition-colors">Our Process</a></li>
+                 <li><a href="#" className="hover:text-white transition-colors">Impact Report</a></li>
+                 <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+               </ul>
+             </div>
+
+             <div>
+               <h4 className="font-bold mb-4">Subscribe</h4>
+               <p className="text-white/50 text-sm mb-4">Get 10% off your first order.</p>
+               <div className="flex h-12 w-full rounded-full bg-white/10 p-1 border border-white/10">
+                 <input type="email" placeholder="Email address" className="bg-transparent px-4 w-full text-sm outline-none placeholder:text-white/30" />
+                 <button className="h-full px-6 rounded-full bg-white text-black text-sm font-bold hover:bg-[#FDBA21] transition-colors">Join</button>
+               </div>
+             </div>
+          </div>
+          
+          <div className="w-full flex flex-col md:flex-row justify-between items-center mt-24 text-white/30 text-sm">
+            <p>© 2026 BioAg Organics. All rights reserved.</p>
+            <div className="flex gap-6 mt-4 md:mt-0">
+              <a href="#" className="hover:text-white transition-colors">Privacy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms</a>
+            </div>
+          </div>
+        </div>
+      </footer>
 
     </main>
   );
 }
 
-// --- Helper Components ---
+// --- Helper Components for Bento Grid ---
 
-function ValuePropCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
+function FeatureBlock({ icon: Icon, title, desc }: { icon: any, title: string, desc: string }) {
   return (
-    <motion.div 
-      variants={fadeUpVariants}
-      className="flex flex-col items-start rounded-3xl border border-white/10 bg-zinc-900/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl transition-transform hover:-translate-y-1"
-    >
-      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 border border-white/10">
-        {icon}
-      </div>
-      <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
-      <p className="text-sm leading-relaxed text-zinc-400">{description}</p>
+    <motion.div variants={fadeUp} className="flex flex-col items-center justify-center text-center p-10 bg-[#F5F4F0] rounded-[2rem] transition-colors hover:bg-[#EAE8E1]">
+      <Icon size={40} className="text-[#687945] mb-6" />
+      <h3 className="text-xl font-bold text-[#121A14] mb-3">{title}</h3>
+      <p className="text-sm text-[#3A4A3E] leading-relaxed">{desc}</p>
     </motion.div>
   );
 }
 
-function CategoryCard({ title, image, itemCount }: { title: string, image: string, itemCount: number }) {
+function ImageBlock({ src }: { src: string }) {
   return (
-    <motion.div 
-      variants={fadeUpVariants}
-      className="group relative h-96 w-full overflow-hidden rounded-4xl border border-white/10"
-    >
-      <div 
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110"
-        style={{ backgroundImage: `url('${image}')` }}
-      />
-      <div className="absolute inset-0 bg-linear-to-t from-zinc-950/95 via-zinc-950/40 to-transparent" />
-      
-      <div className="absolute bottom-0 left-0 flex w-full flex-col justify-end p-8">
-        <span className="mb-2 text-sm font-medium text-emerald-400">{itemCount} Formulas</span>
-        <h3 className="text-2xl font-bold text-white">{title}</h3>
-        
-        {/* Animated hidden button */}
-        <div className="mt-0 h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out group-hover:mt-4 group-hover:h-auto group-hover:opacity-100">
-          <button className="flex items-center gap-2 text-sm font-semibold text-white">
-            Explore Range <ArrowRight size={16} className="text-emerald-400" />
-          </button>
-        </div>
-      </div>
+    <motion.div variants={fadeUp} className="h-64 md:h-auto rounded-[2rem] overflow-hidden">
+      <img src={src} alt="Ag feature" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
     </motion.div>
   );
 }
