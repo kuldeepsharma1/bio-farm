@@ -1,76 +1,91 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { MessageSquare, ShieldCheck, ArrowRight, Check } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageSquare, ShieldCheck, ArrowRight, Check, ChevronDown, Mail, Phone } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    workEmail: '',
-    operationScale: '',
-    details: ''
+    firstName: "",
+    lastName: "",
+    workEmail: "",
+    companyName: "",
+    serviceRequired: "",
+    projectDetails: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Emulate production database/API ingestion pipeline
+    // High-scale ingestion pipeline for commercial ag-proposals
     setIsSubmitted(true);
   };
 
   return (
-    <main className="min-h-screen bg-slate-50/50 text-slate-900 px-6 py-20 md:py-32 font-sans selection:bg-slate-900 selection:text-white flex items-center">
-      <div className="max-w-6xl mx-auto w-full">
+    <section className="bg-white px-6 py-28 lg:px-16 border-t border-gray-100" id="contact">
+      <div className="max-w-7xl mx-auto">
         
-        {/* Two-Column Split Architecture Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        {/* Split Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           
-          {/* Left Content Column */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Left Side: Enterprise Context & Core Channels */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-10">
             <div className="space-y-4">
-              <span className="text-xs font-mono tracking-[0.2em] uppercase text-slate-400 block">
-                Commercial Distribution
+              <span className="text-xs font-mono tracking-[0.25em] uppercase text-emerald-600 font-bold block">
+                Commercial Intake // Regional Scale
               </span>
-              <h1 className="text-4xl md:text-[50px] font-semibold tracking-tight text-[#0F172A] leading-[1.05]">
-                Ready to optimize your <span className="text-emerald-600 font-medium">soil yields?</span>
-              </h1>
-              <p className="text-sm md:text-base text-slate-400 font-normal leading-relaxed max-w-md">
-                Submit your operational metrics to request an introductory technical soil profile review and custom freight delivery quote. We typically reply within 2 hours during active regional distribution shifts.
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.05]">
+                Partner with <br />
+                <span className="text-emerald-600 font-semibold">Arkin Organics.</span>
+              </h2>
+              <p className="text-sm md:text-base text-gray-500 font-normal leading-relaxed max-w-md pt-2">
+                Initiate a professional technical soil composition audit or secure high-volume bulk freight matrix scheduling. Our agronomy team evaluates crop yield distributions globally.
               </p>
             </div>
 
-            {/* Micro Feature Links Stacked */}
-            <div className="space-y-6 pt-4 border-t border-slate-100">
+            {/* Direct Communication Channels */}
+            <div className="space-y-6 pt-8 border-t border-gray-100 max-w-sm">
               
-              {/* WhatsApp Alternative Action Block */}
+              {/* WhatsApp / Rapid Support Option */}
               <div className="flex items-start gap-4 group">
-                <div className="flex items-center justify-center w-11 h-11 rounded-full bg-slate-50 border border-slate-100 text-slate-500 group-hover:text-emerald-600 group-hover:border-emerald-200 transition-colors shrink-0">
+                <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gray-50 text-gray-700 group-hover:text-emerald-600 group-hover:bg-emerald-50 transition-all shrink-0 border border-gray-100/50">
                   <MessageSquare size={18} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-slate-800">Skip the configuration framework?</h4>
+                  <h4 className="text-sm font-bold text-gray-900">Immediate Logistics</h4>
                   <a 
                     href="https://wa.me/yournumber" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-xs text-slate-400 hover:text-emerald-600 underline underline-offset-4 transition-colors block mt-0.5"
+                    className="text-xs text-gray-400 hover:text-emerald-600 transition-colors underline underline-offset-4 block mt-0.5"
                   >
-                    Chat directly with an agronomist on WhatsApp
+                    Chat directly with our dispatch
                   </a>
                 </div>
               </div>
 
-              {/* Data Safety Structural Indicator */}
+              {/* Email Infrastructure */}
               <div className="flex items-start gap-4">
-                <div className="flex items-center justify-center w-11 h-11 rounded-full bg-slate-50 border border-slate-100 text-slate-500 shrink-0">
+                <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gray-50 text-gray-700 shrink-0 border border-gray-100/50">
+                  <Mail size={18} />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-gray-900">Corporate RFQs</h4>
+                  <p className="text-xs text-gray-400 mt-0.5 font-mono">
+                    proposals@arkinorganics.com
+                  </p>
+                </div>
+              </div>
+
+              {/* Data Protection Standards */}
+              <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gray-50 text-gray-700 shrink-0 border border-gray-100/50">
                   <ShieldCheck size={18} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-slate-800">100% Secure Laboratory Profiling</h4>
-                  <p className="text-xs text-slate-400 mt-0.5 max-w-xs">
-                    Your local matrix calculations and field yield parameters are kept strictly safe. We sign absolute NDAs.
+                  <h4 className="text-sm font-bold text-gray-900">Protected Formulations</h4>
+                  <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">
+                    Custom property yield profiles and matrix soil data parameters are heavily encrypted. All requests are protected via standard corporate NDAs.
                   </p>
                 </div>
               </div>
@@ -78,147 +93,163 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right Layout Form Card Column */}
-          <div className="lg:col-span-7">
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-white border border-slate-100 shadow-[0_4px_40px_rgba(0,0,0,0.02)] rounded-[24px] p-6 md:p-10 lg:p-12"
-            >
-              {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  
-                  {/* Card Section Header Layout */}
-                  <div className="space-y-1">
-                    <h3 className="text-xl font-medium tracking-tight text-slate-800">
-                      Start Your Project Profile
-                    </h3>
-                    <p className="text-xs text-slate-400">
-                      Tell us what your local farm demands. No high-pressure sales interaction loop.
-                    </p>
-                  </div>
-
-                  {/* Dual Field Row Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-mono tracking-wider uppercase text-slate-400 font-bold block">
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="John"
-                        value={formData.firstName}
-                        onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                        className="w-full bg-slate-50/50 text-slate-900 placeholder-slate-300 text-sm px-4 py-3 rounded-xl border border-slate-100 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200"
-                      />
+          {/* Right Side: Clean Production Form Card */}
+          <div className="lg:col-span-7 w-full">
+            <div className="bg-white border border-gray-100 shadow-[0_8px_40px_rgba(0,0,0,0.015)] rounded-2xl p-8 md:p-12">
+              <AnimatePresence mode="wait">
+                {!isSubmitted ? (
+                  <motion.form 
+                    key="contact-form"
+                    onSubmit={handleSubmit} 
+                    className="space-y-6"
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    
+                    <div className="space-y-1 pb-4 border-b border-gray-50">
+                      <h3 className="text-xl font-bold tracking-tight text-gray-900">
+                        Operational Specifications
+                      </h3>
+                      <p className="text-xs text-gray-400">
+                        Submit parameters to initiate direct matrix alignment.
+                      </p>
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-mono tracking-wider uppercase text-slate-400 font-bold block">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Doe"
-                        value={formData.lastName}
-                        onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                        className="w-full bg-slate-50/50 text-slate-900 placeholder-slate-300 text-sm px-4 py-3 rounded-xl border border-slate-100 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200"
-                      />
-                    </div>
-                  </div>
 
-                  {/* Work Email Line Field */}
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-mono tracking-wider uppercase text-slate-400 font-bold block">
-                      Work Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="john@company.com"
-                      value={formData.workEmail}
-                      onChange={(e) => setFormData({...formData, workEmail: e.target.value})}
-                      className="w-full bg-slate-50/50 text-slate-900 placeholder-slate-300 text-sm px-4 py-3 rounded-xl border border-slate-100 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200"
-                    />
-                  </div>
-
-                  {/* Contextual Custom Form Dropdown Selector */}
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-mono tracking-wider uppercase text-slate-400 font-bold block">
-                      Estimated Operation Scale
-                    </label>
-                    <div className="relative">
-                      <select
-                        required
-                        value={formData.operationScale}
-                        onChange={(e) => setFormData({...formData, operationScale: e.target.value})}
-                        className="w-full bg-slate-50/50 text-slate-900 text-sm px-4 py-3 rounded-xl border border-slate-100 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 appearance-none cursor-pointer"
-                      >
-                        <option value="" disabled>Select an option</option>
-                        <option value="small-scale">Small Boutique Farm / Hydro Greenhouse (&lt; 5 Hectares)</option>
-                        <option value="mid-scale">Mid-Tier Regional Production (5-50 Hectares)</option>
-                        <option value="commercial">Industrial Scale Agribusiness (50+ Hectares)</option>
-                        <option value="distribution">Wholesale Distributor / Supply Chain Merchant</option>
-                      </select>
-                      {/* Custom Down Arrow Icon Layer */}
-                      <div className="absolute right-4 top-4 pointer-events-none text-slate-400">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                    {/* First / Last Name Fields */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-mono tracking-widest uppercase text-gray-400 font-bold block">
+                          First Name
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="E.g., Alexander"
+                          value={formData.firstName}
+                          onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                          className="w-full bg-gray-50/50 text-gray-950 placeholder-gray-400 text-sm px-4 py-3 rounded-xl border border-gray-100 focus:outline-none focus:border-emerald-600 focus:bg-white transition-all duration-200"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-mono tracking-widest uppercase text-gray-400 font-bold block">
+                          Last Name
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="Vance"
+                          value={formData.lastName}
+                          onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                          className="w-full bg-gray-50/50 text-gray-950 placeholder-gray-400 text-sm px-4 py-3 rounded-xl border border-gray-100 focus:outline-none focus:border-emerald-600 focus:bg-white transition-all duration-200"
+                        />
                       </div>
                     </div>
-                  </div>
 
-                  {/* Description Box Textarea */}
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-mono tracking-wider uppercase text-slate-400 font-bold block">
-                      Project Details & Soil Challenges
-                    </label>
-                    <textarea
-                      rows={4}
-                      placeholder="Describe your goals, crop classes, mineral deficits, budget, and estimated seasonal timeline..."
-                      value={formData.details}
-                      onChange={(e) => setFormData({...formData, details: e.target.value})}
-                      className="w-full bg-slate-50/50 text-slate-900 placeholder-slate-300 text-sm px-4 py-3 rounded-xl border border-slate-100 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 resize-none"
-                    />
-                  </div>
+                    {/* Email & Corporate Structure */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-mono tracking-widest uppercase text-gray-400 font-bold block">
+                          Corporate Email
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          placeholder="vance@agri-corp.com"
+                          value={formData.workEmail}
+                          onChange={(e) => setFormData({...formData, workEmail: e.target.value})}
+                          className="w-full bg-gray-50/50 text-gray-950 placeholder-gray-400 text-sm px-4 py-3 rounded-xl border border-gray-100 focus:outline-none focus:border-emerald-600 focus:bg-white transition-all duration-200"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-mono tracking-widest uppercase text-gray-400 font-bold block">
+                          Company / Farm Acreage
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="Vance Growers Ltd."
+                          value={formData.companyName}
+                          onChange={(e) => setFormData({...formData, companyName: e.target.value})}
+                          className="w-full bg-gray-50/50 text-gray-950 placeholder-gray-400 text-sm px-4 py-3 rounded-xl border border-gray-100 focus:outline-none focus:border-emerald-600 focus:bg-white transition-all duration-200"
+                        />
+                      </div>
+                    </div>
 
-                  {/* Submitting Trigger Button */}
-                  <button
-                    type="submit"
-                    className="w-full flex items-center justify-center gap-2.5 px-6 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-mono text-[13px] tracking-wide transition-all duration-200 font-medium shadow-sm cursor-pointer group"
+                    {/* Service Matrix Dropdown Select */}
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-mono tracking-widest uppercase text-gray-400 font-bold block">
+                        Primary System Requirement
+                      </label>
+                      <div className="relative">
+                        <select
+                          required
+                          value={formData.serviceRequired}
+                          onChange={(e) => setFormData({...formData, serviceRequired: e.target.value})}
+                          className="w-full bg-gray-50/50 text-gray-950 text-sm px-4 py-3 rounded-xl border border-gray-100 focus:outline-none focus:border-emerald-600 focus:bg-white transition-all duration-200 appearance-none cursor-pointer pr-10"
+                        >
+                          <option value="" disabled>Select an engineering model</option>
+                          <option value="soil-audit">Technical Biological Soil Mapping Matrix</option>
+                          <option value="bulk-supply">Bulk High-Density Fertilizer Supply & Logistics</option>
+                          <option value="custom-blend">Bespoke Custom Micro-Nutrient Mixing</option>
+                          <option value="distribution">Global Distribution Infrastructure Accounts</option>
+                        </select>
+                        <div className="absolute right-4 top-3.5 pointer-events-none text-gray-400">
+                          <ChevronDown size={14} strokeWidth={2.5} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Operational Parameter Context */}
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-mono tracking-widest uppercase text-gray-400 font-bold block">
+                        Project Matrix Parameters
+                      </label>
+                      <textarea
+                        rows={4}
+                        required
+                        placeholder="Detail regional crop profiles, historic nitrogen dependencies, soil hydration benchmarks, and projected shipping cycles..."
+                        value={formData.projectDetails}
+                        onChange={(e) => setFormData({...formData, projectDetails: e.target.value})}
+                        className="w-full bg-gray-50/50 text-gray-950 placeholder-gray-400 text-sm px-4 py-3 rounded-xl border border-gray-100 focus:outline-none focus:border-emerald-600 focus:bg-white transition-all duration-200 resize-none leading-relaxed"
+                      />
+                    </div>
+
+                    {/* Production-Grade High Contrast Action Trigger */}
+                    <button
+                      type="submit"
+                      className="w-full flex items-center justify-center gap-2.5 px-6 py-4 bg-gray-950 hover:bg-emerald-600 text-white rounded-xl font-mono text-xs uppercase tracking-widest transition-all duration-200 font-semibold cursor-pointer group mt-4 shadow-sm"
+                    >
+                      <span>Transmit Intake Specs</span>
+                      <ArrowRight size={14} className="text-gray-400 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-200" />
+                    </button>
+
+                  </motion.form>
+                ) : (
+                  /* Form Success Framework */
+                  <motion.div 
+                    key="success-prompt"
+                    initial={{ opacity: 0, scale: 0.99 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-16 space-y-4"
                   >
-                    <span>Submit Request Form</span>
-                    <ArrowRight size={14} className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
-                  </button>
-
-                </form>
-              ) : (
-                /* Post-Submission Component State */
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12 space-y-4"
-                >
-                  <div className="mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">
-                    <Check size={20} strokeWidth={3} />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-medium text-slate-800">Operational Log Enqueued</h3>
-                    <p className="text-sm text-slate-400 max-w-sm mx-auto leading-relaxed">
-                      Thank you. Your agricultural target metrics have been directed to our technical review staff. An agronomist will join the email feed shortly.
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </motion.div>
+                    <div className="mx-auto flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100/50">
+                      <Check size={18} strokeWidth={3} />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-gray-900">Specifications Ingested</h3>
+                      <p className="text-sm text-gray-500 max-w-sm mx-auto leading-relaxed font-normal">
+                        Thank you. Your agricultural baseline benchmarks have been safely logged. A logistics agronomist will examine the environmental terrain framework and reply within 2 corporate hours.
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
         </div>
 
       </div>
-    </main>
+    </section>
   );
 }
