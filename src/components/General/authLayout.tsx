@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import AppLogo from "./AppLogo";
 
+
 interface SlideData {
   image: string;
   heading: string;

@@ -58,7 +58,7 @@ export default function Footer() {
           <div className="w-full flex flex-col md:flex-row justify-between items-center mt-24 text-white/30 text-sm">
             <p>© 2026 BioAg Organics. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
+              <a href="/legal/privacy" className="hover:text-white transition-colors">Privacy</a>
               <a href="#" className="hover:text-white transition-colors">Terms</a>
             </div>
           </div>
