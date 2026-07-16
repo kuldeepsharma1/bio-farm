@@ -1,4 +1,5 @@
-import AboutUs from '@/components/marketing/about'
+
+import AboutUs from '@/app/about/page';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.APP_URL!),
