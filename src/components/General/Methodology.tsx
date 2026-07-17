@@ -25,8 +25,8 @@ export default function PremiumEcosystemCanvas() {
     <section className="bg-[#0C100D] text-[#F5F4F0] font-sans px-6 lg:px-16 py-36 border-b border-white/5 relative overflow-hidden">
       
       {/* Background Atmosphere: Cinematic Organic Glow Elements */}
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-[#687945]/10 rounded-full blur-[160px] pointer-events-none mix-blend-screen" />
-      <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px] bg-[#839756]/5 rounded-full blur-[140px] pointer-events-none mix-blend-screen" />
+      <div className="absolute top-1/4 left-0 w-125 h-125 bg-[#687945]/10 rounded-full blur-[160px] pointer-events-none mix-blend-screen" />
+      <div className="absolute bottom-1/3 right-0 w-100 h-100 bg-[#839756]/5 rounded-full blur-[140px] pointer-events-none mix-blend-screen" />
       
       {/* Editorial Vertical Axis Line */}
       <div className="absolute top-0 left-6 lg:left-16 w-px h-full bg-white/5 pointer-events-none hidden md:block" />
@@ -41,7 +41,7 @@ export default function PremiumEcosystemCanvas() {
           {/* LEFT SIDE: Floating Manifesto & Identity Anchor */}
           <div className="lg:col-span-5 lg:sticky lg:top-36 space-y-14 z-10">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
+              <div className="inline-flex items-center gap-3 bg-white/3 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#839756] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#839756]"></span>
@@ -103,14 +103,14 @@ export default function PremiumEcosystemCanvas() {
 
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-2">
                 {/* High-End Micro-Border Glass Frame */}
-                <div className="md:col-span-7 rounded-[2rem] overflow-hidden h-[280px] relative border border-white/10 bg-white/[0.02] p-2 transition-all duration-500 group-hover:border-[#839756]/40 group-hover:shadow-[0_0_30px_rgba(131,151,86,0.1)]">
+                <div className="md:col-span-7 rounded-4xl overflow-hidden h-70 relative border border-white/10 bg-white/2 p-2 transition-all duration-500 group-hover:border-[#839756]/40 group-hover:shadow-[0_0_30px_rgba(131,151,86,0.1)]">
                   <div className="w-full h-full rounded-[1.75rem] overflow-hidden relative">
                     <img 
                       src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1274&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                       alt="Premium rich organic biological live substrate setup" 
                       className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0C100D]/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#0C100D]/60 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>
                 
@@ -154,14 +154,14 @@ export default function PremiumEcosystemCanvas() {
                   </p>
                 </div>
 
-                <div className="md:col-span-7 rounded-[2rem] overflow-hidden h-[280px] relative border border-white/10 bg-white/[0.02] p-2 transition-all duration-500 group-hover:border-[#839756]/40 group-hover:shadow-[0_0_30px_rgba(131,151,86,0.1)] order-1 md:order-2">
+                <div className="md:col-span-7 rounded-4xl overflow-hidden h-70 relative border border-white/10 bg-white/2 p-2 transition-all duration-500 group-hover:border-[#839756]/40 group-hover:shadow-[0_0_30px_rgba(131,151,86,0.1)] order-1 md:order-2">
                   <div className="w-full h-full rounded-[1.75rem] overflow-hidden relative">
                     <img 
                       src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=1000" 
                       alt="High-end organic field moisture lines layout" 
                       className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0C100D]/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#0C100D]/60 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>
               </div>
@@ -183,7 +183,7 @@ export default function PremiumEcosystemCanvas() {
           {/* Brutalist Frame Border Accents */}
           <div className="absolute top-0 right-12 w-24 h-px bg-white/10 hidden md:block" />
           
-          <div className="bg-gradient-to-br from-[#121713] to-[#0E120F] border border-white/10 text-[#F5F4F0] rounded-[3.5rem] p-8 md:p-14 relative overflow-hidden shadow-2xl flex flex-col justify-between min-h-[340px] group hover:border-amber-900/40 transition-colors duration-500">
+          <div className="bg-linear-to-br from-[#121713] to-[#0E120F] border border-white/10 text-[#F5F4F0] rounded-[3.5rem] p-8 md:p-14 relative overflow-hidden shadow-2xl flex flex-col justify-between min-h-85 group hover:border-amber-900/40 transition-colors duration-500">
             
             {/* Header Readout Module */}
             <div className="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-white/5 pb-8 w-full z-10">
@@ -196,7 +196,7 @@ export default function PremiumEcosystemCanvas() {
                   Synthetic Chemical Saturation Hazards
                 </h4>
               </div>
-              <div className="bg-white/[0.03] border border-white/10 p-3.5 rounded-2xl text-amber-500 shadow-inner group-hover:bg-amber-500/5 group-hover:text-amber-400 transition-colors duration-300">
+              <div className="bg-white/3 border border-white/10 p-3.5 rounded-2xl text-amber-500 shadow-inner group-hover:bg-amber-500/5 group-hover:text-amber-400 transition-colors duration-300">
                 <ShieldAlert size={24} />
               </div>
             </div>
@@ -209,11 +209,11 @@ export default function PremiumEcosystemCanvas() {
                 </p>
               </div>
               <div className="lg:col-span-4 lg:text-right flex lg:justify-end gap-4 text-xs font-mono">
-                <div className="text-left bg-white/[0.02] border border-white/5 px-5 py-3.5 rounded-2xl min-w-[150px]">
+                <div className="text-left bg-white/2 border border-white/5 px-5 py-3.5 rounded-2xl min-w-37.5">
                   <span className="block text-[8px] uppercase tracking-widest text-[#A3A8A4]/40 mb-1">Impact Vector</span>
                   <span className="text-white font-bold">Severe Damage</span>
                 </div>
-                <div className="text-left bg-white/[0.02] border border-white/5 px-5 py-3.5 rounded-2xl min-w-[150px]">
+                <div className="text-left bg-white/2 border border-white/5 px-5 py-3.5 rounded-2xl min-w-37.5">
                   <span className="block text-[8px] uppercase tracking-widest text-[#A3A8A4]/40 mb-1">Stability State</span>
                   <span className="text-amber-500 font-bold group-hover:text-amber-400 transition-colors">Degraded</span>
                 </div>
@@ -221,7 +221,7 @@ export default function PremiumEcosystemCanvas() {
             </div>
 
             {/* Micro Blueprint Spatial Grid Overlay */}
-            <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px]" />
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[32px_32px]" />
           </div>
         </motion.div>
 
