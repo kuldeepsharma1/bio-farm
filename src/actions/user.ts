@@ -9,7 +9,7 @@ import { User } from "../models/userSchema";
 import { hash } from "bcryptjs";
 import { CredentialsSignin } from "next-auth";
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
+
 
 const register = async (formData: FormData) => {
   const email = formData.get("email") as string;
