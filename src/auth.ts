@@ -5,6 +5,7 @@ import NextAuth, { CredentialsSignin, DefaultSession } from "next-auth";
  import { User } from "./models/userSchema";
  import {compare} from "bcryptjs";
  import Credentials from "next-auth/providers/credentials";
+ import Google from "next-auth/providers/google"
 
  declare module "next-auth" {
   interface Session extends DefaultSession {
@@ -21,7 +22,7 @@ import NextAuth, { CredentialsSignin, DefaultSession } from "next-auth";
 
  export const {handlers, auth, signIn, signOut} = NextAuth ({
   providers :[
-  
+  Google,
     Credentials({
       name: "Credentials",
       credentials: {
