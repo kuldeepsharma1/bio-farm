@@ -23,7 +23,7 @@ const stagger: Variants = {
   show: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-export default function AboutUs() {
+export default function About() {
   return (
     <main className="min-h-screen bg-[#F5F4F0] font-sans text-[#121A14] selection:bg-[#FDBA21] selection:text-black overflow-hidden pt-20">
       
