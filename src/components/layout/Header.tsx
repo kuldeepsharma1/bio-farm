@@ -45,7 +45,7 @@ export default function Header() {
             Sign In
           </a>
           
-          <button className="group flex items-center gap-1.5 rounded-full bg-[#121A14] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#233126] transition-all hover:scale-[1.02] active:scale-[0.98]">
+          <button className="group flex items-center gap-1.5 rounded-full bg-[#1ed04b] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#233126] transition-all hover:scale-[1.02] active:scale-[0.98]">
             Get Started
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
           </button>

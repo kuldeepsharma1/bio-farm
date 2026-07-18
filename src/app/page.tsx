@@ -63,10 +63,10 @@ export default function PremiumOrganicAg() {
                 and carbon emissions.
               </p>
               <div className="flex items-center gap-4">
-                <button className="flex h-12 items-center justify-center rounded-full bg-[#121A14] px-6 text-sm font-semibold text-white transition-all hover:bg-[#2A3B2E]">
+                <button className="flex h-12 items-center justify-center rounded-full bg-[#20ae44] px-6 text-sm font-semibold text-white transition-all hover:bg-[#2A3B2E]">
                   View Product
                 </button>
-                <button className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FDBA21] text-black transition-transform hover:scale-110">
+                <button className="flex h-12 w-12 items-center justify-center rounded-full bg-[#20ae44] text-black transition-transform hover:scale-110">
                   <ArrowRight size={20} />
                 </button>
               </div>

@@ -132,7 +132,7 @@ export default function MobileNav({ user }: { user: User | null }) {
                 <Link
                   href="/sign-up"
                   onClick={closeAllMenus}
-                  className="block w-full text-center px-4 py-3 text-sm font-medium text-white bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 rounded-lg transition-all duration-200 shadow-md"
+                  className="block w-full text-center px-4 py-3 text-sm font-medium text-white bg-linear-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 rounded-lg transition-all duration-200 shadow-md"
                 >
                   Get Started
                 </Link>
