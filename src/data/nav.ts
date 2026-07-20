@@ -24,11 +24,11 @@ export const nav = [
     name: "Support",
     icon: HelpCircle,
     links: [
-      { href: "/support", label: "Support" },
-      { href: "/contact-us", label: "Contact-Us" },
-      { href: "/faq", label: "Faqs" },
-      { href: "/support/shipping-info", label: "Shipping Info" },
+      { href: "/support", label: "Help Center" },
+      { href: "/contact-us", label: "Contact Us" },
+      { href: "/faq", label: "FAQs" },
+      { href: "/support/shipping-info", label: "Shipping" },
       { href: "/support/returns", label: "Returns" }
     ]
   }
-]
+];
