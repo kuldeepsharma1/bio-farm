@@ -1,5 +1,5 @@
 import { showBlog } from '@/actions/blog'
-import BlogPost from '@/components/blogs/BlogPost'
+import BlogPost from '@/components/blog/BlogPost'
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next'
  
