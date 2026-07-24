@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { addToWishlist, removeFromWishlist } from '@/actions/wishlist';
 import { useWishlistStore } from '@/store/wishlist';
+import { Heart, HeartPlus } from 'lucide-react';
 
 interface AddToWishlistButtonProps {
   productId: string;
@@ -63,11 +64,11 @@ export const AddToWishlistButton: React.FC<AddToWishlistButtonProps> = ({
       title={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
     >
       {isLoading ? (
-        <FaHeart className="w-5 h-5 animate-pulse" />
+        <Heart className="w-5 h-5 animate-pulse" />
       ) : isInWishlist ? (
-        <FaHeart className="w-6 h-6 fill-emerald-500 text-emerald-500" />
+        <Heart className="w-6 h-6 fill-emerald-500 text-emerald-500" />
       ) : (
-        <FaRegHeart className="w-6 h-6" />
+        <HeartPlus className="w-6 h-6" />
       )}
     </button>
   );
