@@ -341,7 +341,7 @@ export default function ProfileDetails({ userId }: { userId?: string }) {
                   userData.achievements.map((achievement, index) => (
                     <div key={index} className="flex items-start space-x-3 p-4 border border-gray-200 rounded-lg">
                       <div
-                        className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${achievement.iconColor ? `bg-${achievement.iconColor}-100` : 'bg-gray-100'
+                        className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${achievement.iconColor ? `bg-${achievement.iconColor}-100` : 'bg-gray-100'
                           }`}
                       >
                         <Award

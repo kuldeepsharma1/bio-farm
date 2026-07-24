@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { addToWishlist, removeFromWishlist } from '@/actions/wishlist';
 import { useWishlistStore } from '@/store/wishlist';
 
