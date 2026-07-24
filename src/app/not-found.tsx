@@ -7,7 +7,7 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white px-4">
+    <main className="min-h-screen flex items-center justify-center bg-linear-to-b from-gray-50 to-white px-4">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-48 -left-48 w-96 h-96 bg-green-100/30 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-48 -right-48 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -43,7 +43,7 @@ export default function NotFound() {
         >
           <Link 
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 
+            className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 
                      text-white font-medium rounded-xl hover:from-green-700 hover:to-emerald-700 
                      transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
