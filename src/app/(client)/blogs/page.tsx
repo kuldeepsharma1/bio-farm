@@ -1,5 +1,5 @@
 import { getBlogs } from "@/actions/blog";
-import Blogs from "@/components/blogs/Blogs";
+import Blogs from "@/components/blog/Blogs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

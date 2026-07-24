@@ -93,7 +93,7 @@ export default function Blogs({blogs}: BlogProps) {
                   className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
                   priority={false} // Adjust based on your content loading strategy
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>{" "}
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>{" "}
                 {/* Subtle dark overlay */}
                 <div className="absolute top-4 right-4 z-20">
                   <span className="inline-flex items-center px-3 py-1 text-sm font-semibold text-white bg-black/60 backdrop-blur-sm rounded-full shadow-md">
@@ -102,7 +102,7 @@ export default function Blogs({blogs}: BlogProps) {
                 </div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow relative z-20">
+              <div className="p-6 flex flex-col grow relative z-20">
                 {" "}
                 {/* `flex-grow` ensures consistent footer alignment */}
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -122,7 +122,7 @@ export default function Blogs({blogs}: BlogProps) {
                     {post.title}
                   </h2>
                 </Link>
-                <p className="text-zinc-600 mb-5 line-clamp-3 leading-relaxed text-sm flex-grow">
+                <p className="text-zinc-600 mb-5 line-clamp-3 leading-relaxed text-sm grow">
                   {post.excerpt}
                 </p>
                 <div className="flex items-center justify-between mt-auto pt-5 border-t border-zinc-100">

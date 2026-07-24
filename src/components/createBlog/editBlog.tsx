@@ -178,7 +178,7 @@ export default function EditBlog({ categories, post }: BlogProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-4">
@@ -237,7 +237,7 @@ export default function EditBlog({ categories, post }: BlogProps) {
                       id="content"
                       {...register("content")}
                       placeholder="Write your blog content..."
-                      className="mt-1.5 min-h-[300px]"
+                      className="mt-1.5 min-h-75"
                     />
                     {errors.content && <p className="text-red-500 text-sm mt-1">{errors.content.message}</p>}
                   </div>
@@ -466,7 +466,7 @@ export default function EditBlog({ categories, post }: BlogProps) {
                   <Button
                     type="button"
                     onClick={handleSubmit((data) => onSubmit(data, "publish"))}
-                    className="w-full justify-center bg-gradient-to-r from-blue-600 to-indigo-600"
+                    className="w-full justify-center bg-linear-to-r from-blue-600 to-indigo-600"
                     disabled={isPending || !isValid || selectedCategories.length === 0}
                   >
                     {isPending ? (
