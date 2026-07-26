@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
   { title: 'Products', href: '/our-products', icon: <Package className="w-5 h-5 shrink-0" /> },
   { title: 'Wishlist', href: '/wishlist', icon: <Heart className="w-5 h-5 shrink-0" /> },
   { title: 'Cart', href: '/cart', icon: <ShoppingCart className="w-5 h-5 shrink-0" /> },
-  // { title: 'Farms', href: '/farms', icon: <Sprout className="w-5 h-5 shrink-0" /> },
+  { title: 'Farms', href: '/farms', icon: <Sprout className="w-5 h-5 shrink-0" /> },
   { title: 'Orders', href: '/orders', icon: <ListOrdered className="w-5 h-5 shrink-0" /> },
   { title: 'Profile', href: '/profile', icon: <User className="w-5 h-5 shrink-0" /> },
 ]
