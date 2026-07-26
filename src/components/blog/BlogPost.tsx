@@ -113,7 +113,7 @@ export default function BlogPost({ post }: BlogPostProps) {
   return (
     <main className="min-h-screen bg-gray-50 pt-24 pb-16">
       {/* Hero Section */}
-      <div className="relative h-[400px] md:h-[600px] mb-12">
+      <div className="relative h-100 md:h-150 mb-12">
         <div className="absolute inset-0 bg-black/60 z-10" />
         <Image
           src={post.featuredImage}
@@ -233,7 +233,7 @@ export default function BlogPost({ post }: BlogPostProps) {
               {/* Author Bio */}
               <div className="mt-10 pt-8 border-t border-gray-200">
                 <div className="flex items-center">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <Image
                       src={
                         post.author.image ||
@@ -260,7 +260,7 @@ export default function BlogPost({ post }: BlogPostProps) {
         </div>
 
         {/* Newsletter Section */}
-        <section className="mt-16 py-12 bg-gradient-to-br from-emerald-800 to-green-900 rounded-2xl shadow-xl overflow-hidden">
+        <section className="mt-16 py-12 bg-linear-to-br from-emerald-800 to-green-900 rounded-2xl shadow-xl overflow-hidden">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <motion.div
               variants={containerVariants}
@@ -281,7 +281,7 @@ export default function BlogPost({ post }: BlogPostProps) {
                 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 relative pb-4"
               >
                 Join Our Organic Farming Community
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-emerald-400 to-green-400 rounded-full"></span>
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-linear-to-r from-emerald-400 to-green-400 rounded-full"></span>
               </motion.h2>
 
               <motion.p
@@ -308,7 +308,7 @@ export default function BlogPost({ post }: BlogPostProps) {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-green-500 text-white font-semibold rounded-full hover:from-emerald-600 hover:to-green-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center text-base"
+                  className="px-8 py-3 bg-linear-to-r from-emerald-500 to-green-500 text-white font-semibold rounded-full hover:from-emerald-600 hover:to-green-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center text-base"
                 >
                   {status === "submitting" ? (
                     <>

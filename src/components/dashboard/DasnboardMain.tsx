@@ -97,32 +97,32 @@ interface Blog {
 
 const DashboardHeader = ({ user }: { user: User }) => {
     return (
-        <header className="bg-white/95 backdrop-blur-sm px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 sticky top-0 z-40 gap-4 shadow-xs">
+        <header className="bg-white/80 backdrop-blur-md px-4 sm:px-8 py-4 flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200/80 sticky top-0 z-40 gap-4 shadow-2xs">
             <div>
-                <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Dashboard</h1>
+                <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Dashboard Overview</h1>
                 <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
                     {new Date().toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
                 </p>
             </div>
             <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
-                <Link href="/notifications" className="relative text-slate-500 hover:text-blue-600 p-2 rounded-full hover:bg-slate-100 transition-colors">
-                    <Bell size={20} className="sm:w-6 sm:h-6" />
-                    <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-red-500 rounded-full ring-2 ring-white"></span>
+                <Link href="/notifications" className="relative text-slate-500 hover:text-blue-600 p-2.5 rounded-full hover:bg-slate-100 transition-colors">
+                    <Bell size={20} className="w-5 h-5" />
+                    <span className="absolute top-2 right-2 h-2 w-2 bg-red-500 rounded-full ring-2 ring-white"></span>
                 </Link>
-                <Link href={'/profile'} className="flex items-center gap-3 p-1 rounded-lg hover:bg-slate-50 transition-colors">
+                <Link href={'/profile'} className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-slate-100/80 transition-colors border border-transparent hover:border-slate-200">
                     <Image
                         src={user?.image || "https://placehold.co/40x40/3b82f6/ffffff?text=U"}
                         alt={user?.name || "User"}
-                        width={36}
-                        height={36}
-                        className="h-9 w-9 sm:h-10 sm:w-10 rounded-full object-cover"
+                        width={38}
+                        height={38}
+                        className="h-9 w-9 rounded-full object-cover ring-1 ring-slate-200"
                     />
-                    <div className="hidden sm:block text-left">
+                    <div className="hidden md:block text-left">
                         <p className="text-sm font-semibold text-slate-800 leading-tight">{user?.name}</p>
                         <p className="text-xs text-slate-500">{user?.email}</p>
                     </div>
-                    <div className="hidden sm:block text-slate-400">
-                        <ChevronRight size={18} />
+                    <div className="hidden md:block text-slate-400 pl-1">
+                        <ChevronRight size={16} />
                     </div>
                 </Link>
             </div>
@@ -134,24 +134,24 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, change, changeType, i
     const isPositive = changeType === "positive";
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-300"
+            transition={{ duration: 0.3 }}
+            className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
         >
-            <div className="flex items-center justify-between mb-3 sm:mb-4">
-                <div className="p-2.5 sm:p-3 rounded-xl" style={{ backgroundColor: `${color}1A` }}>
+            <div className="flex items-center justify-between mb-4">
+                <div className="p-3 rounded-xl" style={{ backgroundColor: `${color}15` }}>
                     <Icon className="h-5 w-5 sm:h-6 sm:w-6" style={{ color }} />
                 </div>
-                <div className={`flex items-center gap-1 text-xs sm:text-sm font-semibold ${isPositive ? "text-emerald-600" : "text-red-500"}`}>
-                    {isPositive ? <ArrowUpRight size={16} /> : <ArrowDownRight size={16} />}
+                <div className={`flex items-center gap-1 text-xs sm:text-sm font-semibold px-2 py-1 rounded-full ${isPositive ? "bg-emerald-50 text-emerald-600" : "bg-red-50 text-red-600"}`}>
+                    {isPositive ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
                     <span>{change}</span>
                 </div>
             </div>
             <div>
                 <p className="text-xs sm:text-sm font-medium text-slate-500">{title}</p>
-                <p className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
-                    <CountUp end={parseFloat(value.replace(/[^0-9.]/g, ""))} separator="," prefix={value.includes("$") ? "$" : ""} duration={2.5} />
+                <p className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
+                    <CountUp end={parseFloat(value.replace(/[^0-9.]/g, ""))} separator="," prefix={value.includes("$") ? "$" : ""} duration={2} />
                 </p>
             </div>
         </motion.div>
@@ -171,21 +171,24 @@ const CustomSalesLineChart = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs h-full flex flex-col"
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-2xs h-full flex flex-col"
         >
-            <h3 className="text-base sm:text-lg font-semibold text-slate-800 mb-4">Sales Trend</h3>
-            <div className="flex-1 w-full min-h-70">
+            <div className="flex items-center justify-between mb-4">
+                <h3 className="text-base sm:text-lg font-semibold text-slate-800">Sales Trend</h3>
+                <span className="text-xs text-slate-400 font-medium bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">Weekly Performance</span>
+            </div>
+            <div className="flex-1 w-full h-72 sm:h-80">
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                        <XAxis dataKey="label" stroke="#94a3b8" fontSize={12} />
-                        <YAxis stroke="#94a3b8" fontSize={12} />
-                        <Tooltip contentStyle={{ backgroundColor: "#1e293b", borderRadius: "8px", color: "#fff", fontSize: "12px" }} />
-                        <Legend wrapperStyle={{ fontSize: "12px", paddingTop: "10px" }} />
-                        <Line type="monotone" dataKey="sales" stroke="#3b82f6" strokeWidth={2.5} activeDot={{ r: 6 }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+                        <XAxis dataKey="label" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
+                        <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
+                        <Tooltip contentStyle={{ backgroundColor: "#0f172a", borderRadius: "10px", color: "#fff", fontSize: "12px", border: "none", boxShadow: "0 10px 15px -3px rgba(0,0,0,0.1)" }} />
+                        <Legend wrapperStyle={{ fontSize: "12px", paddingTop: "15px" }} />
+                        <Line type="monotone" dataKey="sales" stroke="#3b82f6" strokeWidth={3} dot={{ r: 3, fill: "#3b82f6" }} activeDot={{ r: 6, stroke: "#fff", strokeWidth: 2 }} />
                     </LineChart>
                 </ResponsiveContainer>
             </div>
@@ -194,57 +197,60 @@ const CustomSalesLineChart = () => {
 };
 
 const SectionCard: React.FC<SectionCardProps> = ({ title, value }) => (
-    <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200/80 shadow-xs text-center flex flex-col justify-center">
-        <h4 className="text-xs sm:text-sm text-slate-500 mb-1">{title}</h4>
-        <p className="text-base sm:text-xl font-semibold text-slate-800">{value}</p>
+    <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-2xs text-center flex flex-col justify-center hover:border-slate-300 transition-all">
+        <h4 className="text-xs text-slate-500 mb-1 font-medium">{title}</h4>
+        <p className="text-base sm:text-lg font-bold text-slate-800">{value}</p>
     </div>
 );
 
 const ExtraInfoSection = () => (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-6 sm:mb-8">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         <SectionCard title="Total Visits" value="18,400" />
         <SectionCard title="Bounce Rate" value="47.6%" />
         <SectionCard title="Avg. Session" value="03m 24s" />
         <SectionCard title="Conversions" value="4.2%" />
         <SectionCard title="Returns" value="8.1%" />
-        <SectionCard title="Revenue Per User" value="$12.33" />
+        <SectionCard title="Revenue / User" value="$12.33" />
     </div>
 );
 
 const RecentOrders = () => {
     const orders: Order[] = [
-        { id: "#876364", img: "https://placehold.co/40x40/f87171/ffffff?text=J", customer: "John Doe", date: "Jun 23, 2025", amount: "$120.50", status: "Delivered", statusColor: "bg-emerald-100 text-emerald-700" },
-        { id: "#876365", img: "https://placehold.co/40x40/fbbf24/ffffff?text=S", customer: "Jane Smith", date: "Jun 23, 2025", amount: "$75.00", status: "Pending", statusColor: "bg-amber-100 text-amber-700" },
-        { id: "#876366", img: "https://placehold.co/40x40/60a5fa/ffffff?text=M", customer: "Mike Johnson", date: "Jun 22, 2025", amount: "$250.00", status: "Processing", statusColor: "bg-blue-100 text-blue-700" },
-        { id: "#876367", img: "https://placehold.co/40x40/34d399/ffffff?text=E", customer: "Emily White", date: "Jun 21, 2025", amount: "$45.80", status: "Cancelled", statusColor: "bg-red-100 text-red-700" },
-        { id: "#876368", img: "https://placehold.co/40x40/9333ea/ffffff?text=D", customer: "David Lee", date: "Jun 20, 2025", amount: "$300.00", status: "Delivered", statusColor: "bg-emerald-100 text-emerald-700" },
+        { id: "#876364", img: "https://placehold.co/40x40/f87171/ffffff?text=J", customer: "John Doe", date: "Jun 23, 2025", amount: "$120.50", status: "Delivered", statusColor: "bg-emerald-50 text-emerald-700 border border-emerald-200/50" },
+        { id: "#876365", img: "https://placehold.co/40x40/fbbf24/ffffff?text=S", customer: "Jane Smith", date: "Jun 23, 2025", amount: "$75.00", status: "Pending", statusColor: "bg-amber-50 text-amber-700 border border-amber-200/50" },
+        { id: "#876366", img: "https://placehold.co/40x40/60a5fa/ffffff?text=M", customer: "Mike Johnson", date: "Jun 22, 2025", amount: "$250.00", status: "Processing", statusColor: "bg-blue-50 text-blue-700 border border-blue-200/50" },
+        { id: "#876367", img: "https://placehold.co/40x40/34d399/ffffff?text=E", customer: "Emily White", date: "Jun 21, 2025", amount: "$45.80", status: "Cancelled", statusColor: "bg-red-50 text-red-700 border border-red-200/50" },
+        { id: "#876368", img: "https://placehold.co/40x40/9333ea/ffffff?text=D", customer: "David Lee", date: "Jun 20, 2025", amount: "$300.00", status: "Delivered", statusColor: "bg-emerald-50 text-emerald-700 border border-emerald-200/50" },
     ];
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs h-full flex flex-col"
+            transition={{ duration: 0.3, delay: 0.2 }}
+            className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-2xs h-full flex flex-col"
         >
-            <h3 className="text-base sm:text-lg font-semibold text-slate-800 mb-4">Recent Transactions</h3>
-            <div className="overflow-x-auto -mx-4 sm:mx-0">
-                <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+            <div className="flex items-center justify-between mb-4">
+                <h3 className="text-base sm:text-lg font-semibold text-slate-800">Recent Transactions</h3>
+                <Link href="#" className="text-xs font-semibold text-blue-600 hover:text-blue-700">View All</Link>
+            </div>
+            <div className="overflow-x-auto -mx-5 sm:mx-0 flex-1">
+                <div className="inline-block min-w-full align-middle px-5 sm:px-0">
                     <table className="w-full text-sm text-left">
-                        <thead className="text-xs text-slate-500 uppercase bg-slate-50/80">
+                        <thead className="text-xs text-slate-400 uppercase bg-slate-50/70 border-b border-slate-100">
                             <tr>
-                                <th className="px-3 sm:px-4 py-3 font-medium rounded-l-lg">Customer</th>
+                                <th className="px-3 sm:px-4 py-3 font-medium rounded-l-xl">Customer</th>
                                 <th className="px-3 sm:px-4 py-3 font-medium">Date</th>
                                 <th className="px-3 sm:px-4 py-3 font-medium">Amount</th>
                                 <th className="px-3 sm:px-4 py-3 font-medium">Status</th>
-                                <th className="px-3 sm:px-4 py-3 font-medium rounded-r-lg text-right">Action</th>
+                                <th className="px-3 sm:px-4 py-3 font-medium rounded-r-xl text-right">Action</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100">
                             {orders.map((order) => (
-                                <tr key={order.id} className="hover:bg-slate-50/50 transition-colors">
+                                <tr key={order.id} className="hover:bg-slate-50/60 transition-colors">
                                     <td className="px-3 sm:px-4 py-3.5 flex items-center gap-3">
-                                        <Image src={order.img} alt={order.customer} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover shrink-0" width={40} height={40} />
+                                        <Image src={order.img} alt={order.customer} className="w-9 h-9 rounded-full object-cover shrink-0 ring-1 ring-slate-200" width={36} height={36} />
                                         <div className="truncate">
                                             <div className="font-semibold text-slate-800 text-xs sm:text-sm truncate">{order.customer}</div>
                                             <div className="text-[11px] text-slate-400">{order.id}</div>
@@ -253,13 +259,13 @@ const RecentOrders = () => {
                                     <td className="px-3 sm:px-4 py-3.5 text-slate-600 text-xs sm:text-sm whitespace-nowrap">{order.date}</td>
                                     <td className="px-3 sm:px-4 py-3.5 font-semibold text-slate-800 text-xs sm:text-sm whitespace-nowrap">{order.amount}</td>
                                     <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap">
-                                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${order.statusColor}`}>
+                                        <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold ${order.statusColor}`}>
                                             {order.status}
                                         </span>
                                     </td>
                                     <td className="px-3 sm:px-4 py-3.5 text-right whitespace-nowrap">
-                                        <button className="text-slate-400 hover:text-slate-700 p-1.5 rounded-full hover:bg-slate-100 transition-colors">
-                                            <MoreHorizontal size={18} />
+                                        <button className="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-100 transition-colors">
+                                            <MoreHorizontal size={16} />
                                         </button>
                                     </td>
                                 </tr>
@@ -278,7 +284,7 @@ const CustomerDemographics = () => {
         { name: "Female", value: 300 },
         { name: "Other", value: 150 },
     ];
-    const COLORS = ["#3b82f6", "#f472b6", "#a855f7"];
+    const COLORS = ["#3b82f6", "#ec4899", "#8b5cf6"];
 
     const ageData = [
         { group: "18-24", users: 250 },
@@ -290,39 +296,39 @@ const CustomerDemographics = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.5 }}
-            className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs h-full flex flex-col"
+            transition={{ duration: 0.3, delay: 0.3 }}
+            className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-2xs h-full flex flex-col"
         >
             <h3 className="text-base sm:text-lg font-semibold text-slate-800 mb-4">Customer Demographics</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 items-center">
-                <div className="w-full">
-                    <h4 className="text-xs sm:text-sm font-medium text-slate-600 mb-2 text-center">Users by Gender</h4>
-                    <div className="h-50 w-full">
+                <div className="w-full flex flex-col items-center">
+                    <h4 className="text-xs sm:text-sm font-medium text-slate-500 mb-2">Users by Gender</h4>
+                    <div className="h-48 w-full">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
-                                <Pie data={genderData} cx="50%" cy="50%" labelLine={false} outerRadius={70} fill="#8884d8" dataKey="value">
+                                <Pie data={genderData} cx="50%" cy="50%" innerRadius={45} outerRadius={65} paddingAngle={4} dataKey="value">
                                     {genderData.map((entry, index) => (
                                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                     ))}
                                 </Pie>
-                                <Tooltip contentStyle={{ backgroundColor: "#1e293b", borderRadius: "8px", color: "#fff", fontSize: "12px" }} />
+                                <Tooltip contentStyle={{ backgroundColor: "#0f172a", borderRadius: "8px", color: "#fff", fontSize: "12px", border: "none" }} />
                                 <Legend wrapperStyle={{ fontSize: "11px" }} />
                             </PieChart>
                         </ResponsiveContainer>
                     </div>
                 </div>
-                <div className="w-full">
-                    <h4 className="text-xs sm:text-sm font-medium text-slate-600 mb-2 text-center">Users by Age Group</h4>
-                    <div className="h-50 w-full">
+                <div className="w-full flex flex-col items-center">
+                    <h4 className="text-xs sm:text-sm font-medium text-slate-500 mb-2">Users by Age Group</h4>
+                    <div className="h-48 w-full">
                         <ResponsiveContainer width="100%" height="100%">
                             <BarChart data={ageData} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
-                                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                                <XAxis dataKey="group" stroke="#94a3b8" fontSize={11} />
-                                <YAxis stroke="#94a3b8" fontSize={11} />
-                                <Tooltip contentStyle={{ backgroundColor: "#1e293b", borderRadius: "8px", color: "#fff", fontSize: "12px" }} />
-                                <Bar dataKey="users" fill="#34d399" radius={[4, 4, 0, 0]} />
+                                <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+                                <XAxis dataKey="group" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
+                                <YAxis stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
+                                <Tooltip contentStyle={{ backgroundColor: "#0f172a", borderRadius: "8px", color: "#fff", fontSize: "12px", border: "none" }} />
+                                <Bar dataKey="users" fill="#10b981" radius={[4, 4, 0, 0]} />
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
@@ -340,25 +346,25 @@ const RevenueByChannel = () => {
         { name: "Email Marketing", revenue: 25000 },
         { name: "Paid Ads", revenue: 50000 },
     ];
-    const COLORS = ["#ef4444", "#f97316", "#3b82f6", "#10b981", "#a855f7"];
+    const COLORS = ["#ef4444", "#f97316", "#3b82f6", "#10b981", "#8b5cf6"];
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.6 }}
-            className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs h-full flex flex-col"
+            transition={{ duration: 0.3, delay: 0.4 }}
+            className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-2xs h-full flex flex-col"
         >
             <h3 className="text-base sm:text-lg font-semibold text-slate-800 mb-4">Revenue by Channel</h3>
-            <div className="flex-1 min-h-70">
+            <div className="flex-1 h-72 sm:h-80 w-full flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
-                        <Pie data={channelData} cx="50%" cy="50%" labelLine={false} outerRadius={80} fill="#8884d8" dataKey="revenue">
+                        <Pie data={channelData} cx="50%" cy="50%" innerRadius={55} outerRadius={80} paddingAngle={3} dataKey="revenue">
                             {channelData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                         </Pie>
-                        <Tooltip formatter={(value) => `$${Number(value).toLocaleString()}`} contentStyle={{ backgroundColor: "#1e293b", borderRadius: "8px", color: "#fff", fontSize: "12px" }} />
+                        <Tooltip formatter={(value) => `$${Number(value).toLocaleString()}`} contentStyle={{ backgroundColor: "#0f172a", borderRadius: "8px", color: "#fff", fontSize: "12px", border: "none" }} />
                         <Legend wrapperStyle={{ fontSize: "11px", paddingTop: "8px" }} />
                     </PieChart>
                 </ResponsiveContainer>
@@ -378,20 +384,20 @@ const ActivityFeed = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.7 }}
-            className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs h-full flex flex-col"
+            transition={{ duration: 0.3, delay: 0.5 }}
+            className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-2xs h-full flex flex-col"
         >
             <h3 className="text-base sm:text-lg font-semibold text-slate-800 mb-4">Recent Activity</h3>
             <ul className="divide-y divide-slate-100 flex-1">
                 {activities.map((activity) => (
-                    <li key={activity.id} className="flex items-start gap-3 py-3 first:pt-0 last:pb-0">
-                        <div className="p-2 rounded-full shrink-0" style={{ backgroundColor: `${activity.iconColor}1A` }}>
+                    <li key={activity.id} className="flex items-start gap-3.5 py-3 first:pt-0 last:pb-0">
+                        <div className="p-2.5 rounded-xl shrink-0" style={{ backgroundColor: `${activity.iconColor}15` }}>
                             <activity.icon size={16} style={{ color: activity.iconColor }} />
                         </div>
                         <div className="flex-1 min-w-0">
-                            <p className="text-xs sm:text-sm text-slate-800 leading-snug truncate">{activity.description}</p>
+                            <p className="text-xs sm:text-sm text-slate-800 leading-snug font-medium">{activity.description}</p>
                             <p className="text-[11px] text-slate-400 mt-0.5">{activity.time}</p>
                         </div>
                     </li>
@@ -449,15 +455,15 @@ const BlogManagement = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.8 }}
-            className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs h-full flex flex-col"
+            transition={{ duration: 0.3, delay: 0.6 }}
+            className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-2xs h-full flex flex-col"
         >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                 <h3 className="text-base sm:text-lg font-semibold text-slate-800">Blog Management</h3>
                 <Link href="/admin/blogs/create">
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto">Create Blog</Button>
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto shadow-2xs">Create Blog</Button>
                 </Link>
             </div>
             {isLoading ? (
@@ -465,18 +471,18 @@ const BlogManagement = () => {
                     <Loader2 className="w-6 h-6 animate-spin text-blue-600" />
                 </div>
             ) : blogs.length === 0 ? (
-                <p className="text-center text-slate-500 py-8 text-sm">No blogs found.</p>
+                <p className="text-center text-slate-500 py-12 text-sm">No blogs found.</p>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto max-h-125">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto max-h-95 pr-1">
                     {blogs.map((blog) => (
-                        <Card key={blog._id} className="shadow-none border border-slate-200/60 bg-white hover:border-slate-300 transition-all flex flex-col">
+                        <Card key={blog._id} className="shadow-none border border-slate-200/80 bg-white hover:border-slate-300 transition-all flex flex-col rounded-xl overflow-hidden">
                             <CardHeader className="p-0">
-                                <div className="relative h-28 w-full">
+                                <div className="relative h-28 w-full bg-slate-100">
                                     <Image
                                         src={blog.featuredImage}
                                         alt={blog.title}
                                         fill
-                                        className="object-cover rounded-t-xl"
+                                        className="object-cover"
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                     />
                                 </div>
@@ -495,7 +501,7 @@ const BlogManagement = () => {
                                     </div>
                                     <p className="text-xs text-slate-500 line-clamp-2">{blog.excerpt}</p>
                                 </div>
-                                <div className="pt-2 flex justify-end gap-1.5 border-t border-slate-100">
+                                <div className="pt-3 flex justify-end gap-1.5 border-t border-slate-100">
                                     <Button
                                         variant="outline"
                                         size="sm"
@@ -507,7 +513,7 @@ const BlogManagement = () => {
                                     <Button
                                         variant="destructive"
                                         size="sm"
-                                        className="h-7 text-xs px-2.5"
+                                        className="h-7 text-xs px-2.5 bg-red-50 text-red-600 hover:bg-red-100 border-red-200 shadow-none"
                                         onClick={() => setDeleteBlogId(blog._id)}
                                         disabled={isPending}
                                     >
@@ -529,7 +535,7 @@ const BlogManagement = () => {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                         <AlertDialogCancel>Cancel</AlertDialogCancel>
-                        <AlertDialogAction onClick={handleDelete} disabled={isPending}>
+                        <AlertDialogAction onClick={handleDelete} disabled={isPending} className="bg-red-600 hover:bg-red-700">
                             {isPending ? (
                                 <>
                                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -548,12 +554,14 @@ const BlogManagement = () => {
 
 const ComingSoon = () => (
     <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.9 }}
-        className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs text-center flex flex-col items-center justify-center py-10"
+        transition={{ duration: 0.3, delay: 0.7 }}
+        className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-2xs text-center flex flex-col items-center justify-center py-12"
     >
-        <Clock size={40} className="text-slate-400 mb-3" />
+        <div className="p-3 bg-slate-50 rounded-full mb-3 border border-slate-100">
+            <Clock size={32} className="text-slate-400" />
+        </div>
         <h3 className="text-base sm:text-lg font-semibold text-slate-800 mb-1">More Insights Coming Soon!</h3>
         <p className="text-xs sm:text-sm text-slate-500 max-w-sm">We&apos;re constantly working to bring you more valuable data and features.</p>
     </motion.div>
@@ -562,7 +570,7 @@ const ComingSoon = () => (
 const Dashboard = ({ user }: { user: User }) => (
     <div className="flex-1 flex flex-col min-w-0">
         <DashboardHeader user={user} />
-        <main className="flex-1 bg-slate-50/50 p-4 sm:p-6 space-y-6 overflow-y-auto">
+        <main className="flex-1 bg-slate-50/50 p-4 sm:p-8 space-y-6 overflow-y-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <StatCard title="Total Revenue" value="$45231" change="+20.1%" changeType="positive" icon={DollarSign} color="#10b981" />
                 <StatCard title="Total Orders" value="2340" change="+15.5%" changeType="positive" icon={ShoppingCart} color="#3b82f6" />
