@@ -18,6 +18,7 @@ import Methodology from "@/components/general/Methodology";
 import FaqPage from "@/components/general/Faq";
 import ContactPage from "@/components/general/Contact";
 
+
 // --- Animation Config ---
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
