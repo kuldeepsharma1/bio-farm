@@ -161,7 +161,7 @@ export default function Farms({ userId }: { userId?: string }) {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-linear-to-br from-green-50 via-emerald-50 to-teal-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-green-100 rounded-t-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -228,7 +228,7 @@ export default function Farms({ userId }: { userId?: string }) {
               </div>
               <button
                 onClick={() => setShowFarmForm(true)}
-                className="flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg"
+                className="flex items-center px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg"
               >
                 <Plus className="w-5 h-5 mr-2" />
                 Add Farm
@@ -343,7 +343,7 @@ export default function Farms({ userId }: { userId?: string }) {
                       handleSubmit(e);
                     }}
                     disabled={loading}
-                    className="flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? (
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
@@ -382,7 +382,7 @@ export default function Farms({ userId }: { userId?: string }) {
                   type="button"
                   onClick={confirmDelete}
                   disabled={loading}
-                  className="flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center px-6 py-3 bg-linear-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
@@ -518,7 +518,7 @@ export default function Farms({ userId }: { userId?: string }) {
               {(!searchTerm && filterStatus === 'All') && (
                 <button
                   onClick={() => setShowFarmForm(true)}
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg"
+                  className="inline-flex items-center px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg"
                 >
                   <Plus className="w-5 h-5 mr-2" />
                   Add Your First Farm
