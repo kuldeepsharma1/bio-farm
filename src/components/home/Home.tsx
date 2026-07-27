@@ -17,11 +17,12 @@ export default function Nav({ user }: { user: User | null }) {
     setActiveDropdown(null);
   }, [pathname, setActiveDropdown]);
 
+  // Premium color logic for main nav items
   const getLinkClass = (href: string) => 
-    `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+    `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
       pathname === href
-        ? "text-[#839756] bg-[#839756]/5"
-        : "text-[#121A14]/70 hover:text-[#839756] hover:bg-[#839756]/5"
+        ? "text-[#4B5A33] bg-[#839756]/10" // Deepened green text for better contrast
+        : "text-[#5B635D] hover:text-[#1E2621] hover:bg-[#F2F4EF]" // Warm, organic gray-green hover
     }`;
 
   return (
@@ -49,29 +50,30 @@ export default function Nav({ user }: { user: User | null }) {
           ) : (
             <>
               <button
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeDropdown === item.name 
-                    ? "text-[#839756] bg-[#839756]/5" 
-                    : "text-[#121A14]/70 hover:text-[#839756] hover:bg-[#839756]/5"
+                    ? "text-[#4B5A33] bg-[#839756]/10" 
+                    : "text-[#5B635D] hover:text-[#1E2621] hover:bg-[#F2F4EF]"
                 }`}
               >
                 <item.icon className="w-4 h-4" />
                 {item.name}
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${activeDropdown === item.name ? "rotate-180" : ""}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.name ? "rotate-180 text-[#4B5A33]" : "text-[#8E9992]"}`} />
               </button>
 
               {/* Dropdown - Pushed down slightly to touch the button, closing the gap */}
               {activeDropdown === item.name && item.links && (
                 <div className="absolute top-[85%] left-0 pt-4 w-52 z-100">
-                  <div className="bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-[#121A14]/10 py-2">
+                  {/* Elevated Dropdown Card with Organic Shadows */}
+                  <div className="bg-[#FCFDFB] rounded-xl shadow-[0_16px_40px_-12px_rgba(131,151,86,0.15)] border border-[#EBEFE8] py-2">
                     {item.links.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
-                        className={`block px-4 py-2.5 text-sm transition-colors ${
+                        className={`block px-4 py-2.5 text-sm transition-all duration-200 ${
                           pathname === link.href 
-                            ? "text-[#839756] font-semibold bg-[#839756]/5" 
-                            : "text-[#121A14]/70 hover:text-[#839756] hover:bg-[#839756]/5"
+                            ? "text-[#4B5A33] font-semibold bg-[#839756]/10" 
+                            : "text-[#5B635D] hover:text-[#1E2621] hover:bg-[#F2F4EF]"
                         }`}
                       >
                         {link.label}
