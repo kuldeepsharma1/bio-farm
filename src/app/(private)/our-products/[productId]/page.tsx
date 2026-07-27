@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next'
-import SwiperCarousel from '@/components/General/SwiperCarousel';
+import SwiperCarousel from '@/components/general/SwiperCarousel';
 import { getProductById } from '@/actions/products';
 import { AddToWishlistButton } from '@/components/dashboard/products/AddToWishlistButton';
 import { AddToCartButton } from '@/components/dashboard/products/AddToCartButton';
@@ -70,9 +70,9 @@ export default async function Page({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-emerald-50">
+    <div className="min-h-screen bg-linear-to-br from-green-100 via-white to-emerald-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-green-700 to-emerald-700 text-white py-10 mb-12 shadow-xl rounded-b-3xl">
+      <header className="bg-linear-to-r from-green-700 to-emerald-700 text-white py-10 mb-12 shadow-xl rounded-b-3xl">
         <div className="container mx-auto px-6 flex items-center gap-5">
           <div className="p-3 bg-white/30 rounded-xl shadow-md">
             <Leaf className="w-10 h-10" />
@@ -92,7 +92,7 @@ export default async function Page({
           <div className="grid lg:grid-cols-2 gap-12 p-10">
             {/* Product Images */}
             <div className="space-y-6">
-              <div className="bg-gray-100 rounded-3xl overflow-hidden shadow-md p-2 flex items-center justify-center min-h-[350px]">
+              <div className="bg-gray-100 rounded-3xl overflow-hidden shadow-md p-2 flex items-center justify-center min-h-87.5">
                 <SwiperCarousel name={product.name} images={product.images} />
               </div>
 
@@ -129,7 +129,7 @@ export default async function Page({
               </div>
 
               {/* Price */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 shadow-sm border border-gray-100">
+              <div className="bg-linear-to-r from-green-50 to-emerald-50 rounded-2xl p-6 shadow-sm border border-gray-100">
                 <div className="flex items-end gap-4 mb-2">
                   <span className="text-4xl font-extrabold text-green-700">
                     ${finalPrice.toFixed(2)}

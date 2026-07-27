@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next'
-import SwiperCarousel from '@/components/General/SwiperCarousel';
+import SwiperCarousel from '@/components/general/SwiperCarousel';
 import { AddToWishlistButton } from '@/components/dashboard/products/AddToWishlistButton';
 import { AddToCartButton } from '@/components/dashboard/products/AddToCartButton';
 import { getProductById } from '@/actions/products';
@@ -69,7 +69,7 @@ export default async function Page({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-emerald-50">
+    <div className="min-h-screen bg-linear-to-br from-green-100 via-white to-emerald-50">
  
 
       <div className=" mx-auto px-4 py-20 max-w-6xl">
@@ -96,7 +96,7 @@ export default async function Page({
                   productId={product._id.toString()}
                 />
               </div>
-              <div className="bg-gray-100 rounded-3xl overflow-hidden shadow-md p-2 flex items-center justify-center min-h-[350px]">
+              <div className="bg-gray-100 rounded-3xl overflow-hidden shadow-md p-2 flex items-center justify-center min-h-87.5">
                 <SwiperCarousel name={product.name} images={product.images} />
               </div>
 
@@ -133,7 +133,7 @@ export default async function Page({
               </div>
 
               {/* Price */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 shadow-sm border border-gray-100">
+              <div className="bg-linear-to-r from-green-50 to-emerald-50 rounded-2xl p-6 shadow-sm border border-gray-100">
                 <div className="flex items-end gap-4 mb-2">
                   <span className="text-4xl font-semibold text-green-700">
                     ${finalPrice.toFixed(2)}
