@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Leaf } from "lucide-react";
 
 export default function Footer() {
@@ -10,6 +9,7 @@ export default function Footer() {
     { name: "Our Farms", href: "/our-farms" },
     { name: "Sustainability", href: "/sustainability" },
   ];
+  
   const knowMore = [
     { name: "Blogs", href: "/blogs" },
     { name: "FAQ", href: "/faq" },
@@ -18,16 +18,12 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#000000f6] pt-24 pb-12 px-6 lg:px-12 text-white">
+    <footer className="bg-[#0A0A0A] pt-24 pb-12 px-6 lg:px-12 text-white">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-[5vw] leading-none font-bold tracking-tighter text-[#F5F4F0] mb-24 text-center"
-        >
+        
+        <h2 className="text-[5vw] leading-none font-bold tracking-tighter text-[#F5F4F0] mb-24 text-center">
           GROW WITH <span className="text-[#839756]">ARKIN</span>
-        </motion.h2>
+        </h2>
 
         <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/10 pt-12">
           {/* Logo Section */}
