@@ -40,12 +40,12 @@ export default function ProductCard({ product }: ProductCardProps) {
           sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
         />
         {product.organic && (
-          <Badge variant="success" className="absolute right-2 top-2">
+          <Badge variant="destructive" className="absolute right-2 top-2">
             Organic
           </Badge>
         )}
         {product.seasonal && !product.seasonal && (
-          <Badge variant="warning" className="absolute left-2 top-2">
+          <Badge variant="secondary" className="absolute left-2 top-2">
             Out of Season
           </Badge>
         )}

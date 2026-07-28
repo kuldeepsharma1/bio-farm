@@ -1,6 +1,6 @@
 "use server";
 
-import { Types } from "mongoose";
+import { Types, QueryFilter } from "mongoose";
 import { revalidatePath } from "next/cache";
 import { randomUUID } from "crypto";
 import connectDb from "@/lib/db";
@@ -9,7 +9,7 @@ import "@/models/categorySchema";
 import "@/models/userSchema";
 import {
   ActionResponse,
-  ProductFilter,
+  // ProductFilter,
   ProductFormData,
   IProduct,
 } from "@/types/product";
@@ -155,7 +155,7 @@ export async function getProducts(
   try {
     await connectDb();
     const skip = (page - 1) * limit;
-    const filter: ProductFilter = {};
+    const filter: QueryFilter<IProduct> = {};
     const appliedFilters: string[] = [];
 
     if (search) {
@@ -438,7 +438,7 @@ export async function getPublicProducts({
   try {
     await connectDb();
 
-    const query = {
+    const query:QueryFilter<IProduct> = {
       isActive: true,
       price: { $gte: minPrice, $lte: maxPrice },
       ...(search && { name: { $regex: search, $options: "i" } }),
@@ -454,8 +454,9 @@ export async function getPublicProducts({
         .sort(sortOptions)
         .skip((page - 1) * limit)
         .limit(limit)
-        .lean() as Promise<IProductExtended[]>,
-      Product.countDocuments(query) as Promise<number>,
+        .lean(),
+        
+      Product.countDocuments(query),
     ]);
 
     const products = rawProducts.map((product) => ({

@@ -1,4 +1,4 @@
-import FaqPage from '@/components/General/Faq'
+import FaqPage from '@/components/general/Faq'
 import { Metadata } from 'next';
 import React from 'react'
 

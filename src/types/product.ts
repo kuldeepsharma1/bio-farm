@@ -50,8 +50,8 @@ export interface ProductFormData {
   productId?: string;
 }
 
-export interface ProductFilter {
-  $or?: Array<{ [key in keyof IProduct]?: { $regex: string; $options: string } }>;
-  category?: Types.ObjectId;
-  isActive?: boolean;
-}
+// export interface ProductFilter {
+//   $or?: Array<{ [key in keyof IProduct]?: { $regex: string; $options: string } }>;
+//   category?: Types.ObjectId;
+//   isActive?: boolean;
+// }

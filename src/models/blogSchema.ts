@@ -107,7 +107,6 @@ const BlogSchema = new Schema<IBlog>(
 // Middleware to update updatedAt timestamp
 BlogSchema.pre("save", function (next) {
   this.updatedAt = new Date();
-  next();
 });
 
 // Create slug from title if not provided
@@ -118,7 +117,6 @@ BlogSchema.pre("validate", function (next) {
       .replace(/[^a-zA-Z0-9\s]/g, "")
       .replace(/\s+/g, "-");
   }
-  next();
 });
 
 export const Blog =
