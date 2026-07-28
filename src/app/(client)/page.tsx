@@ -141,19 +141,28 @@ export default function PremiumOrganicAg() {
       </section>
 
       {/* --- Educational Comparison --- */}
-      <section className="px-6 py-16 lg:py-24 lg:px-12 border-t border-[#121A14]/10">
-        <div className="mx-auto max-w-6xl text-center mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 text-[#121A14]">
-            The Smart Soil Solution
-          </h2>
-          <p className="text-[#3A4A3E] max-w-xl mx-auto text-sm sm:text-base px-4">
-            Understanding the fundamental difference in how we approach land
-            management and sustainable growth.
-          </p>
-        </div>
-        <Methodology />
-      </section>
+      {/* --- Educational Comparison --- */}
+<section className="bg-white px-6 py-16 lg:py-24 lg:px-12 border-t border-[#E8EDE9]">
+  <div className="mx-auto max-w-6xl">
+    
+    {/* Header */}
+    <div className="text-center mb-14 lg:mb-20">
+      <span className="inline-block text-xs font-medium tracking-widest uppercase text-[#5C7A5E] mb-3">
+        Soil Science
+      </span>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1A2B1C] mb-5">
+        The Smart Soil Solution
+      </h2>
+      <p className="text-[#4A5C4C] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+        Understanding the fundamental difference in how we approach land 
+        management and sustainable growth with living, organic fertilizers.
+      </p>
+    </div>
 
+    {/* Methodology / Comparison content */}
+    <Methodology />
+  </div>
+</section>
       {/* --- Bento Grid Features --- */}
       <section className="px-6 py-16 lg:py-24 lg:px-12 bg-white">
         <div className="mx-auto max-w-6xl text-center mb-12 lg:mb-16">
