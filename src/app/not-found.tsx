@@ -2,65 +2,94 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Sparkles, Compass, BookOpen } from 'lucide-react';
+import { ArrowLeft, BookOpen, Mail, ArrowUpRight, Sparkles } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <main className="h-screen w-screen bg-slate-50/60 text-slate-900 flex items-center justify-center p-4 sm:p-6 lg:p-10 overflow-hidden selection:bg-emerald-500 selection:text-white">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-6 right-6 w-112.5 h-112.5 bg-teal-100/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-30 pointer-events-none" />
+    <main className="relative flex min-h-screen w-full items-center justify-center bg-white p-4 text-slate-900 sm:p-8 selection:bg-emerald-500 selection:text-white">
+      {/* Subtle Background Glow for Richness */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
+        <div className="h-125 w-125 rounded-full bg-emerald-50/50 blur-[120px]" />
+      </div>
 
-      {/* Main Glassmorphism Card (Centered & Scroll-Free) */}
+      {/* Main Card Container matching the layout wireframe */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-full max-w-6xl bg-white/90 backdrop-blur-2xl p-6 sm:p-8 lg:p-12 rounded-[2.5rem] border border-slate-200/80 shadow-2xl shadow-slate-200/50 flex flex-col justify-between overflow-hidden z-10"
+        className="relative z-10 w-full max-w-5xl overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-12 lg:p-14"
       >
-        {/* Top Accent Illumination */}
-        <div className="absolute top-0 inset-x-0 h-0.5 bg-linear-to-r from-transparent via-emerald-500/60 to-transparent" />
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           
           {/* Left Column: Text & Actions */}
-          <div className="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start justify-center">
-            {/* Pill Tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 font-bold text-xs tracking-widest uppercase border border-emerald-200/80 shadow-2xs mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600 animate-spin" style={{ animationDuration: '8s' }} />
-              Error 404 • Page Not Found
+          <div className="flex flex-col items-center justify-center text-center lg:col-span-6 lg:items-start lg:text-left">
+            {/* 404 NOT FOUND Tag */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50/80 px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-800 shadow-2xs backdrop-blur-sm">
+              <Sparkles className="h-3.5 w-3.5 animate-spin text-emerald-600" style={{ animationDuration: '8s' }} />
+              404 Not Found
             </div>
 
-            {/* Main Headlines */}
-            <h2 className="text-xl sm:text-2xl font-bold text-emerald-600 tracking-wide">
-              Uh Ohh!
-            </h2>
-            <h1 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-none my-1">
-              404
+            {/* Main Headline */}
+            <h1 className="text-3xl font-medium tracking-tighter text-slate-900 sm:text-5xl lg:text-6xl">
+              This page never <span className="block italic text-emerald-600">took root.</span>
             </h1>
 
-            <p className="text-slate-600 text-sm sm:text-base max-w-md my-4 leading-relaxed font-normal">
-              The page you&apos;re looking for seems to have wandered off into greener pastures. Let&apos;s guide you back to familiar ground.
+            {/* Description */}
+            <p className="my-5 max-w-md text-sm font-normal leading-relaxed text-slate-600 sm:text-base">
+              The page you&apos;re looking for doesn&apos;t exist or has been relocated to greener pastures.
             </p>
 
-            {/* Primary Action Button */}
-            <div className="pt-2">
+            {/* Action Buttons Section */}
+            <div className="mt-2 flex w-full flex-col gap-3">
               <Link 
                 href="/"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/35 transform hover:-translate-y-0.5 text-sm"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-2xl bg-emerald-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-500 hover:shadow-emerald-600/30"
               >
-                <ArrowLeft className="w-4 h-4" />
-                Return to Homepage
+                <ArrowLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-1" />
+                Return Home
               </Link>
+
+              {/* Blog & Contact Links */}
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <Link
+                  href="/blogs"
+                  className="group flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/60 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-slate-700 transition-all duration-200 hover:border-emerald-300 hover:bg-emerald-50/40 hover:text-emerald-900"
+                >
+                  <span className="flex items-center gap-2 truncate">
+                    <BookOpen className="h-3.5 w-3.5 text-emerald-600" />
+                    Blog
+                  </span>
+                  <ArrowUpRight className="h-3 w-3 opacity-60 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+
+                <Link
+                  href="/contact-us"
+                  className="group flex items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/60 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-slate-700 transition-all duration-200 hover:border-emerald-300 hover:bg-emerald-50/40 hover:text-emerald-900"
+                >
+                  <span className="flex items-center gap-2 truncate">
+                    <Mail className="h-3.5 w-3.5 text-emerald-600" />
+                    Contact
+                  </span>
+                  <ArrowUpRight className="h-3 w-3 opacity-60 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Clean Eco Landscape SVG */}
-          <div className="lg:col-span-6 w-full h-48 sm:h-64 lg:h-80 bg-linear-to-b from-sky-50/70 via-emerald-50/30 to-emerald-100/20 rounded-3xl border border-slate-200/80 p-4 flex items-center justify-center overflow-hidden shadow-inner relative">
+          {/* Right Column: HUGE 404 & Eco Landscape */}
+          <div className="relative flex h-64 w-full items-center justify-center overflow-hidden rounded-3xl border border-slate-200/80 bg-linear-to-b from-sky-50/60 via-emerald-50/20 to-emerald-100/10 p-6 shadow-inner sm:h-80 lg:col-span-6 lg:h-96">
+            
+            {/* HUGE 404 Watermark Background */}
+            <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none">
+              <span className="font-black text-emerald-900/4 text-[10rem] sm:text-[14rem] tracking-tighter leading-none">
+                404
+              </span>
+            </div>
+
+            {/* Eco Landscape SVG with 🌱 Element */}
             <svg
               viewBox="0 0 600 240"
-              className="w-full h-full text-slate-700"
+              className="relative z-10 h-full w-full text-slate-700 drop-shadow-sm"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
@@ -105,44 +134,6 @@ export default function NotFound() {
           </div>
 
         </div>
-
-        {/* Bottom Nav Links */}
-        <div className="mt-6 pt-5 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-          <Link 
-            href="/products"
-            className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-emerald-50/40 transition-all duration-300 border border-slate-200/80 hover:border-emerald-300 flex items-center gap-4 shadow-2xs hover:shadow-sm"
-          >
-            <div className="p-3 rounded-xl bg-white text-emerald-600 border border-slate-200/60 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-              <Compass className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                Explore Products
-              </h4>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Browse our eco-friendly organic collection.
-              </p>
-            </div>
-          </Link>
-
-          <Link 
-            href="/blogs"
-            className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-emerald-50/40 transition-all duration-300 border border-slate-200/80 hover:border-emerald-300 flex items-center gap-4 shadow-2xs hover:shadow-sm"
-          >
-            <div className="p-3 rounded-xl bg-white text-emerald-600 border border-slate-200/60 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-              <BookOpen className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                Read Our Blog
-              </h4>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Learn about sustainable farming techniques.
-              </p>
-            </div>
-          </Link>
-        </div>
-
       </motion.div>
     </main>
   );
