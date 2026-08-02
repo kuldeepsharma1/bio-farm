@@ -33,7 +33,7 @@ const stagger: Variants = {
   show: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-export default function PremiumOrganicAg() {
+export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
