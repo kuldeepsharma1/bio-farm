@@ -573,7 +573,7 @@ export default function Home() {
   <section className="px-4 sm:px-6 py-16 sm:py-24 lg:py-28 lg:px-12 font-sans">
       <div className="mx-auto max-w-5xl">
         {/* Main Card with soft green gradient */}
-        <div className="bg-gradient-to-br from-[#1B5E2A] via-[#1A4D26] to-[#163F20] text-white rounded-3xl sm:rounded-[32px] p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl border border-white/10">
+        <div className="bg-linear-to-br from-[#1B5E2A] via-[#1A4D26] to-[#163F20] text-white rounded-3xl sm:rounded-4xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl border border-white/10">
           
           {/* Soft light glow accents */}
           <div className="absolute -top-32 -right-20 w-80 h-80 bg-[#4CAF50]/15 rounded-full blur-3xl pointer-events-none" />

@@ -2,135 +2,275 @@
 
 import React from "react";
 import Image from "next/image";
+import {
+  Leaf,
+  ShieldCheck,
+  Sprout,
+  Droplets,
+  FlaskConical,
+  ArrowRight,
+  CheckCircle2,
+  Globe2,
+  Award,
+  HeartHandshake,
+} from "lucide-react";
 
 export default function OrganicFertilizerPage() {
   return (
-    <main className="overflow-hidden bg-linear-to-br from-green-50 via-white to-emerald-50 min-h-screen font-sans">
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center min-h-[70vh] py-20 px-4 text-center">
-        <div className="absolute inset-0 -z-10 opacity-50">
+    <main className="overflow-hidden bg-white text-[#1A2B1C] font-sans selection:bg-[#2E7D32] selection:text-white">
+      
+      {/* 1. Hero Section */}
+      <section className="relative flex flex-col items-center justify-center min-h-[85vh] py-24 px-4 sm:px-6 lg:px-12 text-center bg-[#F7F9F6]">
+        {/* Soft background image */}
+        <div className="absolute inset-0 -z-10 opacity-[0.07]">
           <Image
-            src="https://cdn.pixabay.com/photo/2017/05/31/13/02/leaves-2360155_1280.jpg"
-            alt="Background leaf texture"
+            src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=2000"
+            alt="Organic farm texture"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-linear-to-t from-white via-white/80 to-transparent"></div>
         </div>
-        <h1 className="text-5xl md:text-7xl font-extrabold text-green-800 mb-6 drop-shadow-lg">
-          Nourish the Future
-        </h1>
-        <p className="max-w-3xl mx-auto text-lg md:text-2xl text-green-900/80 mb-8">
-          Harnessing the power of nature to create premium organic fertilizers that revitalize your soil and maximize yield.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 mt-4">
-          <span className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-green-100 text-green-800 font-semibold shadow-md border border-green-200/50">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            Certified Organic
-          </span>
-          <span className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-emerald-100 text-emerald-800 font-semibold shadow-md border border-emerald-200/50">
-             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            Eco-Conscious Production
-          </span>
-          <span className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-yellow-100 text-yellow-800 font-semibold shadow-md border border-yellow-200/50">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 9.5L21 3m-2.5 0h-6m6 0v6M9.5 14.5L3 21m2.5 0h6m-6 0v-6"></path></svg>
-            Enhanced Crop Yield
-          </span>
-        </div>
-      </section>
 
-      {/* The Science Section */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-square md:aspect-4/3 w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-            <Image
-              src="https://cdn.pixabay.com/photo/2019/08/21/08/29/compost-4420313_1280.jpg"
-              alt="Rich organic compost"
-              fill
-              className="object-cover"
-            />
+        <div className="max-w-4xl mx-auto space-y-6 relative z-10">
+          <div className="inline-flex items-center gap-2 text-[#2E7D32] uppercase text-xs font-semibold tracking-widest bg-[#2E7D32]/8 px-4 py-1.5 rounded-full border border-[#2E7D32]/15">
+            <Leaf size={14} className="fill-[#2E7D32]" />
+            <span>Certified Organic Nutrition</span>
           </div>
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-6">The Science of Healthy Soil</h2>
-            <p className="text-lg text-gray-700 mb-8">
-              Our fertilizers are more than just nutrients; they are a complete ecosystem for your soil. We use a proprietary composting method to cultivate beneficial microbes that improve soil structure and nutrient availability.
-            </p>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-4">
-                <div className="shrink-0 p-2 bg-green-100 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.7 2.3A2.3 2.3 0 0 0 16 1H8a2 2 0 0 0-2 2v2.2a2 2 0 0 1-1.2 1.8L3.2 8a2 2 0 0 0-1.2 1.8V14a2 2 0 0 0 2 2h1.2a2 2 0 0 1 1.8 1.2L8 18.8a2 2 0 0 0 1.8 1.2h4.4a2 2 0 0 0 1.8-1.2l1.2-1.8a2 2 0 0 1 1.8-1.2H20a2 2 0 0 0 2-2v-4.2a2 2 0 0 0-1.2-1.8L19.2 6.2A2 2 0 0 1 18 4.4V2a2 2 0 0 0-.3-.3Z"></path><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path></svg></div>
-                <div>
-                  <h3 className="text-xl font-semibold text-green-800">Enriches Soil Biology</h3>
-                  <p className="text-gray-600">Introduces a diverse range of microorganisms to create a thriving underground ecosystem.</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                 <div className="shrink-0 p-2 bg-blue-100 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"></path></svg></div>
-                <div>
-                    <h3 className="text-xl font-semibold text-green-800">Improves Water Retention</h3>
-                    <p className="text-gray-600">Enhances soil structure to hold moisture more effectively, reducing the need for frequent watering.</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                 <div className="shrink-0 p-2 bg-yellow-100 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 2v6h6L2 14.5V22h7.5L22 9.5V2h-6l-6 6Z"></path><path d="m15 5 2-2"></path><path d="m18 8 2-2"></path></svg></div>
-                <div>
-                    <h3 className="text-xl font-semibold text-green-800">Boosts Nutrient Uptake</h3>
-                    <p className="text-gray-600">Unlocks essential minerals and makes them readily available for plant absorption.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
 
-      {/* Commitment to Sustainability Section */}
-      <section className="py-24 px-4 bg-linear-to-b from-emerald-50 to-green-100">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-12">Our Commitment to a Greener Planet</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="flex flex-col items-center p-8 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <div className="p-4 bg-green-200 rounded-full mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#047857" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M10 9l6 3-6 3V9z"></path></svg>
-              </div>
-              <h3 className="text-2xl font-semibold text-green-800 mb-3">Reduced Environmental Footprint</h3>
-              <p className="text-gray-600">
-                Our organic fertilizers minimize pollution, conserve water, and reduce reliance on energy-intensive synthetic chemicals, protecting our ecosystems.
-              </p>
-            </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1A2B1C] leading-[1.15]">
+            Nourish the Future with
+            <br />
+            <span className="text-[#2E7D32]">
+              Pure Organic Soil Health
+            </span>
+          </h1>
 
-            <div className="flex flex-col items-center p-8 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <div className="p-4 bg-blue-200 rounded-full mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.75 4.25c.875 1-.875 1.5-.875 1.5.875 1-.875 1.5-.875 1.5s.875 1-.875 1.5-.875 1.5-.875 1.5c.875 1-.875 1.5-.875 1.5s.875 1-.875 1.5-.875 1.5-.875 1.5M10.25 4.25c.875 1-.875 1.5-.875 1.5.875 1-.875 1.5-.875 1.5s.875 1-.875 1.5-.875 1.5-.875 1.5c.875 1-.875 1.5-.875 1.5s.875 1-.875 1.5-.875 1.5-.875 1.5M12 21v-4M16.5 17.5h-9"></path><path d="M12 17.5a4.5 4.5 0 0 1-4.5-4.5V11a4.5 4.5 0 0 1 4.5-4.5h0a4.5 4.5 0 0 1 4.5 4.5v2A4.5 4.5 0 0 1 12 17.5z"></path></svg>
-              </div>
-              <h3 className="text-2xl font-semibold text-green-800 mb-3">Biodiversity & Soil Health</h3>
-              <p className="text-gray-600">
-                By fostering a rich microbial life and enhancing soil structure, our products support a thriving ecosystem both above and below ground.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center p-8 bg-white rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <div className="p-4 bg-yellow-200 rounded-full mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#b45309" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 12c.7 0 1.3.3 1.7.8 1.4 1.4 2.3 3.4 2.6 5.1-.3-.4-.6-.8-1.1-1.1-.6-.5-1.4-.8-2.3-.8H17V12z"></path><path d="M17 12h-2c-2.8 0-5 2.2-5 5v5h7c1.7 0 3.3-.7 4.5-2l-.3-.5c-.8-1.4-1.7-3.4-2.6-5.1-.4-.5-1-.8-1.7-.8z"></path><path d="M17 12V6c0-2.8-2.2-5-5-5H7c-1.7 0-3.3.7-4.5 2l.3.5c.8 1.4 1.7 3.4 2.6 5.1.4.5 1 .8 1.7.8h2V12z"></path><path d="M7 12c-.7 0-1.3.3-1.7.8-1.4 1.4-2.3 3.4-2.6 5.1.3-.4.6-.8 1.1-1.1.6-.5 1.4-.8 2.3-.8H7V12z"></path></svg>
-              </div>
-              <h3 className="text-2xl font-semibold text-green-800 mb-3">Sustainable Future Farming</h3>
-              <p className="text-gray-600">
-                We empower farmers and gardeners to adopt practices that are not only productive today but also preserve the land for generations to come.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-6">Ready to Grow?</h2>
-          <p className="text-lg text-gray-700 mb-10">
-            Find out how our organic fertilizers can transform your farm, garden, or nursery. Contact our specialists today for a consultation or to place an order.
+          <p className="max-w-2xl mx-auto text-sm sm:text-base lg:text-lg text-[#5A6B5C] leading-relaxed">
+            Harnessing advanced biological science and pure organic inputs to revitalize soil microbiomes, enhance water retention, and sustainably maximize crop yields.
           </p>
-          <a href="mailto:sales@ourfertilizer.com" className="inline-block px-10 py-4 bg-green-600 text-white rounded-lg font-bold text-lg shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:-translate-y-1">
-            Contact Our Team
-          </a>
+
+          <div className="flex flex-wrap justify-center gap-3 pt-4">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 h-12 px-8 rounded-full bg-[#2E7D32] text-sm font-semibold text-white hover:bg-[#256B29] transition-all active:scale-[0.98] shadow-sm group"
+            >
+              <span>Explore Solutions</span>
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+            </a>
+            <a
+              href="#science"
+              className="inline-flex items-center h-12 px-8 rounded-full bg-white border border-[#D5DDD7] text-sm font-semibold text-[#1A2B1C] hover:bg-[#F0F4F1] transition-all active:scale-[0.98]"
+            >
+              Our Formulation Science
+            </a>
+          </div>
+
+          {/* Feature Pills */}
+          <div className="flex flex-wrap justify-center gap-3 pt-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-[#E4EAE5] text-xs font-medium text-[#3A4A3E] shadow-sm">
+              <ShieldCheck size={15} className="text-[#2E7D32]" />
+              Certified Organic Inputs
+            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-[#E4EAE5] text-xs font-medium text-[#3A4A3E] shadow-sm">
+              <Globe2 size={15} className="text-[#2E7D32]" />
+              Eco-Conscious Production
+            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-[#E4EAE5] text-xs font-medium text-[#3A4A3E] shadow-sm">
+              <Award size={15} className="text-[#2E7D32]" />
+              Enhanced Crop Yield
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. The Science Section */}
+      <section id="science" className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-t border-[#E4EAE5]">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Image Side */}
+          <div className="lg:col-span-6 relative">
+            <div className="rounded-2xl overflow-hidden shadow-lg relative aspect-[4/3] border border-[#E4EAE5]">
+              <Image
+                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=1200"
+                alt="Rich organic compost and healthy soil"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Floating badge */}
+            <div className="absolute -bottom-5 -right-5 hidden sm:flex items-center gap-3 bg-white border border-[#E4EAE5] p-4 rounded-2xl shadow-md">
+              <div className="w-11 h-11 rounded-xl bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center">
+                <Sprout size={22} />
+              </div>
+              <div>
+                <p className="text-xs text-[#5A6B5C] font-medium">Microbiome Level</p>
+                <p className="text-sm font-semibold text-[#1A2B1C]">100% Biological Purity</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Content Side */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="inline-flex items-center gap-2 text-[#2E7D32] uppercase text-xs font-semibold tracking-widest bg-[#2E7D32]/8 px-3 py-1 rounded-full border border-[#2E7D32]/15">
+              <FlaskConical size={13} />
+              <span>Formulation Science</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1A2B1C] tracking-tight leading-[1.2]">
+              The Science of Healthy,
+              <br />
+              Self-Sustaining Soil
+            </h2>
+
+            <p className="text-[#5A6B5C] text-sm sm:text-base leading-relaxed">
+              Our organic fertilizers deliver more than basic macro-nutrients. Through proprietary biological composting methods, we cultivate diverse microbial networks that optimize soil structure and nutrient bio-availability.
+            </p>
+
+            <div className="space-y-3 pt-2">
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F7F9F6] border border-[#E4EAE5] hover:border-[#2E7D32]/20 transition-all">
+                <div className="shrink-0 p-2.5 bg-[#2E7D32]/10 rounded-xl text-[#2E7D32]">
+                  <Sprout size={20} />
+                </div>
+                <div>
+                  <h3 className="text-[15px] font-semibold text-[#1A2B1C] mb-1">Enriches Soil Biology</h3>
+                  <p className="text-[#5A6B5C] text-sm leading-relaxed">
+                    Introduces specialized microorganisms to build a thriving, long-term underground ecosystem.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F7F9F6] border border-[#E4EAE5] hover:border-[#2E7D32]/20 transition-all">
+                <div className="shrink-0 p-2.5 bg-[#2E7D32]/10 rounded-xl text-[#2E7D32]">
+                  <Droplets size={20} />
+                </div>
+                <div>
+                  <h3 className="text-[15px] font-semibold text-[#1A2B1C] mb-1">Improves Water Retention</h3>
+                  <p className="text-[#5A6B5C] text-sm leading-relaxed">
+                    Enhances natural soil architecture to hold critical moisture efficiently during dry spells.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F7F9F6] border border-[#E4EAE5] hover:border-[#2E7D32]/20 transition-all">
+                <div className="shrink-0 p-2.5 bg-[#2E7D32]/10 rounded-xl text-[#2E7D32]">
+                  <CheckCircle2 size={20} />
+                </div>
+                <div>
+                  <h3 className="text-[15px] font-semibold text-[#1A2B1C] mb-1">Boosts Nutrient Bio-Uptake</h3>
+                  <p className="text-[#5A6B5C] text-sm leading-relaxed">
+                    Unlocks bound soil minerals so crops absorb vital nutrients naturally without chemical lockup.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Commitment to Sustainability */}
+      <section className="py-24 px-4 sm:px-6 lg:px-12 bg-[#F7F9F6] border-t border-[#E4EAE5]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-14 space-y-4">
+            <div className="inline-flex items-center gap-2 text-[#2E7D32] uppercase text-xs font-semibold tracking-widest bg-[#2E7D32]/8 px-3 py-1 rounded-full border border-[#2E7D32]/15">
+              <Leaf size={13} className="fill-[#2E7D32]" />
+              <span>Ecological Stewardship</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1A2B1C] tracking-tight">
+              Our Commitment to a Greener Planet
+            </h2>
+            <p className="text-[#5A6B5C] text-sm sm:text-base leading-relaxed">
+              Driving regenerative agriculture forward by eliminating heavy synthetic footprints and prioritizing long-term ecological balance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+            {/* Card 1 */}
+            <div className="bg-white border border-[#E4EAE5] p-7 sm:p-8 rounded-2xl flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                  <Globe2 size={24} />
+                </div>
+                <h3 className="text-lg font-semibold text-[#1A2B1C] mb-2.5">Reduced Footprint</h3>
+                <p className="text-[#5A6B5C] text-sm leading-relaxed">
+                  Our organic formulations minimize chemical runoff, conserve natural watersheds, and eliminate reliance on energy-intensive synthetic inputs.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-[#E4EAE5] text-xs font-medium text-[#2E7D32]">
+                Zero Synthetic Runoff
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white border border-[#E4EAE5] p-7 sm:p-8 rounded-2xl flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                  <Sprout size={24} />
+                </div>
+                <h3 className="text-lg font-semibold text-[#1A2B1C] mb-2.5">Biodiversity & Soil Health</h3>
+                <p className="text-[#5A6B5C] text-sm leading-relaxed">
+                  By fostering rich microbial communities and strengthening natural humus layers, our products support active ecosystems above and below ground.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-[#E4EAE5] text-xs font-medium text-[#2E7D32]">
+                Revitalized Micro-Life
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white border border-[#E4EAE5] p-7 sm:p-8 rounded-2xl flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                  <HeartHandshake size={24} />
+                </div>
+                <h3 className="text-lg font-semibold text-[#1A2B1C] mb-2.5">Sustainable Farming</h3>
+                <p className="text-[#5A6B5C] text-sm leading-relaxed">
+                  Empowering commercial growers, farms, and nurseries to implement sustainable routines that protect arable land for generations to come.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-[#E4EAE5] text-xs font-medium text-[#2E7D32]">
+                Generational Preservation
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. CTA Section */}
+      <section id="contact" className="py-24 px-4 sm:px-6 lg:px-12 bg-white border-t border-[#E4EAE5]">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-[#F7F9F6] border border-[#E4EAE5] rounded-3xl sm:rounded-[32px] p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden shadow-sm">
+            
+            <div className="relative z-10 max-w-2xl mx-auto space-y-6">
+              <div className="inline-flex items-center gap-2 text-[#2E7D32] uppercase text-xs font-semibold tracking-widest bg-[#2E7D32]/8 px-4 py-1.5 rounded-full border border-[#2E7D32]/15">
+                <Leaf size={13} className="fill-[#2E7D32]" />
+                <span>Start Your Transition</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#1A2B1C] tracking-tight">
+                Ready to Grow Sustainably?
+              </h2>
+
+              <p className="text-[#5A6B5C] text-sm sm:text-base leading-relaxed">
+                Discover how our premium organic fertilizers can transform your farm, commercial orchard, or nursery operations. Contact our agricultural specialists today.
+              </p>
+
+              <div className="pt-2">
+                <a
+                  href="mailto:sales@ourfertilizer.com"
+                  className="inline-flex items-center gap-2 h-12 px-9 rounded-full bg-[#2E7D32] text-sm font-semibold text-white hover:bg-[#256B29] transition-all active:scale-[0.98] shadow-sm group"
+                >
+                  <span>Contact Our Specialist Team</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                </a>
+              </div>
+
+              <p className="text-xs text-[#7A8B7C] pt-1 font-medium">
+                Direct consultation and bulk supply inquiries available worldwide.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
