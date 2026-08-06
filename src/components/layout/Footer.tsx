@@ -1,98 +1,141 @@
 "use client";
 
-import { Leaf } from "lucide-react";
+import { ArrowUpRight, Pin, ArrowUp, X } from "lucide-react";
+import { FacebookIcon } from "../icons/socialIcon";
+import { FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
-  const quickLinks = [
-    { name: "About Us", href: "/about-us" },
-    { name: "Products", href: "/products" },
-    { name: "Our Farms", href: "/our-farms" },
-    { name: "Sustainability", href: "/sustainability" },
+  const services = [
+    { name: "Organic Fertilizers", href: "/products/organic-fertilizers" },
+    { name: "Bio Fertilizers", href: "/products/bio-fertilizers" },
+    { name: "Vermicompost", href: "/products/vermicompost" },
+    { name: "Soil Conditioners", href: "/products/soil-conditioners" },
+    { name: "Plant Growth Promoters", href: "/products/plant-growth-promoters" },
   ];
-  
-  const knowMore = [
-    { name: "Blogs", href: "/blogs" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Support", href: "/support" },
-    { name: "Contact Us", href: "/contact-us" },
-  ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <footer className="bg-[#0A0A0A] pt-24 pb-12 px-6 lg:px-12 text-white">
-      <div className="max-w-7xl mx-auto flex flex-col items-center">
+    <footer className="bg-[#0B6623] text-white px-6 pt-20 pb-12 lg:px-12 relative overflow-hidden font-sans">
+      <div className="max-w-7xl mx-auto">
         
-        <h2 className="text-[5vw] leading-none font-bold tracking-tighter text-[#F5F4F0] mb-24 text-center">
-          GROW WITH <span className="text-[#839756]">ARKIN</span>
-        </h2>
+        {/* Top Grid Area */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start pb-16">
+          
+          {/* Left Column: CTA & Headline */}
+          <div className="lg:col-span-5 space-y-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+              Build an Eco-Friendly <br className="hidden sm:block" /> Farm Today
+            </h2>
 
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/10 pt-12">
-          {/* Logo Section */}
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#839756] text-[#F5F4F0]">
-                <Leaf size={16} />
-              </div>
-              <span className="font-bold text-lg tracking-tight">Arkin</span>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="/contact-us"
+                className="flex h-12 items-center justify-center rounded-full bg-[#839756] px-8 text-sm font-semibold text-white transition-all hover:bg-[#6e8045] active:scale-95 shadow-sm"
+              >
+                GET CONSULTANT
+              </a>
+              <a
+                href="/contact-us"
+                aria-label="Consultant Contact"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#839756] text-white transition-transform hover:scale-110 hover:bg-[#6e8045] active:scale-95 shadow-sm"
+              >
+                <ArrowUpRight size={20} />
+              </a>
             </div>
-            <p className="text-white/50 text-sm">
-              Regenerating the earth, one handful of soil at a time.
+          </div>
+
+          {/* Middle Column: Services */}
+          <div className="lg:col-span-3 space-y-6">
+            <h3 className="text-lg font-bold text-white tracking-wide">Services</h3>
+            <ul className="space-y-4 text-white/80 text-sm font-medium">
+              {services.map((item, idx) => (
+                <li key={idx}>
+                  <a href={item.href} className="hover:text-white transition-colors">
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right Column: Information & Details */}
+          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-white tracking-wide">Information</h3>
+              
+              <div className="space-y-4 text-sm">
+                <div>
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Emergency?</p>
+                  <p className="font-bold text-white text-base">+1 (122) 800 88 08</p>
+                </div>
+                <div>
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Email us</p>
+                  <p className="font-semibold text-white break-all">support@arkin.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6 pt-0 sm:pt-9">
+              <div className="space-y-4 text-sm">
+                <div>
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Address</p>
+                  <p className="font-semibold text-white">New York, NJ 07112, USA</p>
+                </div>
+                <div>
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Office Hours</p>
+                  <p className="font-semibold text-white">Mon–Friday, 09am–05pm</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Section: Socials, Massive Typography, and Copyright */}
+        <div className="pt-12 border-t border-white/15 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 relative">
+          
+          {/* Social Icons & Copyright */}
+          <div className="space-y-6 w-full lg:w-auto">
+            <div className="flex items-center gap-3">
+              <a href="https://facebook.com" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                <FacebookIcon />
+              </a>
+              <a href="https://pinterest.com" aria-label="Pinterest" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                <Pin size={18} />
+              </a>
+              <a href="https://twitter.com" aria-label="Twitter" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                <X size={18} />
+              </a>
+              <a href="https://instagram.com" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                <FaInstagram size={18} />
+              </a>
+            </div>
+
+            <p className="text-white/70 text-xs sm:text-sm">
+              © 2026 · <span className="font-bold text-white">Arkin Organics</span>. All Rights Reserved.
             </p>
           </div>
 
-          {/* Shop/Quick Links */}
-          <div>
-            <h4 className="font-bold mb-6">Explore</h4>
-            <ul className="space-y-3 text-white/50 text-sm">
-              {quickLinks.map((link, id) => (
-                <li key={id}>
-                  <a href={link.href} className="hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Massive Branding Typography & Scroll-to-Top */}
+          <div className="flex items-end justify-between lg:justify-end w-full lg:w-auto gap-4">
+            <h1 className="text-[17vw] sm:text-[14vw] lg:text-[160px] leading-[0.75] font-black tracking-tighter text-white select-none">
+              ARKIN<span className="text-white">.</span>
+            </h1>
+
+            <button
+              onClick={scrollToTop}
+              aria-label="Scroll to top"
+              className="mb-2 lg:mb-6 h-12 w-12 flex-shrink-0 rounded-full bg-[#839756] text-white flex items-center justify-center hover:bg-[#6e8045] transition-all shadow-md active:scale-95"
+            >
+              <ArrowUp size={20} />
+            </button>
           </div>
 
-          {/* Learn Section */}
-          <div>
-            <h4 className="font-bold mb-6">Learn</h4>
-            <ul className="space-y-3 text-white/50 text-sm">
-              {knowMore.map((link, id) => (
-                <li key={id}>
-                  <a href={link.href} className="hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Subscribe */}
-          <div>
-            <h4 className="font-bold mb-6">Subscribe</h4>
-            <p className="text-white/50 text-sm mb-4">Get 10% off your first order.</p>
-            <div className="flex h-12 w-full rounded-full bg-white/10 p-1 border border-white/10">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="bg-transparent px-4 w-full text-sm outline-none placeholder:text-white/30"
-              />
-              <button className="h-full px-6 rounded-full bg-white text-black text-sm font-bold hover:bg-[#FDBA21] transition-colors">
-                Join
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="w-full flex flex-col md:flex-row justify-between items-center mt-24 pt-8 border-t border-white/10 text-white/30 text-sm">
-          <p>© 2026 Arkin Organics. All rights reserved.</p>
-          <div className="flex gap-8 mt-4 md:mt-0">
-            <a href="/legal/privacy" className="hover:text-white transition-colors">Privacy</a>
-            <a href="/legal/terms" className="hover:text-white transition-colors">Terms</a>
-            <a href="/support" className="hover:text-white transition-colors">Support</a>
-          </div>
-        </div>
       </div>
     </footer>
   );

@@ -124,7 +124,7 @@ const ProductsClient: React.FC<ProductsClientProps> = ({
         {alert && (
           <div className={`mb-6 rounded-xl border ${alert.type === 'success' ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
             <div className="flex items-center p-4">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 {alert.type === 'success' ? (
                   <CheckCircle className="h-5 w-5 text-green-400" />
                 ) : (
@@ -242,7 +242,7 @@ const ProductsClient: React.FC<ProductsClientProps> = ({
                       <tr key={product.productId} className="hover:bg-gray-50">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
-                            <div className="flex-shrink-0 h-12 w-12">
+                            <div className="shrink-0 h-12 w-12">
                               <div className="h-12 w-12 rounded-lg bg-gray-100 flex items-center justify-center">
                                 <Package className="h-6 w-6 text-gray-400" />
                               </div>

@@ -1,7 +1,7 @@
 import { getHomeBlogs } from "@/actions/blog";
 import { getHomeProducts} from "@/actions/products";
-import { Category } from "@/components/FetchCategory/FetchCategory";
-import Home from "@/components/home/Home";
+import { Category } from "@/components/FetchCategory/FetchCategory";import Home from "@/components/general/HomePage";
+``
 import { Metadata } from "next";
 
 // Define or import the BlogPost and Category types correctly

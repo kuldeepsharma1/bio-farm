@@ -99,3 +99,20 @@
 ↓
 
 13. Footer
+
+
+app/
+   |--Homepage.
+    ├── Hero.tsx
+    ├── TrustedBy.tsx
+    ├── Products.tsx
+    ├── WhyChooseUs.tsx
+    ├── Process.tsx
+    ├── Benefits.tsx
+    ├── SuitableCrops.tsx
+    ├── Metrics.tsx
+    ├── Testimonials.tsx
+    ├── Industries.tsx
+    ├── FaqSection.tsx
+    └── FinalCta.tsx
+

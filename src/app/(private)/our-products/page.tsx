@@ -65,11 +65,11 @@ export default async function Page({
   return (
     <div className="min-h-screen max-w-7xl mx-auto  ">
       {/* Header */}
-      <header className="bg-gradient-to-r from-green-600 to-green-800 shadow-lg border-b mx-2 mt-2 rounded-2xl  ">
+      <header className="bg-linear-to-r from-green-600 to-green-800 shadow-lg border-b mx-2 mt-2 rounded-2xl  ">
         <div className="container mx-auto px-6 py-8">
           <div className="flex items-center justify-between text-white ">
             <div>
-              <h1 className="text-4xl  font-bold bg-gradient-to-r from-green-600 to-green-800 bg-clip-text  ">
+              <h1 className="text-4xl  font-bold bg-linear-to-r from-green-600 to-green-800 bg-clip-text  ">
                 Arkin Organics
               </h1>
               <p className=" mt-2 text-lg ">Purely Natural, Organically Yours</p>

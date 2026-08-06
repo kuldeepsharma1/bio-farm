@@ -60,13 +60,13 @@ export default async function Page({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
       {/* Header */}
       <header className="bg-white shadow-lg border-b">
         <div className="container mx-auto px-6 py-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold bg-linear-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
                 Arkin Organics
               </h1>
               <p className="text-gray-600 mt-2 text-lg">Purely Natural, Organically Yours</p>

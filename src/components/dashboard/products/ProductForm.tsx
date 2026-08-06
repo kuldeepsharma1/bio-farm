@@ -558,7 +558,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ user_id, product, initialCate
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex items-center justify-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors min-w-[140px]"
+            className="flex items-center justify-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors min-w-35"
           >
             {isSubmitting ? (
               <>
