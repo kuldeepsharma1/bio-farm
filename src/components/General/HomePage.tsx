@@ -26,6 +26,7 @@ import Feature from "@/components/general/Feature";
 import Methodology from "@/components/general/Methodology";
 import FaqPage from "@/components/general/Faq";
 import ContactPage from "@/components/general/Contact";
+import Process from "../process";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -225,7 +226,7 @@ export default function Home() {
       {/* ================================================================ */}
       {/* 3. OUR PRODUCTS                                                 */}
       {/* ================================================================ */}
-      <section className="bg-white px-6 py-20 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
+      {/* <section className="bg-white px-6 py-20 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16 lg:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1A2B1C] mb-5">
@@ -259,7 +260,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <Process/>
 
       {/* ================================================================ */}
       {/* 4. WHY CHOOSE US                                                */}

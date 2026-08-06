@@ -122,13 +122,13 @@ export default function Footer() {
           {/* Massive Branding Typography & Scroll-to-Top */}
           <div className="flex items-end justify-between lg:justify-end w-full lg:w-auto gap-4">
             <h1 className="text-[17vw] sm:text-[14vw] lg:text-[160px] leading-[0.75] font-black tracking-tighter text-white select-none">
-              ARKIN<span className="text-white">.</span>
+              ARKIN
             </h1>
 
             <button
               onClick={scrollToTop}
               aria-label="Scroll to top"
-              className="mb-2 lg:mb-6 h-12 w-12 flex-shrink-0 rounded-full bg-[#839756] text-white flex items-center justify-center hover:bg-[#6e8045] transition-all shadow-md active:scale-95"
+              className="mb-2 lg:mb-6 h-12 w-12 shrink-0 rounded-full bg-[#839756] text-white flex items-center justify-center hover:bg-[#6e8045] transition-all shadow-md active:scale-95"
             >
               <ArrowUp size={20} />
             </button>
