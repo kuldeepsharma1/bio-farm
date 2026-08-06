@@ -2,54 +2,32 @@
 
 import {
   Leaf,
-  ArrowUpRight,
-  ShieldCheck,
-  FlaskConical,
+  MapPin,
   Sprout,
+  HeartHandshake,
   CheckCircle2,
-  Play,
 } from "lucide-react";
 
-export default function AgrigoFeaturesSection() {
+export default function Process() {
   return (
-    <section className="bg-[#0B6623] text-white font-sans overflow-hidden relative pt-0 pb-16 sm:pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-12 sm:pt-16">
-        {/* Main Content: Left Text + Right Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center mb-12 sm:mb-16">
-          {/* Left Headline */}
-          <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
+    <section className="bg-[#0B6623] text-white font-sans overflow-hidden relative pt-12 pb-16 sm:pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        {/* Top Header & Image Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center mb-16 sm:mb-20">
+          {/* Left Title & Subtitle */}
+          <div className="lg:col-span-5 space-y-4 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 text-[#A4C639] uppercase text-[11px] font-bold tracking-widest bg-white/10 px-3 py-1 rounded-full">
               <Leaf size={14} className="fill-[#A4C639]" />
-              <span>ORGANIC FERTILIZER STANDARDS</span>
+              <span>WORK PROCESS</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
-              Pure Nutrients
+              Our Simple and
               <br className="hidden sm:inline" />
-              for Certified Organic
+              Effective Organic
               <br className="hidden sm:inline" />
-              Soil Health
+              Fertilizer Process
             </h2>
-
-            <p className="text-white/80 text-xs sm:text-sm max-w-md mx-auto lg:mx-0 leading-relaxed">
-              Complying strictly with organic input criteria, we eliminate synthetic chemicals to support vibrant soil microbiomes and safe food systems.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
-              <a
-                href="#standards"
-                className="inline-flex h-10 items-center justify-center rounded-full bg-[#8BA85A] px-6 text-xs sm:text-sm font-bold text-white transition-all hover:bg-[#7a954c] active:scale-95 shadow-md"
-              >
-                VIEW STANDARDS
-              </a>
-              <a
-                href="#standards"
-                aria-label="View standards"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#8BA85A] text-white transition-transform hover:scale-105 hover:bg-[#7a954c] active:scale-95 shadow-md"
-              >
-                <ArrowUpRight size={18} />
-              </a>
-            </div>
           </div>
 
           {/* Right Main Image */}
@@ -57,7 +35,7 @@ export default function AgrigoFeaturesSection() {
             <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative aspect-[16/10] border border-white/10">
               <img
                 src="https://images.unsplash.com/uploads/141247613151541c06062/c15fb37d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Organic farming and soil health inspection"
+                alt="Organic fertilizer processing inspection"
                 className="w-full h-full object-cover"
               />
               {/* Green status dot */}
@@ -66,72 +44,74 @@ export default function AgrigoFeaturesSection() {
           </div>
         </div>
 
-        {/* Bottom Section: Video + 2×2 Feature Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-          {/* Video Preview Card */}
-          <div className="lg:col-span-4">
-            <div className="rounded-2xl sm:rounded-3xl overflow-hidden relative aspect-[4/3] group shadow-xl">
-              <img
-                src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800"
-                alt="Organic fertilizer processing overview"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/15 flex items-center justify-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white text-[#0B6623] flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
-                  <Play size={20} className="fill-[#0B6623] ml-0.5" />
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Bottom Process Steps Grid with Connecting Line Effect */}
+        <div className="relative">
+          {/* Horizontal connecting line for large screens */}
+          <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-[2px] border-t-2 border-dotted border-white/30 z-0" />
 
-          {/* Feature Cards – 2×2 grid */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8 relative">
-            {/* 1. Verified Organic Inputs */}
-            <div className="bg-white text-[#121A14] p-4 sm:p-5 rounded-2xl sm:rounded-3xl flex items-center gap-3.5 shadow-lg hover:-translate-y-1 transition-all">
-              <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#0B6623]/10 text-[#0B6623] flex items-center justify-center flex-shrink-0">
-                <ShieldCheck size={22} strokeWidth={1.8} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+            {/* Step 01 */}
+            <div className="flex flex-col items-center text-center group">
+              <div className="text-[#A4C639] text-xs font-bold tracking-wider mb-3">
+                STEP - [01]
               </div>
-              <h3 className="font-medium text-xs sm:text-lg leading-snug">
-                Verified Organic
-                <br />
-                Inputs
+              <div className="w-16 h-16 rounded-2xl bg-[#8BA85A] text-white flex items-center justify-center shadow-lg mb-5 group-hover:scale-105 transition-transform">
+                <MapPin size={28} strokeWidth={1.8} />
+              </div>
+              <h3 className="font-bold text-sm sm:text-base mb-2 text-white">
+                Sourcing Inputs
               </h3>
+              <p className="text-white/80 text-xs leading-relaxed max-w-xs">
+                Collecting verified organic matter strictly meeting fertilizer safety and purity criteria.
+              </p>
             </div>
 
-            {/* 2. Zero Synthetic Residue */}
-            <div className="bg-white text-[#121A14] p-4 sm:p-5 rounded-2xl sm:rounded-3xl flex items-center gap-3.5 shadow-lg hover:-translate-y-1 transition-all">
-              <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#0B6623]/10 text-[#0B6623] flex items-center justify-center flex-shrink-0">
-                <FlaskConical size={22} strokeWidth={1.8} />
+            {/* Step 02 */}
+            <div className="flex flex-col items-center text-center group">
+              <div className="text-[#A4C639] text-xs font-bold tracking-wider mb-3">
+                STEP - [02]
               </div>
-             <h3 className="font-medium text-xs sm:text-lg leading-snug">
-                Zero Synthetic
-                <br />
-                Residue
+              <div className="w-16 h-16 rounded-2xl bg-[#8BA85A] text-white flex items-center justify-center shadow-lg mb-5 group-hover:scale-105 transition-transform">
+                <Sprout size={28} strokeWidth={1.8} />
+              </div>
+              <h3 className="font-bold text-sm sm:text-base mb-2 text-white">
+                Natural Composting
               </h3>
+              <p className="text-white/80 text-xs leading-relaxed max-w-xs">
+                Decomposing raw elements naturally without synthetic additives to cultivate rich microbiomes.
+              </p>
             </div>
 
-            {/* 3. Soil Microbiome Friendly */}
-            <div className="bg-white text-[#121A14] p-4 sm:p-5 rounded-2xl sm:rounded-3xl flex items-center gap-3.5 shadow-lg hover:-translate-y-1 transition-all">
-              <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#0B6623]/10 text-[#0B6623] flex items-center justify-center flex-shrink-0">
-                <Sprout size={22} strokeWidth={1.8} />
+            {/* Step 03 */}
+            <div className="flex flex-col items-center text-center group">
+              <div className="text-[#A4C639] text-xs font-bold tracking-wider mb-3">
+                STEP - [03]
               </div>
-              <h3 className="font-medium text-xs sm:text-lg leading-snug">
-                Soil Microbiome
-                <br />
-                Friendly
+              <div className="w-16 h-16 rounded-2xl bg-[#8BA85A] text-white flex items-center justify-center shadow-lg mb-5 group-hover:scale-105 transition-transform">
+                <HeartHandshake size={28} strokeWidth={1.8} />
+              </div>
+              <h3 className="font-bold text-sm sm:text-base mb-2 text-white">
+                Nutrient Blending
               </h3>
+              <p className="text-white/80 text-xs leading-relaxed max-w-xs">
+                Refining and balancing pure organic elements to maximize soil health and crop nutrition.
+              </p>
             </div>
 
-            {/* 4. Traceable Nutrient Origin */}
-            <div className="bg-white text-[#121A14] p-4 sm:p-5 rounded-xl sm:rounded-3xl flex items-center gap-3 shadow-lg hover:-translate-y-1 transition-all">
-              <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#0B6623]/10 text-[#0B6623] flex items-center justify-center flex-shrink-0">
-                <CheckCircle2 size={22} strokeWidth={1.8} />
+            {/* Step 04 */}
+            <div className="flex flex-col items-center text-center group">
+              <div className="text-[#A4C639] text-xs font-bold tracking-wider mb-3">
+                STEP - [04]
               </div>
-            <h3 className="font-medium text-xs sm:text-lg leading-snug">
-                Traceable Nutrient
-                <br />
-                Origin
+              <div className="w-16 h-16 rounded-2xl bg-[#8BA85A] text-white flex items-center justify-center shadow-lg mb-5 group-hover:scale-105 transition-transform">
+                <CheckCircle2 size={28} strokeWidth={1.8} />
+              </div>
+              <h3 className="font-bold text-sm sm:text-base mb-2 text-white">
+                Quality Verification
               </h3>
+              <p className="text-white/80 text-xs leading-relaxed max-w-xs">
+                Conducting strict residue and standard tests before packaging safe fertilizer batches.
+              </p>
             </div>
           </div>
         </div>
