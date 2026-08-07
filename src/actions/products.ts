@@ -472,7 +472,7 @@ export async function getPublicProducts({
       isActive: product.isActive,
       createdAt: product.createdAt || undefined,
       updatedAt: product.updatedAt || undefined,
-      images: product.images || [],
+      images: product.images ||[],
       tags: product.tags || [],
       weight: product.weight || 0,
       unit: product.unit || "unit",

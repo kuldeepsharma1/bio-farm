@@ -122,7 +122,7 @@ export default async function Page({
               <div>
                 <div className="relative bg-zinc-100 overflow-hidden aspect-square">
                   <Image
-                    src={product.images[0] || "/placeholder.jpg"}
+                    src={product.images[0] || "/placeholder.svg"}
                     alt={product.name}
                     width={300}
                     height={300}

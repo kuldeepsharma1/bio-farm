@@ -64,7 +64,7 @@ export default function ProductImageCarousel({
                         <SwiperSlide key={index} className="relative flex items-center justify-center">
                             <div className="swiper-zoom-container w-full h-full flex items-center justify-center">
                                 <Image
-                                    src={img || "/placeholder.jpg"}
+                                    src={img || "/placeholder.svg"}
                                     alt={`${name} - Image ${index + 1}`}
                                     width={800}
                                     height={800}
@@ -157,121 +157,100 @@ export default function ProductImageCarousel({
                 </div>
             )}
 
-            {/* Custom Styles */}
-            <style jsx global>{`
-                .product-carousel .swiper-button-next,
-                .product-carousel .swiper-button-prev {
-                    color: #1f2937;
-                    background: rgba(255, 255, 255, 0.95);
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 50%;
-                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                    backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    opacity: 0;
-                    transform: scale(0.8);
-                }
-                
-                .product-carousel .group:hover .swiper-button-next,
-                .product-carousel .group:hover .swiper-button-prev {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-                
-                .product-carousel .swiper-button-next:hover,
-                .product-carousel .swiper-button-prev:hover {
-                    background: rgba(255, 255, 255, 1);
-                    transform: scale(1.05);
-                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-                }
-                
-                .product-carousel .swiper-button-next::after,
-                .product-carousel .swiper-button-prev::after {
-                    font-size: 18px;
-                    font-weight: 600;
-                }
-                
-                .product-carousel .swiper-pagination-bullet {
-                    background: rgba(255, 255, 255, 0.6);
-                    opacity: 1;
-                    width: 8px;
-                    height: 8px;
-                    margin: 0 4px;
-                    transition: all 0.3s ease;
-                    border: 1px solid rgba(255, 255, 255, 0.3);
-                }
-                
-                .product-carousel .swiper-pagination-bullet-active {
-                    background: #3b82f6;
-                    transform: scale(1.3);
-                    border-color: #3b82f6;
-                }
-                
-                .product-carousel .thumb-swiper .swiper-slide {
-                    opacity: 0.7;
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                }
-                
-                .product-carousel .thumb-swiper .swiper-slide-thumb-active {
-                    opacity: 1;
-                }
-                
-                .product-carousel .main-swiper {
-                    border-radius: 16px;
-                    overflow: hidden;
-                }
-                
-                /* Mobile optimizations */
-                @media (max-width: 768px) {
-                    .product-carousel .swiper-button-next,
-                    .product-carousel .swiper-button-prev {
-                        width: 40px;
-                        height: 40px;
-                        opacity: 1;
-                        transform: scale(1);
-                    }
-                    
-                    .product-carousel .swiper-button-next::after,
-                    .product-carousel .swiper-button-prev::after {
-                        font-size: 16px;
-                    }
-                }
-                
-                /* Zoom cursor effects */
-                .product-carousel .swiper-zoom-container {
-                    cursor: zoom-in;
-                    transition: transform 0.3s ease;
-                }
-                
-                .product-carousel .swiper-zoom-container.swiper-zoom-container-zoomed {
-                    cursor: zoom-out;
-                }
-                
-                /* Smooth loading animation */
-                .product-carousel img {
-                    transition: opacity 0.3s ease;
-                }
-                
-                /* Hide scrollbar for thumbnail swiper */
-                .product-carousel .thumb-swiper {
-                    padding-bottom: 4px;
-                }
-                
-                /* Better focus states for accessibility */
-                .product-carousel .swiper-button-next:focus,
-                .product-carousel .swiper-button-prev:focus {
-                    outline: 2px solid #3b82f6;
-                    outline-offset: 2px;
-                }
-                
-                .product-carousel .thumb-swiper .swiper-slide:focus-within {
-                    outline: 2px solid #3b82f6;
-                    outline-offset: 2px;
-                    border-radius: 12px;
-                }
-            `}</style>
+           {/* Custom Styles */}
+<style jsx global>{`
+  .product-carousel .swiper-button-next,
+  .product-carousel .swiper-button-prev {
+    color: #1A2B1C;
+    background: #ffffff;
+    width: 34px;
+    height: 34px;
+    padding:8px;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E4EAE5;
+    transition: all 0.2s ease;
+    opacity: 0;
+  }
+
+  .product-carousel .group:hover .swiper-button-next,
+  .product-carousel .group:hover .swiper-button-prev {
+    opacity: 1;
+  }
+
+  .product-carousel .swiper-button-next:hover,
+  .product-carousel .swiper-button-prev:hover {
+    background: #F7F9F6;
+    color: #2E7D32;
+    border-color: #D0DBD2;
+  }
+
+  .product-carousel .swiper-button-next::after,
+  .product-carousel .swiper-button-prev::after {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .product-carousel .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.65);
+    opacity: 1;
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
+    transition: all 0.2s ease;
+  }
+
+  .product-carousel .swiper-pagination-bullet-active {
+    background: #2E7D32;
+    transform: scale(1.2);
+  }
+
+  .product-carousel .thumb-swiper .swiper-slide {
+    opacity: 0.6;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1.5px solid transparent;
+  }
+
+  .product-carousel .thumb-swiper .swiper-slide-thumb-active {
+    opacity: 1;
+    border-color: #2E7D32;
+  }
+
+  .product-carousel .main-swiper {
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .product-carousel .swiper-button-next,
+    .product-carousel .swiper-button-prev {
+      width: 32px;
+      height: 32px;
+      opacity: 1;
+    }
+
+    .product-carousel .swiper-button-next::after,
+    .product-carousel .swiper-button-prev::after {
+      font-size: 12px;
+    }
+  }
+
+  .product-carousel .swiper-zoom-container {
+    cursor: zoom-in;
+  }
+
+  .product-carousel .swiper-zoom-container.swiper-zoom-container-zoomed {
+    cursor: zoom-out;
+  }
+
+  .product-carousel .swiper-button-next:focus,
+  .product-carousel .swiper-button-prev:focus {
+    outline: 2px solid #2E7D32;
+    outline-offset: 2px;
+  }
+`}</style>
         </div>
     );
 }
