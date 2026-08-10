@@ -111,7 +111,7 @@ export default function BlogPost({ post }: BlogPostProps) {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-16">
+    <main className="min-h-screen bg-gray-50 pt-24 pb-16 min-w-full">
       {/* Hero Section */}
       <div className="relative h-100 md:h-150 mb-12">
         <div className="absolute inset-0 bg-black/60 z-10" />
@@ -195,15 +195,15 @@ export default function BlogPost({ post }: BlogPostProps) {
             </div>
           </div>
 
-          {/* Main Content */}
-          <article className="lg:col-span-8">
+      {/* Main Content */}
+          <article className="lg:col-span-10   ">
             <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 lg:p-12">
               <div className="prose prose-lg max-w-none prose-green">
                 <p className="text-xl text-gray-700 mb-8 leading-relaxed font-serif">
                   {post.excerpt}
                 </p>
                 <div
-                  className="mt-6 text-gray-800 leading-relaxed prose-p:mb-4 prose-li:mb-2 prose-headings:font-bold prose-a:text-green-600 prose-a:hover:underline"
+                  className="mt-6 text-gray-800 leading-relaxed prose-p:mb-4 prose-li:mb-2 prose-h1:font-semibold prose-h2:font-semibold prose-h3:font-semibold prose-h4:font-medium prose-h5:font-medium prose-h6:font-medium prose-a:text-green-600 prose-a:hover:underline"
                   dangerouslySetInnerHTML={{
                     __html: post.content
                       .replace(/\n/g, "")
@@ -214,7 +214,7 @@ export default function BlogPost({ post }: BlogPostProps) {
 
               {/* Tags */}
               <div className="mt-10 pt-8 border-t border-gray-200">
-                <h3 className="text-base font-semibold text-gray-600 mb-3">
+                <h3 className="text-base font-medium text-gray-600 mb-3">
                   Tagged with:
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -238,7 +238,7 @@ export default function BlogPost({ post }: BlogPostProps) {
                       src={
                         post.author.image ||
                         "https://placehold.net/avatar-2.png"
-                      } // Fallback for missing images
+                      }
                       alt={post.author.name || "Author"}
                       width={60}
                       height={60}
@@ -246,10 +246,10 @@ export default function BlogPost({ post }: BlogPostProps) {
                     />
                   </div>
                   <div className="ml-5">
-                    <h3 className="text-xl font-bold text-gray-900">
+                    <h3 className="text-xl font-semibold text-gray-900">
                       {post.author.name}
                     </h3>
-                    <p className="text-green-700 text-base mt-1">
+                    <p className="text-green-700 text-base mt-1 font-medium">
                       Expert in Sustainable Agriculture
                     </p>
                   </div>
