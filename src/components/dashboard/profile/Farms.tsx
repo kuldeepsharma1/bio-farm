@@ -214,7 +214,7 @@ export default function Farms({ userId }: { userId?: string }) {
                   <ChevronDown className="w-3.5 h-3.5 text-[#3A4A3E]/70" />
                 </summary>
                 
-                <div className="absolute right-0 sm:left-0 mt-2 bg-white border border-[#121A14]/5 rounded-3xl p-2 shadow-2xl z-30 min-w-[160px] flex flex-col gap-1">
+                <div className="absolute right-0 sm:left-0 mt-2 bg-white border border-[#121A14]/5 rounded-3xl p-2 shadow-2xl z-30 min-w-40 flex flex-col gap-1">
                   {(['All', 'Active', 'Planning', 'Inactive'] as const).map((status) => (
                     <button
                       key={status}
