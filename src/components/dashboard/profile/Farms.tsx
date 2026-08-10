@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Save, Trash2, Edit, Plus, MapPin, Calendar, Sprout, Activity, Search, Filter, Grid, List } from 'lucide-react';
+import { Save, Trash2, Edit, Plus, MapPin, Calendar, Sprout, Activity, Search, Grid, List, ChevronDown } from 'lucide-react';
 import { createFarm, getFarms, updateFarm, deleteFarm } from '@/actions/user';
 import { toast } from 'sonner';
 
@@ -32,6 +32,7 @@ export default function Farms({ userId }: { userId?: string }) {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [farmToDelete, setFarmToDelete] = useState<number | null>(null);
+
   // Fetch farms on mount
   useEffect(() => {
     const fetchFarms = async () => {
@@ -46,6 +47,7 @@ export default function Farms({ userId }: { userId?: string }) {
     };
     fetchFarms();
   }, [userId]);
+
   // Filter farms based on search and status
   const filteredFarms = farms.filter(farm => {
     const matchesSearch = farm.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -55,7 +57,6 @@ export default function Farms({ userId }: { userId?: string }) {
     return matchesSearch && matchesStatus;
   });
 
-  // Farms.tsx (relevant snippet)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!userId) {
@@ -104,7 +105,6 @@ export default function Farms({ userId }: { userId?: string }) {
       toast.error('User not authenticated');
       return;
     }
-    // Show confirmation modal instead of window.confirm
     setFarmToDelete(index);
     setShowDeleteModal(true);
   };
@@ -129,170 +129,198 @@ export default function Farms({ userId }: { userId?: string }) {
     }
   };
 
-  // Handle edit farm
   const handleEdit = (index: number) => {
     setNewFarm(farms[index]);
     setEditingFarmIndex(index);
     setShowFarmForm(true);
   };
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Active':
-        return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+        return 'bg-emerald-50 text-[#20ae44] border-[#20ae44]/20';
       case 'Planning':
-        return 'bg-amber-100 text-amber-800 border-amber-200';
+        return 'bg-amber-50 text-amber-700 border-amber-200';
       case 'Inactive':
-        return 'bg-gray-100 text-gray-800 border-gray-200';
+        return 'bg-[#FAF9F6] text-[#3A4A3E] border-[#E8EDE9]';
       default:
-        return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+        return 'bg-emerald-50 text-[#20ae44] border-[#20ae44]/20';
     }
   };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'Active':
-        return <Activity className="w-4 h-4" />;
+        return <Activity className="w-3.5 h-3.5 text-[#20ae44]" />;
       case 'Planning':
-        return <Calendar className="w-4 h-4" />;
+        return <Calendar className="w-3.5 h-3.5 text-amber-600" />;
       case 'Inactive':
-        return <div className="w-4 h-4 rounded-full bg-gray-400" />;
+        return <div className="w-3.5 h-3.5 rounded-full bg-[#3A4A3E]/40" />;
       default:
-        return <Activity className="w-4 h-4" />;
+        return <Activity className="w-3.5 h-3.5 text-[#20ae44]" />;
     }
   };
+
   return (
-    <div className="min-h-screen bg-linear-to-br from-green-50 via-emerald-50 to-teal-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b border-green-100 rounded-t-2xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
+    <main className="min-h-screen bg-[#FAF9F6] text-[#121A14] font-sans selection:bg-[#FDBA21] selection:text-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Hero Section */}
+        <div className="bg-white rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-14 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] mb-8 relative overflow-hidden">
+          <div className="absolute -top-32 -right-20 w-80 h-80 bg-[#20ae44]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-28 -left-20 w-72 h-72 bg-[#8BA85A]/15 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <h1 className="text-3xl font-semibold text-gray-900">Farm Management</h1>
-              <p className="mt-2 text-gray-600">Manage your organic farms with Arkin Organics</p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="bg-green-600 text-white px-4 py-2 rounded-lg font-medium">
-                Arkin Organics
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#20ae44] bg-[#20ae44]/10 border border-[#20ae44]/15 px-3.5 py-1.5 rounded-full mb-4">
+                <Sprout className="w-3.5 h-3.5 shrink-0" />
+                <span>Arkin Organics Management</span>
               </div>
+              <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#121A14] mb-2">Farm Management</h1>
+              <p className="text-xs sm:text-sm text-[#3A4A3E] font-medium leading-relaxed">Manage your organic farms seamlessly with precision tracking.</p>
+            </div>
+            
+            <div className="hidden md:flex flex-col items-end text-right bg-[#FAF9F6] px-6 py-4 rounded-3xl border border-[#E8EDE9]">
+              <p className="text-xs font-semibold text-[#3A4A3E] uppercase tracking-wider mb-0.5">Active Platform</p>
+              <p className="text-base font-bold text-[#20ae44]">Arkin Organics</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Controls Bar */}
-        <div className="bg-white rounded-2xl shadow-sm border border-green-100 p-6 mb-8">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
-            {/* Search and Filter */}
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 flex-1">
+        <div className="bg-white rounded-3xl border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] p-4 sm:p-6 mb-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            
+            {/* Search and Vertical Filter Button Group */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-1">
               <div className="relative flex-1 max-w-md">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#3A4A3E]/60 w-4 h-4" />
                 <input
                   type="text"
                   placeholder="Search farms..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  className="w-full pl-11 pr-4 py-2.5 bg-[#FAF9F6] border border-[#E8EDE9] rounded-full text-xs sm:text-sm font-medium text-[#121A14] placeholder-[#3A4A3E]/60 focus:outline-none focus:ring-2 focus:ring-[#20ae44]/30 focus:border-[#20ae44] transition-all shadow-xs"
                 />
               </div>
-              <div className="relative">
-                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <select
-                  value={filterStatus}
-                  onChange={(e) => setFilterStatus(e.target.value as 'All' | 'Active' | 'Planning' | 'Inactive')}
-                  className="pl-10 pr-8 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all appearance-none bg-white"
-                >
-                  <option value="All">All Status</option>
-                  <option value="Active">Active</option>
-                  <option value="Planning">Planning</option>
-                  <option value="Inactive">Inactive</option>
-                </select>
-              </div>
+
+              {/* Vertical Filter Button / Dropdown */}
+              <details className="relative shrink-0">
+                <summary className="flex items-center justify-between gap-2 px-5 py-2.5 bg-[#FAF9F6] hover:bg-[#20ae44]/10 hover:text-[#20ae44] text-[#3A4A3E] border border-[#E8EDE9] rounded-full transition-all cursor-pointer list-none text-xs sm:text-sm font-semibold shadow-xs">
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#20ae44]"></span>
+                    Filter: {filterStatus}
+                  </span>
+                  <ChevronDown className="w-3.5 h-3.5 text-[#3A4A3E]/70" />
+                </summary>
+                
+                <div className="absolute right-0 sm:left-0 mt-2 bg-white border border-[#121A14]/5 rounded-3xl p-2 shadow-2xl z-30 min-w-[160px] flex flex-col gap-1">
+                  {(['All', 'Active', 'Planning', 'Inactive'] as const).map((status) => (
+                    <button
+                      key={status}
+                      onClick={() => setFilterStatus(status)}
+                      className={`w-full text-left px-4 py-2 rounded-2xl text-xs font-semibold transition-all ${
+                        filterStatus === status
+                          ? 'bg-[#20ae44] text-white shadow-xs'
+                          : 'text-[#3A4A3E] hover:bg-[#FAF9F6]'
+                      }`}
+                    >
+                      {status}
+                    </button>
+                  ))}
+                </div>
+              </details>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex items-center space-x-3">
-              <div className="flex bg-gray-100 rounded-xl p-1">
+            {/* View Mode Switcher & Add Button */}
+            <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+              <div className="flex bg-[#FAF9F6] border border-[#E8EDE9] rounded-full p-1 shadow-xs">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-white shadow-sm text-green-600' : 'text-gray-500 hover:text-gray-700'}`}
+                  aria-label="Grid view"
+                  className={`p-2 rounded-full transition-all ${viewMode === 'grid' ? 'bg-[#20ae44] text-white shadow-xs' : 'text-[#3A4A3E] hover:bg-white'}`}
                 >
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-white shadow-sm text-green-600' : 'text-gray-500 hover:text-gray-700'}`}
+                  aria-label="List view"
+                  className={`p-2 rounded-full transition-all ${viewMode === 'list' ? 'bg-[#20ae44] text-white shadow-xs' : 'text-[#3A4A3E] hover:bg-white'}`}
                 >
                   <List className="w-4 h-4" />
                 </button>
               </div>
+
               <button
                 onClick={() => setShowFarmForm(true)}
-                className="flex items-center px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg"
+                className="flex items-center px-6 py-2.5 bg-[#20ae44] hover:bg-[#1b963a] text-white rounded-full transition-all shadow-sm text-xs sm:text-sm font-semibold active:scale-95 shrink-0"
               >
-                <Plus className="w-5 h-5 mr-2" />
+                <Plus className="w-4 h-4 mr-1.5" />
                 Add Farm
               </button>
             </div>
+
           </div>
         </div>
 
         {/* Farm Form Modal */}
         {showFarmForm && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="p-6 border-b border-gray-200">
-                <h2 className="text-2xl font-semibold text-gray-900">
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#121A14]/5 p-6 sm:p-8">
+              <div className="mb-6 pb-4 border-b border-[#E8EDE9]">
+                <h2 className="text-xl sm:text-2xl font-semibold text-[#121A14]">
                   {editingFarmIndex !== null ? 'Edit Farm' : 'Add New Farm'}
                 </h2>
-                <p className="text-gray-600 mt-1">
-                  {editingFarmIndex !== null ? 'Update farm information' : 'Create a new organic farm'}
+                <p className="text-xs sm:text-sm text-[#3A4A3E] mt-1">
+                  {editingFarmIndex !== null ? 'Update farm information' : 'Create a new organic farm profile'}
                 </p>
               </div>
 
-              <div className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Farm Name *</label>
-                    <input
-                      type="text"
-                      value={newFarm.name}
-                      onChange={(e) => setNewFarm({ ...newFarm, name: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
-                      placeholder="Enter farm name"
-                      required
-                    />
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold text-[#3A4A3E] uppercase tracking-wider mb-1.5">Farm Name *</label>
+                  <input
+                    type="text"
+                    value={newFarm.name}
+                    onChange={(e) => setNewFarm({ ...newFarm, name: e.target.value })}
+                    className="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E8EDE9] rounded-2xl text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#20ae44]/30 focus:border-[#20ae44]"
+                    placeholder="Enter farm name"
+                    required
+                  />
+                </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Size</label>
+                    <label className="block text-xs font-semibold text-[#3A4A3E] uppercase tracking-wider mb-1.5">Size</label>
                     <input
                       type="text"
                       value={newFarm.size || ''}
                       onChange={(e) => setNewFarm({ ...newFarm, size: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E8EDE9] rounded-2xl text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#20ae44]/30 focus:border-[#20ae44]"
                       placeholder="e.g., 25 acres"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
+                    <label className="block text-xs font-semibold text-[#3A4A3E] uppercase tracking-wider mb-1.5">Location</label>
                     <input
                       type="text"
                       value={newFarm.location || ''}
                       onChange={(e) => setNewFarm({ ...newFarm, location: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E8EDE9] rounded-2xl text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#20ae44]/30 focus:border-[#20ae44]"
                       placeholder="Farm location"
                     />
                   </div>
+                </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Established Year</label>
+                    <label className="block text-xs font-semibold text-[#3A4A3E] uppercase tracking-wider mb-1.5">Established Year</label>
                     <input
                       type="number"
                       value={newFarm.established || ''}
                       onChange={(e) => setNewFarm({ ...newFarm, established: parseInt(e.target.value) || undefined })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E8EDE9] rounded-2xl text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#20ae44]/30 focus:border-[#20ae44]"
                       placeholder="2024"
                       min="1900"
                       max="2030"
@@ -300,31 +328,31 @@ export default function Farms({ userId }: { userId?: string }) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Status</label>
+                    <label className="block text-xs font-semibold text-[#3A4A3E] uppercase tracking-wider mb-1.5">Status</label>
                     <select
                       value={newFarm.status}
                       onChange={(e) => setNewFarm({ ...newFarm, status: e.target.value as 'Active' | 'Planning' | 'Inactive' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all appearance-none bg-white"
+                      className="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E8EDE9] rounded-2xl text-xs sm:text-sm font-semibold text-[#121A14] focus:outline-none focus:ring-2 focus:ring-[#20ae44]/30 focus:border-[#20ae44] cursor-pointer"
                     >
                       <option value="Active">Active</option>
                       <option value="Planning">Planning</option>
                       <option value="Inactive">Inactive</option>
                     </select>
                   </div>
-
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Crops</label>
-                    <input
-                      type="text"
-                      value={newFarm.crops || ''}
-                      onChange={(e) => setNewFarm({ ...newFarm, crops: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
-                      placeholder="e.g., Tomatoes, Lettuce, Herbs"
-                    />
-                  </div>
                 </div>
 
-                <div className="flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-200">
+                <div>
+                  <label className="block text-xs font-semibold text-[#3A4A3E] uppercase tracking-wider mb-1.5">Crops</label>
+                  <input
+                    type="text"
+                    value={newFarm.crops || ''}
+                    onChange={(e) => setNewFarm({ ...newFarm, crops: e.target.value })}
+                    className="w-full px-4 py-3 bg-[#FAF9F6] border border-[#E8EDE9] rounded-2xl text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#20ae44]/30 focus:border-[#20ae44]"
+                    placeholder="e.g., Tomatoes, Lettuce, Herbs"
+                  />
+                </div>
+
+                <div className="flex justify-end gap-3 pt-6 border-t border-[#E8EDE9]">
                   <button
                     type="button"
                     onClick={() => {
@@ -332,49 +360,46 @@ export default function Farms({ userId }: { userId?: string }) {
                       setNewFarm({ name: '', size: '', location: '', established: undefined, crops: '', status: 'Active' });
                       setEditingFarmIndex(null);
                     }}
-                    className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all"
+                    className="px-6 py-2.5 bg-[#FAF9F6] text-[#3A4A3E] border border-[#E8EDE9] rounded-full hover:bg-gray-100 transition-all text-xs sm:text-sm font-semibold active:scale-95"
                   >
                     Cancel
                   </button>
                   <button
-                    type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleSubmit(e);
-                    }}
+                    type="submit"
                     disabled={loading}
-                    className="flex items-center px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center px-6 py-2.5 bg-[#20ae44] hover:bg-[#1b963a] text-white rounded-full transition-all shadow-sm text-xs sm:text-sm font-semibold active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? (
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
                     ) : (
-                      <Save className="w-5 h-5 mr-2" />
+                      <Save className="w-4 h-4 mr-2" />
                     )}
                     {editingFarmIndex !== null ? 'Update Farm' : 'Create Farm'}
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         )}
+
         {/* Delete Confirmation Modal */}
-        {showDeleteModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full">
-              <div className="p-6 border-b border-gray-200">
-                <h2 className="text-xl font-semibold text-gray-900">Confirm Delete</h2>
-                <p className="text-gray-600 mt-2">
-                  Are you sure you want to delete the farm <strong>{farms[farmToDelete!].name}</strong>? This action cannot be undone.
+        {showDeleteModal && farmToDelete !== null && (
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full border border-[#121A14]/5 p-6 sm:p-8">
+              <div className="mb-6">
+                <h2 className="text-xl font-semibold text-[#121A14]">Confirm Delete</h2>
+                <p className="text-xs sm:text-sm text-[#3A4A3E] mt-2">
+                  Are you sure you want to delete the farm <strong>{farms[farmToDelete]?.name}</strong>? This action cannot be undone.
                 </p>
               </div>
-              <div className="p-6 flex justify-end space-x-4">
+              <div className="flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => {
                     setShowDeleteModal(false);
                     setFarmToDelete(null);
                   }}
-                  className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-all"
+                  className="px-5 py-2.5 bg-[#FAF9F6] text-[#3A4A3E] border border-[#E8EDE9] rounded-full hover:bg-gray-100 transition-all text-xs sm:text-sm font-semibold active:scale-95"
                 >
                   Cancel
                 </button>
@@ -382,12 +407,12 @@ export default function Farms({ userId }: { userId?: string }) {
                   type="button"
                   onClick={confirmDelete}
                   disabled={loading}
-                  className="flex items-center px-6 py-3 bg-linear-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-full transition-all shadow-sm text-xs sm:text-sm font-semibold active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
                   ) : (
-                    <Trash2 className="w-5 h-5 mr-2" />
+                    <Trash2 className="w-4 h-4 mr-2" />
                   )}
                   Delete
                 </button>
@@ -400,116 +425,116 @@ export default function Farms({ userId }: { userId?: string }) {
         <div className="space-y-6">
           {filteredFarms.length > 0 ? (
             <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-4'}>
-              {filteredFarms.map((farm, index) => (
-                <div key={index} className={`bg-white rounded-2xl shadow-sm border border-green-100 hover:shadow-lg transition-all transform hover:scale-105 overflow-hidden ${viewMode === 'list' ? 'flex items-center p-6' : 'p-6'}`}>
-                  {viewMode === 'grid' ? (
-                    <>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(farm.status || 'Active')}`}>
-                          {getStatusIcon(farm.status || 'Active')}
-                          <span className="ml-2">{farm.status || 'Active'}</span>
+              {filteredFarms.map((farm, index) => {
+                const actualIndex = farms.indexOf(farm);
+                return (
+                  <div key={index} className={`bg-white rounded-3xl border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] hover:shadow-md transition-all overflow-hidden ${viewMode === 'list' ? 'flex flex-col sm:flex-row items-stretch sm:items-center p-5 sm:p-6 gap-4' : 'p-6 flex flex-col justify-between'}`}>
+                    {viewMode === 'grid' ? (
+                      <>
+                        <div>
+                          <div className="flex items-center justify-between mb-4">
+                            <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${getStatusColor(farm.status || 'Active')}`}>
+                              {getStatusIcon(farm.status || 'Active')}
+                              <span className="ml-1.5">{farm.status || 'Active'}</span>
+                            </div>
+                            <div className="flex space-x-1">
+                              <button
+                                onClick={() => handleEdit(actualIndex)}
+                                aria-label="Edit farm"
+                                className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-all"
+                              >
+                                <Edit className="w-4 h-4" />
+                              </button>
+                              <button
+                                onClick={() => handleDelete(actualIndex)}
+                                aria-label="Delete farm"
+                                className="p-2 text-rose-600 hover:bg-rose-50 rounded-full transition-all"
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </div>
+
+                          <h3 className="text-lg font-semibold text-[#121A14] mb-3">{farm.name}</h3>
+
+                          <div className="space-y-2.5 mb-4 text-xs sm:text-sm text-[#3A4A3E]">
+                            <div className="flex items-center">
+                              <div className="w-5 h-5 bg-[#20ae44]/10 rounded-full flex items-center justify-center mr-2.5 shrink-0">
+                                <div className="w-2 h-2 bg-[#20ae44] rounded-full"></div>
+                              </div>
+                              <span className="font-semibold text-[#121A14] mr-1">Size:</span>
+                              <span>{farm.size || 'N/A'}</span>
+                            </div>
+
+                            <div className="flex items-center">
+                              <MapPin className="w-4 h-4 text-[#20ae44] mr-2.5 shrink-0" />
+                              <span className="font-semibold text-[#121A14] mr-1">Location:</span>
+                              <span className="truncate">{farm.location || 'N/A'}</span>
+                            </div>
+
+                            <div className="flex items-center">
+                              <Calendar className="w-4 h-4 text-[#20ae44] mr-2.5 shrink-0" />
+                              <span className="font-semibold text-[#121A14] mr-1">Established:</span>
+                              <span>{farm.established || 'N/A'}</span>
+                            </div>
+
+                            <div className="flex items-start">
+                              <Sprout className="w-4 h-4 text-[#20ae44] mr-2.5 mt-0.5 shrink-0" />
+                              <div>
+                                <span className="font-semibold text-[#121A14] mr-1">Crops:</span>
+                                <span>{farm.crops || 'N/A'}</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex space-x-2">
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-3 mb-1.5">
+                            <h3 className="text-base sm:text-lg font-semibold text-[#121A14] truncate">{farm.name}</h3>
+                            <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold border shrink-0 ${getStatusColor(farm.status || 'Active')}`}>
+                              {getStatusIcon(farm.status || 'Active')}
+                              <span className="ml-1">{farm.status || 'Active'}</span>
+                            </div>
+                          </div>
+                          <div className="flex items-center flex-wrap gap-x-4 gap-y-1 text-xs text-[#3A4A3E] font-medium">
+                            <span><strong>Size:</strong> {farm.size || 'N/A'}</span>
+                            <span><strong>Location:</strong> {farm.location || 'N/A'}</span>
+                            <span><strong>Established:</strong> {farm.established || 'N/A'}</span>
+                            <span><strong>Crops:</strong> {farm.crops || 'N/A'}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center space-x-1 shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-[#E8EDE9]">
                           <button
-                            onClick={() => handleEdit(index)}
-                            className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all"
+                            onClick={() => handleEdit(actualIndex)}
+                            aria-label="Edit farm"
+                            className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-all"
                           >
                             <Edit className="w-4 h-4" />
                           </button>
                           <button
-                            onClick={() => handleDelete(index)}
-                            className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all"
+                            onClick={() => handleDelete(actualIndex)}
+                            aria-label="Delete farm"
+                            className="p-2 text-rose-600 hover:bg-rose-50 rounded-full transition-all"
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
-                      </div>
-
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">{farm.name}</h3>
-
-                      <div className="space-y-3">
-                        <div className="flex items-center text-gray-600">
-                          <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                            <div className="w-3 h-3 bg-green-600 rounded-full"></div>
-                          </div>
-                          <span className="font-medium">Size:</span>
-                          <span className="ml-2">{farm.size || 'N/A'}</span>
-                        </div>
-
-                        <div className="flex items-center text-gray-600">
-                          <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                          <span className="font-medium">Location:</span>
-                          <span className="ml-2">{farm.location || 'N/A'}</span>
-                        </div>
-
-                        <div className="flex items-center text-gray-600">
-                          <Calendar className="w-5 h-5 text-green-600 mr-3" />
-                          <span className="font-medium">Established:</span>
-                          <span className="ml-2">{farm.established || 'N/A'}</span>
-                        </div>
-
-                        <div className=" text-gray-600">
-                          <div className='flex flex-row'>
-                            <Sprout className="w-5 h-5 text-green-600 mr-3 mt-0.5" />
-                            <p className="font-medium">Crops</p>
-                          </div>
-                          <p>
-                            {farm.crops || 'N/A'}
-                          </p>
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="flex-1 flex items-center space-x-6">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-gray-900 mb-2">{farm.name}</h3>
-                          <div className="flex items-center space-x-4 text-sm text-gray-600">
-                            <span>{farm.size || 'N/A'}</span>
-                            <span>•</span>
-                            <span>{farm.location || 'N/A'}</span>
-                            <span>•</span>
-                            <span>{farm.established || 'N/A'}</span>
-                          </div>
-                          <div className="flex items-center space-x-2 text-sm text-gray-600 pt-2">
-                            <span className='font-semibold'>Crops</span> <span>{farm.crops || 'N/A'}</span>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center space-x-4">
-                          <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(farm.status || 'Active')}`}>
-                            {getStatusIcon(farm.status || 'Active')}
-                            <span className="ml-2">{farm.status || 'Active'}</span>
-                          </div>
-
-                          <div className="flex space-x-2">
-                            <button
-                              onClick={() => handleEdit(index)}
-                              className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all"
-                            >
-                              <Edit className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={() => handleDelete(index)}
-                              className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all"
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))}
+                      </>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Sprout className="w-12 h-12 text-green-600" />
+            <div className="bg-white rounded-3xl border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] p-12 text-center max-w-xl mx-auto">
+              <div className="w-20 h-20 bg-[#20ae44]/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-[#20ae44]/20">
+                <Sprout className="w-10 h-10 text-[#20ae44]" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No farms found</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="text-xl font-semibold text-[#121A14] mb-2">No farms found</h3>
+              <p className="text-xs sm:text-sm text-[#3A4A3E] font-medium mb-6 leading-relaxed">
                 {searchTerm || filterStatus !== 'All'
                   ? 'No farms match your current filters. Try adjusting your search or filter criteria.'
                   : 'Get started by adding your first organic farm to the system.'
@@ -518,16 +543,17 @@ export default function Farms({ userId }: { userId?: string }) {
               {(!searchTerm && filterStatus === 'All') && (
                 <button
                   onClick={() => setShowFarmForm(true)}
-                  className="inline-flex items-center px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg"
+                  className="inline-flex items-center px-6 py-3 bg-[#20ae44] hover:bg-[#1b963a] text-white rounded-full transition-all shadow-sm text-xs sm:text-sm font-semibold active:scale-95"
                 >
-                  <Plus className="w-5 h-5 mr-2" />
+                  <Plus className="w-4 h-4 mr-2" />
                   Add Your First Farm
                 </button>
               )}
             </div>
           )}
         </div>
+
       </div>
-    </div>
+    </main>
   );
 }

@@ -78,7 +78,7 @@ export default async function Page({
             <Leaf className="w-10 h-10" />
           </div>
           <div>
-            <h1 className="text-4xl font-extrabold tracking-tight">Arkin Organics</h1>
+            <h1 className="text-3xl font-semibold tracking-tighter">Arkin Organics</h1>
             <p className="text-green-100 text-lg font-medium">Purely Natural, Organically Yours</p>
           </div>
         </div>

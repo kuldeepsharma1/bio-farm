@@ -115,11 +115,11 @@ const WishlistPage: React.FC = () => {
     <div className="animate-pulse">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-          <div key={i} className="bg-white rounded-2xl p-6 shadow-sm">
-            <div className="w-full h-48 bg-gray-200 rounded-xl mb-4"></div>
-            <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
-            <div className="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
-            <div className="h-10 bg-gray-200 rounded w-full"></div>
+          <div key={i} className="bg-white rounded-3xl p-6 border border-[#121A14]/5 shadow-sm">
+            <div className="w-full h-48 bg-gray-100 rounded-2xl mb-4"></div>
+            <div className="h-6 bg-gray-100 rounded w-3/4 mb-2"></div>
+            <div className="h-4 bg-gray-100 rounded w-1/2 mb-4"></div>
+            <div className="h-10 bg-gray-100 rounded-full w-full"></div>
           </div>
         ))}
       </div>
@@ -127,110 +127,112 @@ const WishlistPage: React.FC = () => {
   );
 
   const EmptyState = () => (
-    <div className="text-center py-16">
-      <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-pink-100 to-red-100 rounded-full mb-6">
-        <Heart className="w-12 h-12 text-red-400" />
+    <div className="bg-white rounded-4xl sm:rounded-[2.5rem] p-8 sm:p-16 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] text-center max-w-2xl mx-auto">
+      <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-[#20ae44]/10 rounded-full mb-6 border border-[#20ae44]/15">
+        <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-[#20ae44]" />
       </div>
-      <h2 className="text-2xl font-semibold text-gray-900 mb-4">Your wishlist is empty</h2>
-      <p className="text-gray-600 mb-8 max-w-md mx-auto">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-[#121A14] mb-3 tracking-tight">Your wishlist is empty</h2>
+      <p className="text-sm sm:text-base text-[#3A4A3E] mb-8 max-w-md mx-auto font-medium leading-relaxed">
         Start adding your favorite organic products to your wishlist and never lose track of what you love.
       </p>
       <Link
         href="/our-products"
-        className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-200 shadow-lg hover:shadow-xl"
+        className="inline-flex items-center gap-2 bg-[#20ae44] hover:bg-[#1b963a] text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-md active:scale-95 text-sm sm:text-base"
       >
         <Package className="w-5 h-5" />
-        Explore Products
+        <span>Explore Products</span>
         <ArrowRight className="w-4 h-4" />
       </Link>
     </div>
   );
 
-  const WishlistItem = ({ item }: { item: WishlistItem }) => (
-    <div className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-200 border border-gray-100 relative overflow-hidden">
+  const WishlistItemCard = ({ item }: { item: WishlistItem }) => (
+    <div className="group bg-white rounded-3xl p-6 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] hover:shadow-md transition-all duration-300 relative flex flex-col justify-between">
       {/* Wishlist Badge */}
-      <div className="absolute top-4 right-4 z-10">
+      <div className="absolute top-5 right-5 z-10">
         <button
           onClick={() => handleRemove(item._id)}
           disabled={processingItems.has(item._id)}
-          className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md hover:bg-red-50 transition-colors duration-200 disabled:opacity-50"
+          aria-label="Remove from wishlist"
+          className="p-2.5 bg-white/90 backdrop-blur-sm rounded-full shadow-sm hover:bg-red-50 hover:text-red-500 text-gray-500 transition-all disabled:opacity-50 active:scale-95"
         >
-          <Heart className="w-5 h-5 text-red-500 fill-current" />
+          <Heart className="w-4 h-4 text-red-500 fill-current" />
         </button>
       </div>
 
-      {/* Product Image */}
-      <div className="relative mb-4 overflow-hidden rounded-xl bg-gray-100">
-        <Image
-          src={item.images[0] || '/placeholder-product.jpg'}
-          alt={item.name}
-          width={300}
-          height={300}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        {item.inStock === false && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <span className="text-white font-semibold">Out of Stock</span>
-          </div>
-        )}
+      <div>
+        {/* Product Image */}
+        <div className="relative mb-5 overflow-hidden rounded-2xl bg-[#FAF9F6] aspect-square">
+          <Image
+            src={item.images[0] || '/placeholder-product.jpg'}
+            alt={item.name}
+            fill
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          />
+          {item.inStock === false && (
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center">
+              <span className="text-white font-semibold text-sm bg-black/60 px-4 py-1.5 rounded-full">Out of Stock</span>
+            </div>
+          )}
+        </div>
+
+        {/* Product Info */}
+        <div className="space-y-2.5 mb-6">
+          {item.category && (
+            <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#20ae44]">
+              <Leaf className="w-3.5 h-3.5" />
+              <span>{item.category}</span>
+            </div>
+          )}
+
+          <h3 className="text-base sm:text-lg font-semibold text-[#121A14] line-clamp-2 tracking-tight">
+            {item.name}
+          </h3>
+
+          {item.rating !== undefined && (
+            <div className="flex items-center gap-2 pt-0.5">
+              <div className="flex items-center gap-0.5">
+                {renderStars(item.rating)}
+              </div>
+              <span className="text-xs text-[#3A4A3E] font-medium">
+                ({item.reviews || 0})
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Product Info */}
-      <div className="space-y-3">
-        {/* Category */}
-        {item.category && (
-          <div className="flex items-center gap-1 text-sm text-green-600">
-            <Leaf className="w-4 h-4" />
-            <span>{item.category}</span>
-          </div>
-        )}
-
-        {/* Product Name */}
-        <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 min-h-[3.5rem]">
-          {item.name}
-        </h3>
-
-        {/* Rating */}
-        {item.rating && (
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              {renderStars(item.rating)}
-            </div>
-            <span className="text-sm text-gray-500">
-              ({item.reviews || 0} reviews)
-            </span>
-          </div>
-        )}
-
-        {/* Price */}
-        <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-green-600">
+      <div>
+        {/* Price & Stock status */}
+        <div className="flex items-center justify-between mb-4 pt-4 border-t border-[#121A14]/5">
+          <span className="text-xl sm:text-2xl font-bold text-[#121A14]">
             ${item.price.toFixed(2)}
           </span>
           {item.inStock !== false && (
-            <div className="flex items-center gap-1 text-sm text-gray-500">
-              <ShieldCheck className="w-4 h-4 text-green-500" />
+            <div className="flex items-center gap-1 text-xs font-medium text-[#20ae44] bg-[#20ae44]/10 px-2.5 py-1 rounded-full">
+              <ShieldCheck className="w-3.5 h-3.5" />
               <span>In Stock</span>
             </div>
           )}
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-3 pt-2">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={() => handleAddToCart(item)}
             disabled={processingItems.has(item._id) || item.inStock === false}
-            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 px-4 rounded-xl font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-1 flex items-center justify-center gap-2 bg-[#20ae44] hover:bg-[#1b963a] text-white py-3 px-4 rounded-full font-semibold transition-all text-xs sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed shadow-sm active:scale-95"
           >
             <ShoppingCart className="w-4 h-4" />
-            {processingItems.has(item._id) ? 'Adding...' : 'Add to Cart'}
+            <span>{processingItems.has(item._id) ? 'Adding...' : 'Add to Cart'}</span>
           </button>
           
           <Link
             href={`/our-products/${item.productId}`}
-            className="flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-colors duration-200"
+            aria-label="View product details"
+            className="flex items-center justify-center w-11 h-11 bg-[#FAF9F6] hover:bg-[#20ae44]/10 hover:text-[#20ae44] text-[#3A4A3E] rounded-full border border-[#E8EDE9] transition-all shadow-sm active:scale-95 shrink-0"
           >
-            <Eye className="w-4 h-4 text-gray-600" />
+            <Eye className="w-4 h-4" />
           </Link>
         </div>
       </div>
@@ -238,39 +240,37 @@ const WishlistPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50">
-      <div className="container mx-auto px-4 py-8 max-w-7xl">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl text-white">
-              <Heart className="w-6 h-6 fill-current" />
-            </div>
-            <h1 className="text-3xl font-bold text-gray-900">My Wishlist</h1>
-          </div>
-          
-          {!loading && wishlist.length > 0 && (
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4 text-sm text-gray-600">
-                <div className="flex items-center gap-1">
-                  <Heart className="w-4 h-4 text-red-500" />
-                  <span>{wishlist.length} saved items</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Leaf className="w-4 h-4 text-green-600" />
-                  <span>Organic & Natural</span>
-                </div>
+    <main className="min-h-screen bg-[#FAF9F6] text-[#121A14] font-sans selection:bg-[#FDBA21] selection:text-black overflow-x-hidden">
+      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        
+        {/* Header Banner */}
+        <div className="bg-white rounded-4xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] mb-8 sm:mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#20ae44] bg-[#20ae44]/10 border border-[#20ae44]/15 px-3.5 py-1.5 rounded-full mb-4">
+                <Heart className="w-3.5 h-3.5 fill-current text-red-500 shrink-0" />
+                <span>Saved Items</span>
               </div>
-              
-              <button
-                onClick={handleClear}
-                className="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200"
-              >
-                <Trash2 className="w-4 h-4" />
-                Clear All
-              </button>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#121A14]">
+                My Wishlist
+              </h1>
             </div>
-          )}
+            
+            {!loading && wishlist.length > 0 && (
+              <div className="flex items-center gap-4">
+                <div className="hidden md:flex items-center gap-3 text-xs font-medium text-[#3A4A3E] bg-[#FAF9F6] px-4 py-2.5 rounded-full border border-[#E8EDE9]">
+                  <span className="font-semibold text-[#121A14]">{wishlist.length}</span> items saved
+                </div>
+                <button
+                  onClick={handleClear}
+                  className="flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold text-red-600 bg-red-50 hover:bg-red-100 rounded-full border border-red-200 transition-all shadow-sm active:scale-95"
+                >
+                  <Trash2 className="w-4 h-4" />
+                  <span>Clear All</span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Content */}
@@ -279,22 +279,22 @@ const WishlistPage: React.FC = () => {
         ) : wishlist.length === 0 ? (
           <EmptyState />
         ) : (
-          <>
+          <div className="space-y-8">
             {/* Products Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
               {wishlist.map((item) => (
-                <WishlistItem key={item._id} item={item} />
+                <WishlistItemCard key={item._id} item={item} />
               ))}
             </div>
 
-            {/* Bulk Actions */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-gray-600">
-                  <span className="font-semibold text-gray-900">{wishlist.length}</span> items in your wishlist
+            {/* Bottom Actions Container */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)]">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div className="text-xs sm:text-sm font-medium text-[#3A4A3E]">
+                  Total <span className="font-semibold text-[#121A14]">{wishlist.length}</span> items waiting in your wishlist
                 </div>
                 
-                <div className="flex gap-3">
+                <div className="flex flex-wrap items-center justify-center gap-3 w-full sm:w-auto">
                   <button
                     onClick={() => {
                       wishlist.forEach(item => {
@@ -303,26 +303,26 @@ const WishlistPage: React.FC = () => {
                         }
                       });
                     }}
-                    className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-200"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#20ae44] hover:bg-[#1b963a] text-white px-7 py-3 rounded-full font-semibold transition-all text-xs sm:text-sm shadow-sm active:scale-95"
                   >
                     <Plus className="w-4 h-4" />
-                    Add All to Cart
+                    <span>Add All to Cart</span>
                   </button>
                   
                   <Link
                     href="/our-products"
-                    className="flex items-center gap-2 bg-gray-100 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors duration-200"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#FAF9F6] hover:bg-[#20ae44]/10 hover:text-[#20ae44] text-[#3A4A3E] px-7 py-3 rounded-full font-semibold border border-[#E8EDE9] transition-all text-xs sm:text-sm shadow-sm active:scale-95"
                   >
-                    Continue Shopping
+                    <span>Continue Shopping</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -489,11 +489,11 @@ const SettingsPage: React.FC = () => {
           <div className="flex items-center justify-between h-20">
             {/* Left side - Title and icon */}
             <div className="flex items-center space-x-4">
-              <div className="flex items-center justify-center w-12 h-12 bg-linear-to-br from-green-500 to-green-600 rounded-xl shadow-sm">
+              <div className="flex items-center justify-center p-2 bg-linear-to-br from-green-500 to-green-600 rounded-full shadow-sm ">
                 <Settings className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+                <h1 className="text-xl font-medium text-gray-900 tracking-tight">
                   Account Settings
                 </h1>
                 <p className="text-sm text-gray-500 mt-0.5">
@@ -509,7 +509,7 @@ const SettingsPage: React.FC = () => {
                 onClick={logOutUser}
                 className="cursor-pointer flex items-center px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
               >
-                <LogOut className="w-4 h-4 mr-2" />
+                <LogOut className="w-6 h-6 mr-2" />
                 Sign Out
               </button>
             </div>
