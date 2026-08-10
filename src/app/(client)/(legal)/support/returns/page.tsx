@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import React from "react";
-import { RefreshCcw, Package, Clock, HelpCircle } from "lucide-react";
+import { RefreshCcw, Package, Clock, HelpCircle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.APP_URL!),
@@ -11,125 +11,139 @@ export const metadata: Metadata = {
 
 export default function ReturnsPage() {
   return (
-    <main className="min-h-screen bg-white text-[#1A2B1C] font-sans">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        {/* Header */}
-        <div className="mb-10">
-          <div className="inline-flex items-center gap-2 text-[12px] font-medium text-[#2E7D32] bg-[#F0F7F1] border border-[#D8E8DB] px-3 py-1 rounded-full mb-4">
-            <RefreshCcw className="w-3.5 h-3.5" />
-            Policy
+    <main className="min-h-screen bg-[#FAF9F6] text-[#121A14] font-sans selection:bg-[#FDBA21] selection:text-black overflow-x-hidden pt-24 sm:pt-28 pb-16">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+        
+        {/* Header Card / Banner */}
+        <div className="bg-white rounded-4xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-medium uppercase tracking-widest text-[#20ae44] bg-[#20ae44]/10 border border-[#20ae44]/15 px-3.5 py-1.5 rounded-full mb-4 sm:mb-5">
+            <RefreshCcw className="w-3.5 h-3.5 shrink-0" />
+            <span>Store Policy</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-semibold text-[#1A2B1C] tracking-tight mb-3">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#121A14] mb-3 sm:mb-4">
             Returns & Refunds
           </h1>
-          <p className="text-[15px] font-medium text-[#5A6B5C] leading-relaxed">
-            Clear and fair guidelines for returning products and receiving refunds.
+          <p className="text-sm sm:text-base text-[#3A4A3E] leading-relaxed max-w-2xl font-medium">
+            Clear, transparent guidelines for returning products, tracking store credits, and receiving smooth refunds.
           </p>
         </div>
 
-        {/* Content */}
-        <div className="space-y-9">
-          {/* Our Guarantee */}
-          <section>
-            <h2 className="text-[17px] font-semibold text-[#1A2B1C] mb-2.5 flex items-center gap-2">
-              <Package className="w-4 h-4 text-[#2E7D32]" />
-              Our Guarantee
-            </h2>
-            <p className="text-[14px] font-medium text-[#4A5C4C] leading-relaxed">
-              At Arkin Organics, customer satisfaction is our priority. If you&apos;re
-              not satisfied with your purchase, we&apos;re here to help with a fair and
-              simple return policy.
-            </p>
-          </section>
+        {/* Main Grid Layout / Stack */}
+        <div className="space-y-4 sm:space-y-6">
+          
+          {/* Guarantee & Return Window Cards (Side by side on larger screens, stacked on mobile) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[#20ae44]/10 text-[#20ae44] flex items-center justify-center mb-5 border border-[#20ae44]/15">
+                  <Package className="w-5 h-5" />
+                </div>
+                <h2 className="text-lg sm:text-xl font-medium text-[#121A14] mb-2">
+                  Our Guarantee
+                </h2>
+                <p className="text-xs sm:text-sm text-[#3A4A3E] leading-relaxed font-medium">
+                  At Arkin Organics, your satisfaction comes first. If you&apos;re not fully content with your biological input, we&apos;re here to make things right.
+                </p>
+              </div>
+            </div>
 
-          {/* Return Window */}
-          <section>
-            <h2 className="text-[17px] font-semibold text-[#1A2B1C] mb-2.5 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#2E7D32]" />
-              Return Window
-            </h2>
-            <p className="text-[14px] font-medium text-[#4A5C4C] leading-relaxed">
-              Returns are accepted within <span className="font-semibold text-[#1A2B1C]">30 days</span> of
-              purchase. Items must be unused and in their original packaging to
-              qualify for a full refund.
-            </p>
-          </section>
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[#20ae44]/10 text-[#20ae44] flex items-center justify-center mb-5 border border-[#20ae44]/15">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <h2 className="text-lg sm:text-xl font-medium text-[#121A14] mb-2">
+                  30-Day Window
+                </h2>
+                <p className="text-xs sm:text-sm text-[#3A4A3E] leading-relaxed font-medium">
+                  Returns are accepted within <span className="font-medium text-[#121A14]">30 days</span> of purchase. Items must remain unused and in original packaging.
+                </p>
+              </div>
+            </div>
+          </div>
 
-          {/* How to Return */}
-          <section>
-            <h2 className="text-[17px] font-semibold text-[#1A2B1C] mb-3">
-              How to Return
+          {/* How to Return Step-by-Step Card */}
+          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)]">
+            <h2 className="text-xl sm:text-2xl font-medium text-[#121A14] mb-6">
+              How to Process a Return
             </h2>
-            <ol className="space-y-2.5">
+            <div className="space-y-4">
               {[
                 <>
-                  Email us at{" "}
+                  Send your order details and photos (if damaged) to{" "}
                   <a
                     href="mailto:returns@arkinorganics.com"
-                    className="text-[#2E7D32] font-semibold hover:underline underline-offset-2"
+                    className="text-[#20ae44] font-medium hover:underline underline-offset-2 break-all"
                   >
                     returns@arkinorganics.com
-                  </a>{" "}
-                  with your order number.
+                  </a>
                 </>,
-                "We will send you a return authorization and shipping instructions.",
-                "Package your items securely and ship them back using the provided label.",
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="flex gap-3 text-[14px] font-medium text-[#4A5C4C] leading-relaxed"
-                >
-                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F0F7F1] text-[#2E7D32] text-[12px] font-semibold flex items-center justify-center">
-                    {i + 1}
+                "Our support crew will issue a return authorization tag and shipping options.",
+                "Safely package your items and drop them off using the prepaid label provided.",
+              ].map((step, i) => (
+                <div key={i} className="flex gap-4 items-start bg-[#F9FAF9] p-4 sm:p-5 rounded-2xl border border-[#E8EDE9]">
+                  <span className="shrink-0 w-7 h-7 rounded-xl bg-[#20ae44]/15 text-[#20ae44] text-xs font-medium flex items-center justify-center">
+                    0{i + 1}
                   </span>
-                  <span>{item}</span>
-                </li>
+                  <p className="text-xs sm:text-sm font-medium text-[#3A4A3E] leading-relaxed pt-1">
+                    {step}
+                  </p>
+                </div>
               ))}
-            </ol>
-          </section>
+            </div>
+          </div>
 
-          {/* Refunds */}
-          <section>
-            <h2 className="text-[17px] font-semibold text-[#1A2B1C] mb-2.5">
-              Refunds
-            </h2>
-            <p className="text-[14px] font-medium text-[#4A5C4C] leading-relaxed">
-              Once we receive your return and inspect the items, we will issue a
-              refund to your original payment method. Refunds typically take{" "}
-              <span className="font-semibold text-[#1A2B1C]">5–7 business days</span> to
-              process.
-            </p>
-          </section>
+          {/* Refunds & Non-Returnable items grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)]">
+              <h2 className="text-lg sm:text-xl font-medium text-[#121A14] mb-3">
+                Refund Timelines
+              </h2>
+              <p className="text-xs sm:text-sm text-[#3A4A3E] leading-relaxed font-medium">
+                Once items are inspected at our facility, refunds are disbursed directly to your original payment card and usually settle within <span className="font-medium text-[#121A14]">5–7 business days</span>.
+              </p>
+            </div>
 
-          {/* Non-Returnable */}
-          <section>
-            <h2 className="text-[17px] font-semibold text-[#1A2B1C] mb-2.5">
-              Non-Returnable Items
-            </h2>
-            <p className="text-[14px] font-medium text-[#4A5C4C] leading-relaxed">
-              Perishable items or opened bags of fertilizer are not eligible for
-              return. Please contact us if your order arrived damaged or
-              defective — we will resolve it promptly.
-            </p>
-          </section>
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)]">
+              <h2 className="text-lg sm:text-xl font-medium text-[#121A14] mb-3">
+                Non-Returnable Goods
+              </h2>
+              <p className="text-xs sm:text-sm text-[#3A4A3E] leading-relaxed font-medium">
+                Perishable biological components or opened bags of fertilizer cannot be returned unless they arrived physically compromised or defective.
+              </p>
+            </div>
+          </div>
 
-          {/* Need Help */}
-          <section className="bg-[#F7F9F6] border border-[#E4EAE5] rounded-2xl p-5 sm:p-6">
-            <h2 className="text-[17px] font-semibold text-[#1A2B1C] mb-2 flex items-center gap-2">
-              <HelpCircle className="w-4 h-4 text-[#2E7D32]" />
-              Need Help?
-            </h2>
-            <p className="text-[14px] font-medium text-[#4A5C4C] leading-relaxed">
-              Questions about returns or refunds? Contact us at{" "}
-              <a
-                href="mailto:support@arkinorganics.com"
-                className="text-[#2E7D32] font-semibold hover:underline underline-offset-2"
-              >
-                support@arkinorganics.com
-              </a>
-              . We&apos;re happy to assist.
-            </p>
-          </section>
+          {/* Need Help Banner */}
+          <div className="bg-[#0B6623] text-white rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-xl border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="absolute -top-24 -right-16 w-60 h-60 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="relative z-10 max-w-md">
+              <div className="inline-flex items-center gap-2 text-[#A4C639] uppercase text-[10px] font-medium tracking-widest bg-white/10 px-3 py-1 rounded-full mb-3">
+                <HelpCircle size={13} className="fill-[#A4C639]" />
+                <span>CUSTOMER SUPPORT</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-medium text-white mb-2 tracking-tight">
+                Still have questions?
+              </h2>
+              <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-medium">
+                Reach out to our agricultural helpdesk anytime at{" "}
+                <a
+                  href="mailto:support@arkinorganics.com"
+                  className="text-[#A4C639] font-medium underline underline-offset-2 break-all"
+                >
+                  support@arkinorganics.com
+                </a>
+              </p>
+            </div>
+            <a
+              href="mailto:support@arkinorganics.com"
+              className="relative z-10 shrink-0 h-11 px-6 rounded-full bg-[#8BA85A] text-white text-xs sm:text-sm font-medium hover:bg-[#7a954c] transition-all inline-flex items-center gap-2 shadow-md active:scale-95"
+            >
+              <span>Contact Support</span>
+              <ArrowRight size={15} />
+            </a>
+          </div>
+
         </div>
       </div>
     </main>
