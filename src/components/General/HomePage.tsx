@@ -68,8 +68,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#F5F4F0] font-sans text-[#121A14] selection:bg-[#FDBA21] selection:text-black overflow-hidden">
-      {/* ================================================================ */}
-      {/* 1. HERO                                                         */}
+      {/* 1. HERO                                                          */}
       {/* ================================================================ */}
       <section className="relative flex min-h-dvh flex-col justify-center px-6 pt-24 pb-12 lg:px-12">
         <div className="relative z-20 w-full max-w-7xl mx-auto flex flex-col h-full justify-center">
@@ -84,7 +83,25 @@ export default function Home() {
             Organic <br className="hidden sm:block" /> Fertilizers
           </motion.h1>
 
-          <div className="mt-12 lg:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-end relative z-20">
+          {/* Mobile Image: Displays cleanly below heading so text is never hidden */}
+          <motion.div
+            initial={
+              shouldAnimate
+                ? { opacity: 0, scale: 0.8 }
+                : { opacity: 1, scale: 1 }
+            }
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="block lg:hidden w-full h-80 sm:h-96 my-6 z-10"
+          >
+            <img
+              src="./arkin-plant.png"
+              alt="Healthy crops growing with organic fertilizers"
+              className="w-full h-full object-cover object-bottom rounded-3xl mix-blend-multiply opacity-95 shadow-sm"
+            />
+          </motion.div>
+
+          <div className="mt-6 lg:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-end relative z-20">
             <motion.div
               variants={fadeUp}
               initial={shouldAnimate ? "hidden" : "show"}
@@ -144,6 +161,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Desktop Absolute Floating Image: Unchanged and pristine on large screens */}
         <motion.div
           initial={
             shouldAnimate
@@ -152,12 +170,12 @@ export default function Home() {
           }
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute left-1/2 top-[45%] lg:top-1/2 -translate-x-1/2 -translate-y-1/2 w-70 h-90 sm:w-87.5 sm:h-112.5 lg:w-120 lg:h-150 z-10 pointer-events-none"
+          className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-120 h-150 z-10 pointer-events-none"
         >
           <img
             src="./arkin-plant.png"
             alt="Healthy crops growing with organic fertilizers"
-            className="w-full h-full object-cover object-bottom rounded-4xl lg:rounded-[4rem] mix-blend-multiply opacity-90"
+            className="w-full h-full object-cover object-bottom rounded-[4rem] mix-blend-multiply opacity-90"
           />
         </motion.div>
       </section>
@@ -397,44 +415,38 @@ export default function Home() {
       {/* ================================================================ */}
       {/* 4. WHY CHOOSE US                                                */}
       {/* ================================================================ */}
-      <section className="bg-[#F9FAF9] px-6 py-20 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
-        <div className="mx-auto max-w-6xl text-center mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1A2B1C]">
-            Why Choose Us
-          </h2>
-          <p className="mt-4 text-[#4A5C4C] max-w-2xl mx-auto text-base sm:text-lg">
-            Science-backed biological solutions that improve soil health,
-            increase yields, and support long-term sustainability.
-          </p>
-        </div>
+     <section className="bg-[#F9FAF9] px-6 py-20 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
+  <div className="mx-auto max-w-6xl text-center mb-12 lg:mb-16">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1A2B1C]">
+      Why Choose Us
+    </h2>
+    <p className="mt-4 text-[#4A5C4C] max-w-2xl mx-auto text-base sm:text-lg">
+      Science-backed biological solutions that improve soil health,
+      increase yields, and support long-term sustainability.
+    </p>
+  </div>
 
-        <motion.div
-          variants={stagger}
-          initial={shouldAnimate ? "hidden" : "show"}
-          whileInView={shouldAnimate ? "show" : undefined}
-          viewport={{ once: true, margin: "-100px" }}
-          className="mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
-        >
-          <ImageBlock src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600" />
-          <FeatureBlock
-            icon={Sprout}
-            title="Improves Soil Health"
-            desc="Restores microbial balance and builds long-term soil fertility naturally."
-          />
-          <ImageBlock src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1174&auto=format&fit=crop" />
-          <FeatureBlock
-            icon={Droplets}
-            title="Better Water Retention"
-            desc="Enhances soil structure so moisture is held longer during dry periods."
-          />
-          <ImageBlock src="https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1074&auto=format&fit=crop" />
-          <FeatureBlock
-            icon={Wind}
-            title="Lower Carbon Impact"
-            desc="Supports regenerative practices that reduce emissions and chemical dependency."
-          />
-        </motion.div>
-      </section>
+  <div className="mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+    <ImageBlock src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600" />
+    <FeatureBlock
+      icon={Sprout}
+      title="Improves Soil Health"
+      desc="Restores microbial balance and builds long-term soil fertility naturally."
+    />
+    <ImageBlock src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1174&auto=format&fit=crop" />
+    <FeatureBlock
+      icon={Droplets}
+      title="Better Water Retention"
+      desc="Enhances soil structure so moisture is held longer during dry periods."
+    />
+    <ImageBlock src="https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1074&auto=format&fit=crop" />
+    <FeatureBlock
+      icon={Wind}
+      title="Lower Carbon Impact"
+      desc="Supports regenerative practices that reduce emissions and chemical dependency."
+    />
+  </div>
+</section>
 
       {/* ================================================================ */}
       {/* 5. OUR PROCESS                                                  */}
@@ -623,6 +635,7 @@ export default function Home() {
         </div>
       </div>
     </section>
+    
       {/* Optional Contact Form (hidden or place where needed) */}
       <div className="hidden">
         <ContactPage />
