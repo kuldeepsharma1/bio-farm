@@ -44,7 +44,7 @@ export default function FaqPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50/50 text-slate-900 px-4 py-20 md:py-28 font-sans selection:bg-slate-900 selection:text-white">
+    <main className="min-h-screen bg-slate-50/50 text-slate-900 px-4 py-16 md:py-28 font-sans selection:bg-slate-900 selection:text-white">
       <div className="max-w-4xl mx-auto">
         
         {/* Typographic Hero Group */}

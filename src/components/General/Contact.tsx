@@ -33,7 +33,7 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="relative min-h-screen bg-white px-6 py-28 lg:px-20 text-slate-900 selection:bg-emerald-500 selection:text-white overflow-hidden" id="contact">
+    <section className="relative min-h-screen bg-white px-4 sm:px-6 lg:px-20  py-12 sm:pb-28 lg:pb-36 text-slate-900 selection:bg-emerald-500 selection:text-white overflow-hidden" id="contact">
       
       {/* Global Font Injection for Fraunces & Inter */}
       <style jsx global>{`
@@ -45,16 +45,16 @@ export default function ContactPage() {
 
       {/* Subtle Organic Background Glow */}
       <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center overflow-hidden">
-        <div className="h-150 w-150 rounded-full bg-emerald-50/50 blur-[140px]" />
+        <div className="h-96 w-96 sm:h-150 sm:w-150 rounded-full bg-emerald-50/50 blur-[140px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
         
         {/* Split Grid Layout with Generous Whitespace */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
           
           {/* Left Column: Typography & Corporate Channels */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-10">
+          <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-8 lg:space-y-10">
             <div className="space-y-6">
               
               {/* Sprout Badge */}
@@ -64,13 +64,13 @@ export default function ContactPage() {
               </div>
 
               {/* Main Headline in Fraunces Serif */}
-              <h1 className="font-fraunces text-4xl font-normal tracking-tight text-slate-900 sm:text-5xl leading-[1.1]">
+              <h1 className="font-fraunces text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 leading-[1.1]">
                 Let&apos;s cultivate <br />
                 <span className="italic text-emerald-600 font-medium">growth together.</span>
               </h1>
 
               {/* Description */}
-              <p className="text-base text-slate-600 font-normal leading-relaxed max-w-md">
+              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-md">
                 Initiate a professional technical soil composition audit or secure high-volume bulk freight scheduling. Our agronomy team evaluates crop yield distributions globally.
               </p>
             </div>
@@ -83,13 +83,13 @@ export default function ContactPage() {
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-white text-slate-700 group-hover:text-emerald-600 shadow-2xs transition-all shrink-0 border border-slate-200/80">
                   <MessageSquare size={17} />
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-sm font-semibold text-slate-900">Immediate Logistics</h4>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-xs sm:text-sm font-semibold text-slate-900">Immediate Logistics</h4>
                   <a 
                     href="https://wa.me/yournumber" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-xs text-slate-500 hover:text-emerald-600 font-medium transition-colors inline-flex items-center gap-1 mt-0.5"
+                    className="text-xs text-slate-500 hover:text-emerald-600 font-medium transition-colors inline-flex items-center gap-1 mt-0.5 truncate"
                   >
                     Chat directly with dispatch &rarr;
                   </a>
@@ -101,9 +101,9 @@ export default function ContactPage() {
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-white text-slate-700 shadow-2xs shrink-0 border border-slate-200/80">
                   <Mail size={17} />
                 </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-slate-900">Corporate RFQs</h4>
-                  <p className="text-xs text-slate-500 mt-0.5 font-mono select-all">
+                <div className="min-w-0">
+                  <h4 className="text-xs sm:text-sm font-semibold text-slate-900">Corporate RFQs</h4>
+                  <p className="text-xs text-slate-500 mt-0.5 font-mono select-all truncate">
                     proposals@arkinorganics.com
                   </p>
                 </div>
@@ -115,8 +115,8 @@ export default function ContactPage() {
                   <ShieldCheck size={17} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-900">Protected Formulations</h4>
-                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                  <h4 className="text-xs sm:text-sm font-semibold text-slate-900">Protected Formulations</h4>
+                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed font-normal">
                     Custom property yield profiles and matrix soil data parameters are encrypted under strict corporate NDAs.
                   </p>
                 </div>
@@ -125,9 +125,9 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right Column: Premium Vercel/Linear/Stripe Style Form Card */}
+          {/* Right Column: Premium Form Card */}
           <div className="lg:col-span-7 w-full">
-            <div className="bg-white border border-slate-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.06)] rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
+            <div className="bg-white border border-slate-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.06)] rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden">
               
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
@@ -140,7 +140,7 @@ export default function ContactPage() {
                   >
                     
                     <div className="space-y-1 pb-4 border-b border-slate-100">
-                      <h2 className="font-fraunces text-2xl font-normal tracking-tight text-slate-900">
+                      <h2 className="font-fraunces text-xl sm:text-2xl font-semibold tracking-tight text-slate-900">
                         Operational Specifications
                       </h2>
                       <p className="text-xs text-slate-500 font-normal">
@@ -161,7 +161,7 @@ export default function ContactPage() {
                           placeholder="Alexander"
                           value={formData.firstName}
                           onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                          className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 shadow-2xs"
+                          className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-xs sm:text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 shadow-2xs font-normal"
                         />
                       </div>
                       <div className="space-y-2">
@@ -175,7 +175,7 @@ export default function ContactPage() {
                           placeholder="Vance"
                           value={formData.lastName}
                           onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                          className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 shadow-2xs"
+                          className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-xs sm:text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 shadow-2xs font-normal"
                         />
                       </div>
                     </div>
@@ -193,7 +193,7 @@ export default function ContactPage() {
                           placeholder="vance@agri-corp.com"
                           value={formData.workEmail}
                           onChange={(e) => setFormData({...formData, workEmail: e.target.value})}
-                          className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 shadow-2xs"
+                          className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-xs sm:text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 shadow-2xs font-normal"
                         />
                       </div>
                       <div className="space-y-2">
@@ -207,7 +207,7 @@ export default function ContactPage() {
                           placeholder="Vance Growers Ltd."
                           value={formData.companyName}
                           onChange={(e) => setFormData({...formData, companyName: e.target.value})}
-                          className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 shadow-2xs"
+                          className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-xs sm:text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 shadow-2xs font-normal"
                         />
                       </div>
                     </div>
@@ -223,7 +223,7 @@ export default function ContactPage() {
                           required
                           value={formData.serviceRequired}
                           onChange={(e) => setFormData({...formData, serviceRequired: e.target.value})}
-                          className="w-full bg-slate-50/80 text-slate-900 text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 appearance-none cursor-pointer pr-10 shadow-2xs"
+                          className="w-full bg-slate-50/80 text-slate-900 text-xs sm:text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 appearance-none cursor-pointer pr-10 shadow-2xs font-normal"
                         >
                           <option value="" disabled>Select an engineering model</option>
                           <option value="soil-audit">Technical Biological Soil Mapping Matrix</option>
@@ -249,14 +249,14 @@ export default function ContactPage() {
                         placeholder="Detail regional crop profiles, historic nitrogen dependencies, soil hydration benchmarks, and projected shipping cycles..."
                         value={formData.projectDetails}
                         onChange={(e) => setFormData({...formData, projectDetails: e.target.value})}
-                        className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 resize-none leading-relaxed shadow-2xs"
+                        className="w-full bg-slate-50/80 text-slate-900 placeholder-slate-400 text-xs sm:text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-slate-900 focus:bg-white transition-all duration-200 resize-none leading-relaxed shadow-2xs font-normal"
                       />
                     </div>
 
-                    {/* Submit Action Button (Black filled changing to emerald on hover, Linear style) */}
+                    {/* Submit Action Button */}
                     <button
                       type="submit"
-                      className="w-full group flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 hover:bg-emerald-600 text-white rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer mt-6 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                      className="w-full group flex items-center justify-center gap-3 py-4 bg-green-600 hover:bg-green-500 text-white rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer mt-6 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95"
                     >
                       <span>Transmit Intake Specs</span>
                       <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -269,14 +269,14 @@ export default function ContactPage() {
                     key="success-prompt"
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-20 space-y-6"
+                    className="text-center py-16 sm:py-20 space-y-6"
                   >
                     <div className="mx-auto flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 shadow-inner">
                       <Check size={26} strokeWidth={3} />
                     </div>
                     <div className="space-y-3 max-w-md mx-auto">
-                      <h3 className="font-fraunces text-2xl font-normal tracking-tight text-slate-900">Specifications Ingested</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                      <h3 className="font-fraunces text-xl sm:text-2xl font-semibold tracking-tight text-slate-900">Specifications Ingested</h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                         Thank you. Your agricultural baseline benchmarks have been safely logged. A logistics agronomist will examine the environmental terrain framework and reply within 2 corporate hours.
                       </p>
                     </div>
@@ -284,7 +284,7 @@ export default function ContactPage() {
                     <div className="pt-4">
                       <button
                         onClick={handleReset}
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-900 transition-all duration-200 cursor-pointer shadow-2xs"
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-900 transition-all duration-200 cursor-pointer shadow-2xs active:scale-95"
                       >
                         <RefreshCcw size={13} />
                         Submit Another Request

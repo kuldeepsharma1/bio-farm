@@ -10,7 +10,7 @@ import {
 
 export default function Process() {
   return (
-  <section className="bg-[#1A5F2A] text-white font-sans overflow-hidden relative pt-14 sm:pt-16 pb-16 sm:pb-24">
+  <section className="bg-[#1A5F2A] text-white font-sans overflow-hidden relative pt-10 sm:pt-16 pb-16 sm:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Top Header & Image */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center mb-16 sm:mb-20">
@@ -21,7 +21,7 @@ export default function Process() {
               <span>WORK PROCESS</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-bold tracking-tight text-white/95 leading-[1.2]">
+            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-semibold tracking-tight text-white/95 leading-[1.2]">
               Our Simple and
               <br className="hidden sm:block" />
               Effective Organic

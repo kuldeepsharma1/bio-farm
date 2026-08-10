@@ -70,7 +70,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#F5F4F0] font-sans text-[#121A14] selection:bg-[#FDBA21] selection:text-black overflow-hidden">
       {/* 1. HERO                                                          */}
       {/* ================================================================ */}
-      <section className="relative flex min-h-dvh flex-col justify-center px-6 pt-24 pb-12 lg:px-12">
+      <section className="relative flex min-h-dvh flex-col justify-center px-6 pt-12 pb-6 lg:px-12">
         <div className="relative z-20 w-full max-w-7xl mx-auto flex flex-col h-full justify-center">
           <motion.h1
             initial={
@@ -149,7 +149,7 @@ export default function Home() {
               ))}
 
               <div className="pt-6 lg:pt-8 text-left lg:text-right">
-                <div className="flex items-center justify-start lg:justify-end gap-1.5 text-xl font-bold">
+                <div className="flex items-center justify-start lg:justify-end gap-1.5 text-xl font-semibold">
                   4.8/5{" "}
                   <Star className="fill-[#FDBA21] text-[#FDBA21]" size={20} />
                 </div>
@@ -188,7 +188,7 @@ export default function Home() {
 
         <div className="mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16 lg:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1A2B1C] mb-5">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1A2B1C] mb-5">
               Trusted Across the Agricultural Chain
             </h2>
             <p className="text-[#4A5C4C] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
@@ -206,10 +206,10 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-2xl bg-[#20ae44]/10 text-[#20ae44] flex items-center justify-center mb-6 border border-[#20ae44]/15">
                   <Users size={22} />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-[#20ae44] block mb-2.5">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-[#20ae44] block mb-2.5">
                   01 / Growers
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#121A14] mb-3 tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-semibold text-[#121A14] mb-3 tracking-tight">
                   Farmers & Producers
                 </h3>
                 <p className="text-sm sm:text-[15px] text-[#3A4A3E] leading-relaxed max-w-lg">
@@ -226,10 +226,10 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-2xl bg-[#20ae44]/10 text-[#20ae44] flex items-center justify-center mb-6 border border-[#20ae44]/15">
                   <Store size={22} />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-[#20ae44] block mb-2.5">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-[#20ae44] block mb-2.5">
                   02 / Distribution
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#121A14] mb-3 tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#121A14] mb-3 tracking-tight">
                   Dealers & Suppliers
                 </h3>
                 <p className="text-sm text-[#3A4A3E] leading-relaxed">
@@ -245,10 +245,10 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-2xl bg-[#20ae44]/10 text-[#20ae44] flex items-center justify-center mb-6 border border-[#20ae44]/15">
                   <Building2 size={22} />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-[#20ae44] block mb-2.5">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-[#20ae44] block mb-2.5">
                   03 / Science
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#121A14] mb-3 tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#121A14] mb-3 tracking-tight">
                   Institutions & Labs
                 </h3>
                 <p className="text-sm text-[#3A4A3E] leading-relaxed">
@@ -265,10 +265,10 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-2xl bg-[#20ae44]/10 text-[#20ae44] flex items-center justify-center mb-6 border border-[#20ae44]/15">
                   <ShieldCheck size={22} />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-[#20ae44] block mb-2.5">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-[#20ae44] block mb-2.5">
                   04 / Assurance
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#121A14] mb-3 tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-semibold text-[#121A14] mb-3 tracking-tight">
                   Global Certifications
                 </h3>
                 <p className="text-sm sm:text-[15px] text-[#3A4A3E] leading-relaxed max-w-lg">
@@ -285,12 +285,12 @@ export default function Home() {
       {/* 3. OUR PRODUCTS                                                 */}
       {/* ================================================================ */}
       <section className="bg-[#0B6623] text-white font-sans overflow-hidden relative pt-0 pb-16 sm:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-12 sm:pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 pt-12 sm:pt-16">
           {/* Main Content: Left Text + Right Image */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center mb-12 sm:mb-16">
             {/* Left Headline */}
             <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 text-[#A4C639] uppercase text-[11px] font-bold tracking-widest bg-white/10 px-3 py-1 rounded-full">
+              <div className="inline-flex items-center gap-2 text-[#A4C639] uppercase text-[11px] font-semibold tracking-widest bg-white/10 px-3 py-1 rounded-full">
                 <Leaf size={14} className="fill-[#A4C639]" />
                 <span>ORGANIC FERTILIZER STANDARDS</span>
               </div>
@@ -312,7 +312,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
                 <a
                   href="#standards"
-                  className="inline-flex h-10 items-center justify-center rounded-full bg-[#8BA85A] px-6 text-xs sm:text-sm font-bold text-white transition-all hover:bg-[#7a954c] active:scale-95 shadow-md"
+                  className="inline-flex h-10 items-center justify-center rounded-full bg-[#8BA85A] px-6 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-[#7a954c] active:scale-95 shadow-md"
                 >
                   VIEW STANDARDS
                 </a>
@@ -415,9 +415,9 @@ export default function Home() {
       {/* ================================================================ */}
       {/* 4. WHY CHOOSE US                                                */}
       {/* ================================================================ */}
-     <section className="bg-[#F9FAF9] px-6 py-20 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
+     <section className="bg-[#F9FAF9] px-6 py-16 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
   <div className="mx-auto max-w-6xl text-center mb-12 lg:mb-16">
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1A2B1C]">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1A2B1C]">
       Why Choose Us
     </h2>
     <p className="mt-4 text-[#4A5C4C] max-w-2xl mx-auto text-base sm:text-lg">
@@ -460,10 +460,10 @@ export default function Home() {
       {/* ================================================================ */}
       {/* 7. SUITABLE CROPS                                               */}
       {/* ================================================================ */}
-      <section className="bg-white px-6 py-20 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
+      <section className="bg-white px-6 py-12 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
         <div className="mx-auto max-w-6xl text-center">
           <div className="mb-16 lg:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1A2B1C] mb-5">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1A2B1C] mb-5">
               Suitable For All Crops
             </h2>
             <p className="text-[#4A5C4C] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
@@ -506,11 +506,11 @@ export default function Home() {
       <div className="mx-auto max-w-7xl relative z-10">
         {/* Optional top micro-header for professional context */}
         <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 text-[#A4C639] uppercase text-[11px] font-bold tracking-widest bg-white/10 px-3 py-1 rounded-full mb-3">
+          <div className="inline-flex items-center gap-2 text-[#A4C639] uppercase text-[11px] font-semibold tracking-widest bg-white/10 px-3 py-1 rounded-full mb-3">
             <Award size={14} className="fill-[#A4C639]" />
             <span>TRUSTED IMPACT & SCALE</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white/95">
+          <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white/95">
             Empowering Sustainable Agriculture Worldwide
           </h2>
         </div>
@@ -537,10 +537,10 @@ export default function Home() {
       {/* ================================================================ */}
       {/* 10. INDUSTRIES WE SERVE                                         */}
       {/* ================================================================ */}
-      <section className="bg-[#F9FAF9] px-6 py-20 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
+      <section className="bg-[#F9FAF9] px-6 py-16 lg:py-28 lg:px-12 border-t border-[#E5EAE6]">
         <div className="mx-auto max-w-6xl text-center">
           <div className="mb-16 lg:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1A2B1C] mb-5">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#1A2B1C] mb-5">
               Industries We Serve
             </h2>
             <p className="text-[#4A5C4C] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
@@ -599,7 +599,7 @@ export default function Home() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-bold tracking-tight text-white leading-[1.2]">
+            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-semibold tracking-tight text-white leading-[1.2]">
               Ready to Enrich Your Soil with
               <br className="hidden sm:inline" />
               Certified Organic Nutrients?
@@ -661,7 +661,7 @@ function FeatureBlock({
       className="flex flex-col items-center justify-center text-center p-8 sm:p-10 bg-white rounded-4xl border border-[#E8EDE9] shadow-[0_4px_20px_-6px_rgba(26,43,28,0.05)] hover:shadow-[0_10px_32px_-8px_rgba(26,43,28,0.08)] transition-all duration-300 min-h-70"
     >
       <Icon size={36} className="text-[#20ae44] mb-5" />
-      <h3 className="text-xl font-bold text-[#121A14] mb-3 tracking-tight">
+      <h3 className="text-xl font-semibold text-[#121A14] mb-3 tracking-tight">
         {title}
       </h3>
       <p className="text-sm text-[#3A4A3E] leading-relaxed max-w-xs">{desc}</p>

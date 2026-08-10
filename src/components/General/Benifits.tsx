@@ -37,11 +37,11 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="bg-[#F7F9F6] px-6 py-20 lg:py-28 lg:px-12 border-t border-[#E4EAE5]">
+    <section className="bg-[#F7F9F6] px-6 py-16 lg:py-28 lg:px-12 border-t border-[#E4EAE5]">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-14 lg:mb-18">
-          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-bold tracking-tight text-[#1A2B1C] mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-semibold tracking-tight text-[#1A2B1C] mb-4">
             Benefits & Results
           </h2>
           <p className="text-[#5A6B5C] max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
