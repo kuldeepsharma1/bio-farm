@@ -196,14 +196,14 @@ export default function BlogPost({ post }: BlogPostProps) {
           </div>
 
       {/* Main Content */}
-          <article className="lg:col-span-10   ">
-            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 lg:p-12">
+          <article className="lg:col-span-10">
+            <div>
               <div className="prose prose-lg max-w-none prose-green">
                 <p className="text-xl text-gray-700 mb-8 leading-relaxed font-serif">
                   {post.excerpt}
                 </p>
                 <div
-                  className="mt-6 text-gray-800 leading-relaxed prose-p:mb-4 prose-li:mb-2 prose-h1:font-semibold prose-h2:font-semibold prose-h3:font-semibold prose-h4:font-medium prose-h5:font-medium prose-h6:font-medium prose-a:text-green-600 prose-a:hover:underline"
+                  className=" text-gray-800 leading-relaxed prose-p:mb-4 prose-li:mb-2 prose-h1:font-semibold prose-h2:font-semibold prose-h3:font-semibold prose-h4:font-medium prose-h5:font-medium prose-h6:font-medium prose-a:text-green-600 prose-a:hover:underline"
                   dangerouslySetInnerHTML={{
                     __html: post.content
                       .replace(/\n/g, "")

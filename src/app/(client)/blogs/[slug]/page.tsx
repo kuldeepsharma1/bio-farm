@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <div className="max-w-full mx-auto px-5 sm:px-6 lg:px-8">
         
         {/* Subtle Breadcrumb / Back Link */}
-        <div className="mb-6">
+        <div>
           <Link
             href="/blogs"
             className="inline-flex items-center gap-2 text-xs font-semibold text-[#3A4A3E] hover:text-[#20ae44] transition-colors bg-white px-4 py-2 rounded-full border border-[#121A14]/5 shadow-sm"
@@ -48,7 +48,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         </div>
 
         {/* Blog Post Container Wrapped with Consistent Styling */}
-        <div className="bg-white rounded-4xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] overflow-hidden">
+        <div className="border border-[#121A14]/5 shadow-[0_4px_24px_-6px_rgba(18,26,20,0.04)] overflow-hidden">
           <BlogPost
             post={{
               ...post,
