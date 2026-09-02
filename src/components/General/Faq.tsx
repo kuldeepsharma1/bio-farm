@@ -9,7 +9,7 @@ interface FaqItem {
   answer: string;
 }
 
-export default function FaqPage() {
+export default function Faq() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   const faqItems: FaqItem[] = [
