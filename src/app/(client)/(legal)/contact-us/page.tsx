@@ -1,6 +1,6 @@
 import ContactPage from "@/components/general/Contact";
 import { Metadata } from "next";
-import React from "react";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.APP_URL!),

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, ShieldCheck, ArrowRight, Check, ChevronDown, Mail, RefreshCcw } from "lucide-react";
 
-export default function ContactPage() {
+export default function Contact() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
