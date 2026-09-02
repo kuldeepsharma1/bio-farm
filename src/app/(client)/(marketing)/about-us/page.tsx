@@ -1,5 +1,6 @@
 
-import AboutUs from '@/app/about/page';
+
+import AboutPage from '@/components/marketing/AboutPage';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.APP_URL!),
@@ -10,6 +11,6 @@ export const metadata: Metadata = {
 
 export default function page() {
   return (
-    <AboutUs/>
+    <AboutPage/>
   )
 }
