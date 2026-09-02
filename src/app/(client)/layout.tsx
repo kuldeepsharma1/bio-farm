@@ -3,17 +3,16 @@
 import HeaderProvider from '@/components/general-entity/header/HeaderProvider'
 import Footer from '@/components/layout/Footer'
 import React from 'react'
-import { Toaster } from 'sonner'
+
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className='py-16'>
-  <HeaderProvider/>
+        <HeaderProvider />
         {children}
-        <Toaster position="top-right" richColors />
       </div>
-   <Footer/>
+      <Footer />
     </>
   )
 }

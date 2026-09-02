@@ -4,11 +4,9 @@ import { motion, Variants } from "framer-motion";
 import { 
   Leaf, 
   ArrowRight,
-  Sprout,
   Wind,
   Droplets,
   Target,
-  Globe,
   Activity
 } from "lucide-react";
 
@@ -23,7 +21,7 @@ const stagger: Variants = {
   show: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-export default function About() {
+export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#F5F4F0] font-sans text-[#121A14] selection:bg-[#FDBA21] selection:text-black overflow-hidden pt-20">
       
@@ -55,7 +53,7 @@ export default function About() {
             {/* Mission Statement */}
             <motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-xs space-y-6">
               <p className="text-sm font-medium leading-relaxed text-[#3A4A3E]">
-                We believe that premium agriculture shouldn't deplete the earth. By re-engineering the cycle of organic waste, we produce biological catalysts that regenerate soil performance naturally.
+                We believe that premium agriculture shouldn&apos;t deplete the earth. By re-engineering the cycle of organic waste, we produce biological catalysts that regenerate soil performance naturally.
               </p>
               <div className="flex items-center gap-4">
                 <button className="flex h-12 items-center justify-center rounded-full bg-[#121A14] px-6 text-sm font-semibold text-white transition-all hover:bg-[#2A3B2E]">
