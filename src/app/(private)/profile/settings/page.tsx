@@ -18,7 +18,7 @@ import {
   Newspaper,
   User
 } from 'lucide-react';
-import { NewsletterToggleSubscribe } from '@/components/general/Newsletters';
+import { NewsletterToggleSubscribe } from '@/components/general-entity/Newsletters';
 import { getUserSession, handleSignOut } from '@/actions/user';
 
 interface User {

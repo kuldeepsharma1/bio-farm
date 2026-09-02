@@ -1,4 +1,4 @@
-import Contact from "@/components/general/Contact";
+import Contact from "@/components/general-entity/Contact";
 import { Metadata } from "next";
 
 

@@ -5,7 +5,7 @@ import React, { useState, useTransition } from "react";
 import { handleGoogleSignIn, register } from "@/actions/user";
 import { validatePassword, validateEmail } from "@/lib/validation";
 import { toast } from "sonner";
-import AuthLayout from "@/components/general/authLayout";
+import AuthLayout from "@/components/general-entity/authLayout";
 import Link from "next/link";
 import { Loader2, Eye, EyeOff, Check, X } from "lucide-react";
 

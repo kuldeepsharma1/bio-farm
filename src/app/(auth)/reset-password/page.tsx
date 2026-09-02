@@ -3,7 +3,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
-import AuthLayout from '@/components/general/authLayout';
+import AuthLayout from '@/components/general-entity/authLayout';
 import Link from 'next/link';
 import { 
   CheckCheck, 

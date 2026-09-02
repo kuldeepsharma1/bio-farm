@@ -1,5 +1,5 @@
 
-import SupportPage from '@/components/general/Support';
+import SupportPage from '@/components/general-entity/Support';
 import { Metadata } from 'next';
 import React from 'react'
 

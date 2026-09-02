@@ -4,7 +4,7 @@ import Image from "next/image";
 import { handleGoogleSignIn} from "@/actions/user";
 import { getSession } from "@/lib/getSession";
 import { redirect } from "next/navigation";
-import AuthLayout from "@/components/general/authLayout";
+import AuthLayout from "@/components/general-entity/authLayout";
 import LoginForm from "@/components/auth/LoginForm";
 import { Metadata } from "next";
 

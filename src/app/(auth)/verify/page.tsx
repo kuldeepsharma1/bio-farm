@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import VerifyEmailClient from '@/components/general/VerifyEmailClient';
+import VerifyEmailClient from '@/components/general-entity/VerifyEmailClient';
 
 import { Leaf } from 'lucide-react';
 

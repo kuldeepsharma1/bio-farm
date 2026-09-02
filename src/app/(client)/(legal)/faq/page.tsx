@@ -1,4 +1,4 @@
-import Faq from '@/components/general/Faq'
+import Faq from '@/components/general-entity/Faq'
 import { Metadata } from 'next';
 
 export const metadata: Metadata= {

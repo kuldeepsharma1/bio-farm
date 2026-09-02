@@ -1,4 +1,4 @@
-import OurFarms from '@/components/general/OurFarm'
+import OurFarms from '@/components/general-entity/OurFarm'
 import { Metadata } from 'next';
 import React from 'react'
 

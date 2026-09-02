@@ -1,6 +1,6 @@
 import { getSession } from "@/lib/getSession";
 import { redirect } from "next/navigation";
-import AuthLayout from "@/components/general/authLayout";
+import AuthLayout from "@/components/general-entity/authLayout";
 import Link from "next/link";
 import { Metadata } from "next";
 import { Mail, ArrowLeft, HelpCircle } from "lucide-react";

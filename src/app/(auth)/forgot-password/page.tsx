@@ -1,6 +1,6 @@
 "use client";
 
-import AuthLayout from '@/components/general/authLayout';
+import AuthLayout from '@/components/general-entity/authLayout';
 import { CheckCheck, LucideTimerReset, TimerReset, ArrowLeft } from 'lucide-react';
 import React, { useState } from 'react';
 import { toast } from 'sonner';

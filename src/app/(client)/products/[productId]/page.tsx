@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next'
-import SwiperCarousel from '@/components/general/SwiperCarousel';
+import SwiperCarousel from '@/components/general-entity/SwiperCarousel';
 import { AddToWishlistButton } from '@/components/dashboard/products/AddToWishlistButton';
 import { AddToCartButton } from '@/components/dashboard/products/AddToCartButton';
 import { getProductById } from '@/actions/products';

@@ -1,4 +1,4 @@
-import Sustainability from '@/components/general/Sustainability'
+import Sustainability from '@/components/general-entity/Sustainability'
 import { Metadata } from 'next';
 import React from 'react'
 

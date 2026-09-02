@@ -26,8 +26,8 @@ import {
   CheckCircle2,
   Award,
 } from "lucide-react";
-import FaqPage from "@/components/general/Faq";
-import ContactPage from "@/components/general/Contact";
+import FaqPage from "@/components/general-entity/Faq";
+import ContactPage from "@/components/general-entity/Contact";
 import Process from "./process";
 import Benefits from "./Benifits";
 

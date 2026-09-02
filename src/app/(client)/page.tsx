@@ -1,5 +1,5 @@
 
-import Home from "@/components/general/HomePage";
+import Home from "@/components/general-entity/HomePage";
 import { Metadata } from "next";
 
 // Define or import the BlogPost and Category types correctly

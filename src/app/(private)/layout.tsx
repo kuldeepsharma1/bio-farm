@@ -1,4 +1,4 @@
-import AppLayout from '@/components/general/appLayout'
+import AppLayout from '@/components/general-entity/appLayout'
 import { getSession } from '@/lib/getSession';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
