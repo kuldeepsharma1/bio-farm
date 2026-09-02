@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Leaf, Search, X } from "lucide-react";
+import { Leaf } from "lucide-react";
 import SearchBar from "./Search";
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
@@ -12,7 +12,6 @@ import { User } from "@/types";
 export default function Header({ user }: { user: User | null }) {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +23,6 @@ export default function Header({ user }: { user: User | null }) {
       } else if (currentScrollY > lastScrollY) {
         // Scrolling down -> hide header
         setIsVisible(false);
-        setIsSearchOpen(false); // Close mobile search if open
       } else {
         // Scrolling up -> show header
         setIsVisible(true);
@@ -61,34 +59,15 @@ export default function Header({ user }: { user: User | null }) {
             <Nav user={user} />
           </div>
 
-          {/* Search Bar (Desktop) */}
-          <div className="hidden md:block flex-1 max-w-xs lg:max-w-sm mx-2 lg:mx-4">
-            <SearchBar />
-          </div>
-
           {/* Right Side Actions & Mobile Search Toggle */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="md:hidden p-2 rounded-xl text-[#121A14] hover:bg-[#121A14]/5 transition-colors"
-              aria-label="Toggle Search"
-            >
-              {isSearchOpen ? <X className="w-5 h-5" /> : <Search className="w-5 h-5" />}
-            </button>
-
+            <SearchBar />
             <RightSide user={user} />
             <MobileNav user={user} />
           </div>
         </div>
       </nav>
 
-      {/* Collapsible Mobile Search Overlay */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out px-4 ${isSearchOpen ? "max-h-20 pb-3 pt-1 opacity-100" : "max-h-0 pb-0 pt-0 opacity-0"
-          }`}
-      >
-        <SearchBar />
-      </div>
 
 
     </header>
