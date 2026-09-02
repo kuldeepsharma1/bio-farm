@@ -1,6 +1,5 @@
-import FaqPage from '@/components/general/Faq'
+import Faq from '@/components/general/Faq'
 import { Metadata } from 'next';
-import React from 'react'
 
 export const metadata: Metadata= {
   metadataBase: new URL(process.env.APP_URL!),
@@ -12,7 +11,7 @@ export const metadata: Metadata= {
 export default function page() {
   return (
     <div>
-      <FaqPage />
+      <Faq />
     </div>
   )
 }

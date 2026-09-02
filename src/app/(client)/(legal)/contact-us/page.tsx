@@ -1,4 +1,4 @@
-import ContactPage from "@/components/general/Contact";
+import Contact from "@/components/general/Contact";
 import { Metadata } from "next";
 
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function page() {
   return (
     <div>
-      <ContactPage />
+      <Contact />
     </div>
   );
 }
