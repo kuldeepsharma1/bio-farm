@@ -8,10 +8,10 @@ import React from 'react'
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className='py-16'>
-        <HeaderProvider />
-        {children}
-      </div>
+
+      <HeaderProvider />
+      {children}
+
       <Footer />
     </>
   )
