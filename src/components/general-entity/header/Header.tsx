@@ -55,7 +55,7 @@ export default function Header({ user }: { user: User | null }) {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden xl:flex items-center bg-[#121A14]/5 rounded-2xl p-1.5 gap-1">
+          <div className="hidden xl:flex items-center  gap-1">
             <Nav user={user} />
           </div>
 
