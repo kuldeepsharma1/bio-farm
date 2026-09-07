@@ -5,22 +5,19 @@ import { User as UserType } from "@/types";
 import {
   ChevronDown,
   LogOut,
-  Menu,
   Settings,
   ShoppingBag,
   User,
-  X,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 
 export default function RightSide({ user }: { user: UserType | null }) {
   const {
     activeDropdown,
     setActiveDropdown,
-    isMobileMenuOpen,
     setMobileMenuOpen,
   } = useHeaderStore();
   const pathname = usePathname();
@@ -42,7 +39,7 @@ export default function RightSide({ user }: { user: UserType | null }) {
         <div className="relative">
           <button
             onClick={() => handleDropdownToggle("user")}
-            className="flex items-center gap-2 p-2 rounded-lg  "
+            className="hidden lg:flex items-center gap-2 p-2 rounded-lg  "
             aria-haspopup="true"
             aria-expanded={activeDropdown === "user"}
           >
@@ -122,7 +119,7 @@ export default function RightSide({ user }: { user: UserType | null }) {
           )}
         </div>
       ) : (
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <Link
             href="/sign-in"
             className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-green-600 hover:bg-gray-50 rounded-lg transition-all duration-200"
@@ -138,23 +135,7 @@ export default function RightSide({ user }: { user: UserType | null }) {
         </div>
       )}
 
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden p-2 rounded-lg hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-500/20"
-        aria-label="Toggle menu"
-        aria-expanded={isMobileMenuOpen}
-      >
-        {isMobileMenuOpen ? (
-          <X
-            className={`w-5 h-5 text-gray-600 transition-transform duration-200 `}
-          />
-        ) : (
-          <Menu
-            className={`w-5 h-5 text-gray-600 transition-transform duration-200 `}
-          />
-        )}
-      </button>
+    
     </>
   );
 }

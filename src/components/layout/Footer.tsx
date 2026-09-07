@@ -5,6 +5,13 @@ import { FacebookIcon } from "../icons/socialIcon";
 import { FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
+  const base = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Contact Us", href: "/contact-us" },
+    { name: "Faq", href: "/faq" },
+    { name: "Support", href: "/support" },
+  ];
   const services = [
     { name: "Organic Fertilizers", href: "/products/organic-fertilizers" },
     { name: "Bio Fertilizers", href: "/products/bio-fertilizers" },
@@ -12,7 +19,6 @@ export default function Footer() {
     { name: "Soil Conditioners", href: "/products/soil-conditioners" },
     { name: "Plant Growth Promoters", href: "/products/plant-growth-promoters" },
   ];
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -49,7 +55,7 @@ export default function Footer() {
 
           {/* Middle Column: Services */}
           <div className="lg:col-span-3 space-y-6">
-            <h3 className="text-lg font-bold text-white tracking-wide">Services</h3>
+            <h3 className="text-lg font-bold text-white tracking-wide">Products</h3>
             <ul className="space-y-4 text-white/80 text-sm font-medium">
               {services.map((item, idx) => (
                 <li key={idx}>
